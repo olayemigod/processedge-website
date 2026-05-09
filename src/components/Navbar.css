@@ -1,0 +1,345 @@
+/* ============================================================
+   Navbar — 72px height, 9-item navigation
+   Dropdown items have clear visual breaks between each entry
+   ============================================================ */
+
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.navbar--scrolled {
+  border-bottom-color: var(--grey-border);
+  box-shadow: 0 2px 20px rgba(0,86,166,0.08);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 72px;
+}
+
+/* ── Logo ── */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  margin-right: 12px;
+}
+.navbar__logo-img {
+  height: 34px;
+  width: auto;
+  max-height: 34px;
+}
+
+/* ── Desktop Nav ── */
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex: 1;
+}
+
+.navbar__link {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-body);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.navbar__link:hover,
+.navbar__link.active {
+  color: var(--blue);
+  background: var(--blue-light);
+}
+
+.navbar__link--btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-body);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+  white-space: nowrap;
+  line-height: inherit;
+}
+.navbar__link--btn:hover,
+.navbar__link--btn.active {
+  color: var(--blue);
+  background: var(--blue-light);
+}
+
+/* ── Dropdowns ── */
+.navbar__dropdown-wrap { position: relative; }
+
+.navbar__dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 240px;
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px rgba(0,86,166,0.14);
+  /* No top/bottom padding — borders on items provide the spacing */
+  padding: 0;
+  overflow: hidden;
+  animation: dropIn 0.16s ease;
+  z-index: 10;
+}
+.navbar__dropdown--wide { min-width: 290px; }
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Section label above the items */
+.navbar__dropdown-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 10px 16px 8px;
+  background: var(--grey-light);
+  border-bottom: 1px solid var(--grey-border);
+}
+
+/* ── Dropdown item — with bottom border as a divider ── */
+.navbar__dropdown-item {
+  display: flex;
+  flex-direction: column;
+  /* Comfortable vertical padding so each row has breathing room */
+  padding: 11px 16px 10px;
+  text-decoration: none;
+  /* Divider between every item */
+  border-bottom: 1px solid var(--grey-border);
+  transition: background var(--transition);
+  position: relative;
+}
+/* Remove divider from the very last item before the footer */
+.navbar__dropdown-item:last-of-type {
+  border-bottom: none;
+}
+.navbar__dropdown-item:hover {
+  background: var(--blue-light);
+}
+/* Left accent line on hover */
+.navbar__dropdown-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--blue);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.navbar__dropdown-item:hover::before {
+  opacity: 1;
+}
+
+.navbar__dropdown-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.3;
+}
+.navbar__dropdown-desc {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.navbar__dropdown-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+.navbar__dropdown-badge--featured {
+  background: #fef3c7;
+  color: #92400e;
+}
+.navbar__dropdown-badge--platform {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+/* Footer link at the bottom of a dropdown */
+.navbar__dropdown-footer {
+  padding: 9px 16px 9px;
+  background: var(--grey-light);
+  border-top: 1px solid var(--grey-border);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--blue);
+  font-family: 'Montserrat', sans-serif;
+}
+.navbar__dropdown-footer a {
+  color: var(--blue);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.navbar__dropdown-footer a:hover { color: var(--blue-dark); }
+
+/* ── Desktop CTA ── */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.navbar__login {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-body);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: color var(--transition), background var(--transition);
+  white-space: nowrap;
+}
+.navbar__login:hover { color: var(--blue); background: var(--blue-light); }
+
+/* ── Mobile bar ── */
+.navbar__mobile-bar {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.navbar__hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-main);
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+  flex-shrink: 0;
+}
+.navbar__hamburger:hover { background: var(--grey-light); }
+
+/* ── Mobile Menu Panel ── */
+.navbar__mobile {
+  background: var(--white);
+  border-top: 1px solid var(--grey-border);
+  padding: 12px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: calc(100vh - 72px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.navbar__mobile-link {
+  display: block;
+  padding: 10px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+.navbar__mobile-link:hover { background: var(--blue-light); color: var(--blue); }
+
+.navbar__mobile-link--sub {
+  padding: 8px 12px 8px 20px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--text-body);
+  border-bottom: 1px solid var(--grey-border);
+  border-radius: 0;
+}
+.navbar__mobile-link--sub:last-of-type { border-bottom: none; }
+
+.navbar__mobile-link--all {
+  padding-left: 20px;
+  font-size: 0.79rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-top: 4px;
+}
+
+.navbar__mobile-section { padding-top: 6px; }
+
+.navbar__mobile-section-label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 10px 12px 6px;
+  background: var(--grey-light);
+  border-radius: var(--radius-sm);
+  margin-bottom: 2px;
+}
+
+.navbar__mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--grey-border);
+}
+
+/* ── Responsive breakpoints ── */
+@media (max-width: 1200px) {
+  .navbar__nav,
+  .navbar__actions { display: none; }
+  .navbar__mobile-bar { display: flex; }
+}
+
+@media (max-width: 380px) {
+  .navbar__mobile-cta { display: none; }
+}

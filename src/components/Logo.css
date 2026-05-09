@@ -1,0 +1,51 @@
+/* ============================================================
+   ProcessEdge Logo component styles
+
+   BRAND RULE: The official ProcessEdge logo must NEVER be
+   stretched, distorted, skewed, cropped, recoloured, or replaced.
+
+   Aspect ratio is preserved at all times:
+   - width: auto  →  browser computes correct width from height
+   - object-fit: contain  →  secondary safeguard
+   - The parent sets height via its own className or style rule.
+     Logo.css never hard-codes a height or width.
+   ============================================================ */
+
+.logo {
+  display: block;
+
+  /* Preserve original aspect ratio — non-negotiable */
+  width: auto;
+  height: auto;           /* overridden by parent className */
+  max-width: 100%;
+
+  /* Secondary safeguard against any container forcing a stretch */
+  object-fit: contain;
+  object-position: left center;
+
+  /* Prevent drag / selection artefacts */
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+
+  /* Remove browser link-border when inside an <a> */
+  border: none;
+  outline: none;
+
+  /* Crisp rendering on HiDPI displays */
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.logo--full  { display: block; }
+.logo--mark  { display: block; }
+
+/* Text fallback — shown ONLY if the image fails to load.
+   Not a brand mark. Not a placeholder. Emergency degradation only. */
+.logo-fallback {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  color: inherit;
+  white-space: nowrap;
+}

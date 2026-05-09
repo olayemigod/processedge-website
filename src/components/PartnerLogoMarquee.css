@@ -1,0 +1,189 @@
+/* ============================================================
+   PartnerLogoMarquee
+   Premium SaaS-style horizontal logo scroll
+   ============================================================ */
+
+.plm-section {
+  background: #f8fafc;
+  border-top: 1px solid var(--grey-border);
+  border-bottom: 1px solid var(--grey-border);
+  padding: 64px 0 56px;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.plm-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.plm-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.plm-copy {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.72;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Track container — edge fade mask ── */
+.plm-track-outer {
+  overflow: hidden;
+  /* Soft fade at both edges for the premium "infinite" effect */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* ── Scrolling track ── */
+.plm-track {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  width: max-content;
+  /* Animation: scrolls one-third of the track width (1 copy of the list).
+     Duration tuned so ~5 logos take about 30s. */
+  animation: plmScroll 32s linear infinite;
+  padding: 8px 0;
+}
+
+/* Pause on hover — gives user time to read the logos */
+.plm-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes plmScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+/* Respect user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .plm-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+  }
+  .plm-track-outer {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
+
+/* ── Individual partner card ── */
+.plm-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: 12px;
+  padding: 24px 32px 18px;
+  min-width: 180px;
+  max-width: 200px;
+  /* Subtle lift on hover even though the track animates */
+  transition: box-shadow 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+  flex-shrink: 0;
+}
+
+.plm-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 86, 166, 0.10);
+  border-color: rgba(0, 86, 166, 0.25);
+  transform: translateY(-2px);
+}
+
+/* ── Logo image inside the card ── */
+.plm-card__img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;        /* fixed-height slot — logos are centred within it */
+  width: 100%;
+}
+
+.plm-card__img {
+  display: block;
+  max-height: 48px;     /* never taller than the slot */
+  max-width: 140px;     /* never wider than the card content area */
+  width: auto;          /* width always follows naturally from height */
+  height: auto;         /* height follows naturally from width constraint */
+  object-fit: contain;  /* secondary safeguard — no cropping or stretching */
+  object-position: center center;
+  /* Prevent drag artefacts */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ── Partner name ── */
+.plm-card__name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ── Type badge ── */
+.plm-card__type {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 100px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.plm-card__type--partner {
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+
+.plm-card__type--tech {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+.plm-card__type--impl {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .plm-section { padding: 48px 0 44px; }
+
+  .plm-card {
+    min-width: 150px;
+    max-width: 160px;
+    padding: 18px 20px 14px;
+  }
+
+  .plm-card__img-wrap { height: 40px; }
+  .plm-card__img { max-height: 40px; max-width: 110px; }
+}

@@ -1,0 +1,113 @@
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--blue);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.product-card--green::before { background: var(--green); }
+.product-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: transparent;
+}
+.product-card:hover::before { opacity: 1; }
+
+.product-card__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 3px 10px;
+  background: var(--green-light);
+  color: var(--green-dark);
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.product-card__icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 4px;
+}
+
+.product-card__name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.product-card__tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: -6px;
+}
+.product-card--green .product-card__tagline { color: var(--green); }
+
+.product-card__desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.product-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.product-card__features li {
+  font-size: 0.82rem;
+  color: var(--text-body);
+  padding-left: 18px;
+  position: relative;
+}
+.product-card__features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.product-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+  margin-top: 8px;
+  transition: gap var(--transition), color var(--transition);
+}
+.product-card--green .product-card__link { color: var(--green); }
+.product-card__link:hover { gap: 10px; }

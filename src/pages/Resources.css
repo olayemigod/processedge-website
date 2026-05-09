@@ -1,0 +1,119 @@
+.resource-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all var(--transition);
+}
+.resource-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  border-color: var(--blue);
+}
+.resource-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.resource-card__category {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.resource-card__type {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.resource-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.4;
+  flex: 1;
+}
+.resource-card__excerpt {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+.resource-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid var(--grey-border);
+  margin-top: auto;
+}
+.resource-card__time {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+.resource-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+  transition: gap var(--transition);
+}
+.resource-card__link:hover { gap: 8px; }
+
+/* ── Category strip ── */
+.resources-cats {
+  border-bottom: 1px solid var(--grey-border);
+  background: var(--white);
+  position: sticky;
+  top: 72px;
+  z-index: 100;
+}
+.resources-cats__inner {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 12px 0;
+  scrollbar-width: none;
+}
+.resources-cats__inner::-webkit-scrollbar { display: none; }
+.resources-cat {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--grey-light);
+  border: 1px solid var(--grey-border);
+  white-space: nowrap;
+  cursor: default;
+  transition: background var(--transition), color var(--transition);
+}
+.resources-cat:first-child {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+/* ── Resource card as full link ── */
+.resource-card--link {
+  text-decoration: none;
+  cursor: pointer;
+}
+.resource-card--link:hover .resource-card__title {
+  color: var(--blue);
+}
