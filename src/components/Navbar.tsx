@@ -8,12 +8,14 @@ import './Navbar.css'
 // ── Nav data ──────────────────────────────────────────────────────────────────
 
 const NAV_PRODUCTS = [
-  { name: 'EduEdge',          desc: 'School & CBT management',          path: '/products/eduedge',    badge: 'Featured' },
-  { name: 'VetEdge',          desc: 'Veterinary practice management',    path: '/products/vetedge'    },
-  { name: 'HotelEdge',        desc: 'Hospitality & hotel management',    path: '/products/hoteledge'  },
-  { name: 'CoopEdge',         desc: 'Cooperative management',            path: '/products/coopedge'   },
-  { name: 'ChurchEdge',       desc: 'Church & ministry management',      path: '/products/churchedge' },
-  { name: 'ProcessEdge Core', desc: 'The ERPNext platform layer',        path: '/products/core',       badge: 'Platform' },
+  { name: 'EduEdge',          desc: 'School & CBT management',              path: '/products/eduedge',    badge: 'Featured' },
+  { name: 'VetEdge',          desc: 'Veterinary practice management',        path: '/products/vetedge'    },
+  { name: 'ClinicEdge',       desc: 'Healthcare operations management',       path: '/products/clinicedge' },
+  { name: 'HotelEdge',        desc: 'Hospitality & hotel management',         path: '/products/hoteledge'  },
+  { name: 'CoopEdge',         desc: 'Cooperative management',                 path: '/products/coopedge'   },
+  { name: 'ChurchEdge',       desc: 'Church & ministry management',           path: '/products/churchedge' },
+  { name: 'AgricEdge',        desc: 'Agriculture & agribusiness management',  path: '/products/agricedge'  },
+  { name: 'ProcessEdge Core', desc: 'The ERPNext platform layer',             path: '/products/core',       badge: 'Platform' },
 ]
 
 const NAV_SERVICES = [

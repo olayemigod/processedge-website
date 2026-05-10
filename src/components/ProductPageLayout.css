@@ -1,0 +1,390 @@
+/* ============================================================
+   ProductPageLayout — shared product page styles
+   ============================================================ */
+
+/* ── Hero ── */
+.pp-hero {
+  background: linear-gradient(135deg, #060d1a 0%, #0a1628 55%, #071e10 100%);
+  padding: 72px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+.pp-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 60%, rgba(0,86,166,0.15) 0%, transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(28,156,93,0.13) 0%, transparent 45%);
+}
+.pp-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.pp-hero__badge-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.pp-hero__icon {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.pp-hero__badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid;
+  background: rgba(255,255,255,0.06);
+}
+
+.pp-hero__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 10px;
+  letter-spacing: -0.025em;
+}
+.pp-hero__tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+.pp-hero__desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+.pp-hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Ghost button for dark hero */
+.btn-hero-ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.82);
+  border: 2px solid rgba(255,255,255,0.28);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+.btn-hero-ghost:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.55);
+  transform: translateY(-1px);
+}
+
+/* Hero right card */
+.pp-hero__card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.pp-hero__card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.03);
+}
+.pp-hero__card-icon {
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.pp-hero__card-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--white);
+}
+.pp-hero__card-sub {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 2px;
+}
+.pp-hero__modules-preview {
+  padding: 16px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.pp-hero__mod {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.71rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.02em;
+}
+.pp-hero__mod--blue {
+  background: rgba(0,86,166,0.28);
+  border: 1px solid rgba(0,86,166,0.45);
+  color: #90c8ff;
+}
+.pp-hero__mod--green {
+  background: rgba(28,156,93,0.22);
+  border: 1px solid rgba(28,156,93,0.4);
+  color: #6ee7b7;
+}
+.pp-hero__mod-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── Problem section ── */
+.pp-problem {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 48px;
+  align-items: start;
+}
+.pp-para {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.78;
+  margin-bottom: 14px;
+}
+.pp-checklist {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.pp-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.9rem;
+  color: var(--text-body);
+}
+.pp-value-card {
+  background: linear-gradient(135deg, var(--blue) 0%, #003d7a 100%);
+  border-radius: 14px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: sticky;
+  top: 88px;
+}
+.pp-value-card__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+.pp-value-card__body {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.72;
+}
+
+/* ── Feature cards ── */
+.pp-feature-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 7px;
+}
+.pp-feature-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* ── Modules section ── */
+.pp-modules-section {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  align-items: start;
+}
+.pp-modules-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+.pp-module-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid;
+}
+.pp-module-chip--blue {
+  background: var(--blue-light);
+  border-color: rgba(0,86,166,0.2);
+  color: var(--blue);
+}
+.pp-module-chip--green {
+  background: var(--green-light);
+  border-color: rgba(28,156,93,0.2);
+  color: var(--green-dark);
+}
+.pp-module-chip__dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── Who it's for card ── */
+.pp-for-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 88px;
+}
+.pp-for-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--grey-border);
+}
+.pp-for-card__header svg { color: var(--blue); }
+.pp-for-card__intro {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.pp-for-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pp-for-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-body);
+}
+
+/* ── Related resources ── */
+.pp-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.pp-resource-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.pp-resource-card:hover {
+  border-color: var(--blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.pp-resource-card--all {
+  background: var(--grey-light);
+  justify-content: center;
+  align-items: flex-start;
+}
+.pp-resource-card__cat {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.pp-resource-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.4;
+  flex: 1;
+}
+.pp-resource-card__arrow {
+  color: var(--blue);
+  margin-top: 4px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .pp-hero__inner       { grid-template-columns: 1fr; }
+  .pp-hero__right       { display: none; }
+  .pp-problem           { grid-template-columns: 1fr; }
+  .pp-value-card        { position: static; }
+  .pp-modules-section   { grid-template-columns: 1fr; }
+  .pp-for-card          { position: static; }
+  .pp-resources-grid    { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 680px) {
+  .pp-hero { padding: 56px 0 48px; }
+  .pp-hero__actions { flex-direction: column; }
+  .pp-resources-grid { grid-template-columns: 1fr; }
+}

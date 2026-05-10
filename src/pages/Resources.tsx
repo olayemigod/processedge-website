@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, BookOpen, Settings, Calculator, ShoppingCart, GraduationCap, PawPrint, Hotel, Users, Church, HeadphonesIcon } from 'lucide-react'
+import { ArrowRight, BookOpen, Settings, Calculator, ShoppingCart, GraduationCap, PawPrint, Hotel, Users, Church, HeadphonesIcon, Activity, Sprout } from 'lucide-react'
 import CTASection from '../components/CTASection'
 import './Resources.css'
 
@@ -114,10 +114,30 @@ const articles = [
     readTime: '6 min read',
     type:     'Article',
   },
+  {
+    slug:     '/resources/clinic-management-system',
+    category: 'Healthcare',
+    catColor: 'var(--blue)',
+    icon:     Activity,
+    title:    'Clinic Management System: Patient Records, Appointments, Billing, and Operations',
+    excerpt:  'What a clinic management system covers — from patient records and appointments through billing, pharmacy, diagnostics, and management reporting.',
+    readTime: '8 min read',
+    type:     'Guide',
+  },
+  {
+    slug:     '/resources/agriculture-management-system',
+    category: 'Agriculture',
+    catColor: 'var(--green)',
+    icon:     Sprout,
+    title:    'Agriculture Management System: Farm Records, Inputs, Procurement, and Agribusiness Visibility',
+    excerpt:  'How agribusinesses gain operational control through structured farm records, input tracking, farmer management, aggregation workflows, and reporting.',
+    readTime: '8 min read',
+    type:     'Guide',
+  },
 ]
 
 // Group articles by category for the filter strip display
-const categories = ['All', 'ERP', 'Operations', 'Accounting', 'Education', 'Veterinary', 'Hospitality', 'Cooperative', 'Church & Ministry', 'Retail', 'Training']
+const categories = ['All', 'ERP', 'Operations', 'Accounting', 'Education', 'Veterinary', 'Healthcare', 'Hospitality', 'Cooperative', 'Church & Ministry', 'Retail', 'Training', 'Agriculture']
 
 export default function Resources() {
   return (

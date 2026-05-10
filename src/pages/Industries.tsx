@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom'
 import CTASection from '../components/CTASection'
-import { GraduationCap, PawPrint, Hotel, Users, Church } from 'lucide-react'
+import { GraduationCap, PawPrint, Hotel, Users, Church, Activity, Sprout } from 'lucide-react'
 
 const industries = [
   { icon: GraduationCap, name: 'Education',         product: 'EduEdge',    path: '/products/eduedge',    desc: 'Schools, colleges, exam prep centres, and educational institutions.',           color: 'blue'  },
   { icon: PawPrint,      name: 'Veterinary',         product: 'VetEdge',    path: '/products/vetedge',    desc: 'Veterinary clinics, pet shops, animal care centres, and mobile vet services.', color: 'green' },
   { icon: Hotel,         name: 'Hospitality',        product: 'HotelEdge',  path: '/products/hoteledge',  desc: 'Hotels, guesthouses, short-let operators, resorts, and event centres.',          color: 'blue'  },
   { icon: Users,         name: 'Cooperative Finance',product: 'CoopEdge',   path: '/products/coopedge',   desc: 'Savings & credit cooperatives, multipurpose societies, and staff cooperatives.',  color: 'green' },
-  { icon: Church,        name: 'Faith-based',        product: 'ChurchEdge', path: '/products/churchedge', desc: 'Churches, ministries, fellowships, and faith-based organizations.',              color: 'blue'  },
+  { icon: Church,    name: 'Faith-based',        product: 'ChurchEdge',  path: '/products/churchedge', desc: 'Churches, ministries, fellowships, and faith-based organizations.',    color: 'blue'  },
+  { icon: Activity,  name: 'Healthcare',         product: 'ClinicEdge',  path: '/products/clinicedge', desc: 'Clinics, medical centres, diagnostic centres, and specialist practices.', color: 'blue'  },
+  { icon: Sprout,    name: 'Agriculture',        product: 'AgricEdge',   path: '/products/agricedge',  desc: 'Farms, agribusinesses, farmer cooperatives, aggregators, and processors.', color: 'green' },
 ]
 
 export default function Industries() {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import {
-  GraduationCap, PawPrint, Hotel, Users, Church, Cpu,
+  GraduationCap, PawPrint, Hotel, Users, Church, Cpu, Activity, Sprout,
   Settings, Calculator, ShoppingCart, BookOpen,
   AlertCircle, Database, BarChart2, RefreshCw, FileWarning, Timer,
   CheckCircle2, Zap, Layers, TrendingUp, ShieldCheck, HeadphonesIcon,
@@ -42,6 +42,15 @@ const industryApps = [
     badge: null,
   },
   {
+    name: 'ClinicEdge',
+    tagline: 'Healthcare Operations',
+    desc: 'Patient records, appointments, consultation workflows, billing, pharmacy, diagnostics, and clinic reporting.',
+    path: '/products/clinicedge',
+    icon: Activity,
+    color: 'blue',
+    badge: null,
+  },
+  {
     name: 'HotelEdge',
     tagline: 'Hospitality Management',
     desc: 'Reservations, rooms, guest services, billing, inventory, and operations reporting.',
@@ -69,6 +78,15 @@ const industryApps = [
     badge: null,
   },
   {
+    name: 'AgricEdge',
+    tagline: 'Agriculture & Agribusiness',
+    desc: 'Farm records, input management, farmer profiles, procurement, aggregation, payments, and agribusiness reporting.',
+    path: '/products/agricedge',
+    icon: Sprout,
+    color: 'green',
+    badge: null,
+  },
+  {
     name: 'ProcessEdge Core',
     tagline: 'ERPNext Platform',
     desc: 'The Frappe/ERPNext platform layer powering all ProcessEdge products.',
@@ -78,7 +96,6 @@ const industryApps = [
     badge: 'Platform',
   },
 ]
-
 // ── Professional Services ─────────────────────────────────────────────────────
 const services = [
   {
@@ -123,7 +140,7 @@ const whyItems = [
 
 const stats = [
   { value: '50+', label: 'Clients Served',    color: 'blue'  },
-  { value: '6+',  label: 'Products & Apps',   color: 'green' },
+  { value: '8+',  label: 'Products & Apps',   color: 'green' },
   { value: '4',   label: 'Core Services',     color: 'blue'  },
   { value: '5+',  label: 'Industries Served', color: 'green' },
 ]
@@ -191,7 +208,7 @@ export default function Home() {
             <div className="hero__trust">
               <div className="hero__trust-item"><CheckCircle2 size={14} /> Nigeria-ready solutions</div>
               <div className="hero__trust-item"><CheckCircle2 size={14} /> ERPNext / Frappe based</div>
-              <div className="hero__trust-item"><CheckCircle2 size={14} /> 6+ industry products</div>
+              <div className="hero__trust-item"><CheckCircle2 size={14} /> 8+ industry products</div>
             </div>
           </div>
 
@@ -229,7 +246,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="hero__dash-modules">
-                {['EduEdge','VetEdge','HotelEdge','CoopEdge','ChurchEdge','Core'].map(m => (
+                {['EduEdge','VetEdge','ClinicEdge','AgricEdge','CoopEdge','ChurchEdge','Core'].map(m => (
                   <div key={m} className="hero__module-chip">{m}</div>
                 ))}
               </div>
@@ -442,7 +459,7 @@ export default function Home() {
           <div className="ps-group">
             <div className="ps-group__header">
               <div className="ps-group__badge ps-group__badge--app">Industry Apps</div>
-              <h3 className="ps-group__title">6+ Purpose-Built Industry Applications</h3>
+              <h3 className="ps-group__title">8+ Purpose-Built Industry Applications</h3>
               <p className="ps-group__desc">
                 Each app is designed around the real operational workflow of its sector — not a generic ERP relabelled to fit.
               </p>

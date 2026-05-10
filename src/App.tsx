@@ -23,6 +23,8 @@ import HotelEdge       from './pages/products/HotelEdge'
 import CoopEdge        from './pages/products/CoopEdge'
 import ChurchEdge      from './pages/products/ChurchEdge'
 import ProcessEdgeCore from './pages/products/ProcessEdgeCore'
+import ClinicEdge        from './pages/products/ClinicEdge'
+import AgricEdge         from './pages/products/AgricEdge'
 
 // Service pages
 import ERPImplementation     from './pages/services/ERPImplementation'
@@ -42,6 +44,8 @@ import CooperativeManagementSystem   from './pages/resources/CooperativeManageme
 import ChurchManagementSystem        from './pages/resources/ChurchManagementSystem'
 import RetailSalesAutomationArticle  from './pages/resources/RetailSalesAutomation'
 import SoftwareTrainingAndAdoption   from './pages/resources/SoftwareTrainingAndAdoption'
+import ClinicManagementSystem       from './pages/resources/ClinicManagementSystem'
+import AgricultureManagementSystem  from './pages/resources/AgricultureManagementSystem'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -99,7 +103,10 @@ export default function App() {
           <Route path="/products/hoteledge"  element={<HotelEdge />}       />
           <Route path="/products/coopedge"   element={<CoopEdge />}        />
           <Route path="/products/churchedge" element={<ChurchEdge />}      />
-          <Route path="/products/core"       element={<ProcessEdgeCore />} />
+          <Route path="/products/core"          element={<ProcessEdgeCore />} />
+          <Route path="/products/processedge-core" element={<ProcessEdgeCore />} />
+          <Route path="/products/clinicedge"       element={<ClinicEdge />}        />
+          <Route path="/products/agricedge"        element={<AgricEdge />}         />
 
           {/* Services */}
           <Route path="/services/erp-implementation"      element={<ERPImplementation />}     />
@@ -119,6 +126,8 @@ export default function App() {
           <Route path="/resources/church-management-system"       element={<ChurchManagementSystem />}      />
           <Route path="/resources/retail-sales-automation"        element={<RetailSalesAutomationArticle />}/>
           <Route path="/resources/software-training-and-adoption" element={<SoftwareTrainingAndAdoption />} />
+          <Route path="/resources/clinic-management-system"         element={<ClinicManagementSystem />}      />
+          <Route path="/resources/agriculture-management-system"    element={<AgricultureManagementSystem />} />
 
           {/* 404 */}
           <Route path="*" element={<NotFound />} />

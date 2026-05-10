@@ -1,4 +1,4 @@
-import { GraduationCap, PawPrint, Hotel, Users, Church, Cpu } from 'lucide-react'
+import { GraduationCap, PawPrint, Hotel, Users, Church, Cpu, Activity, Sprout } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import CTASection from '../components/CTASection'
 import { ArrowRight } from 'lucide-react'
@@ -6,11 +6,12 @@ import { ArrowRight } from 'lucide-react'
 const apps = [
   { name: 'EduEdge',    tagline: 'School & CBT Management',       desc: 'CBT, question banks, result sync, student portals, academic records, and school analytics.', path: '/products/eduedge',    icon: GraduationCap, color: 'blue',  badge: 'Featured' },
   { name: 'VetEdge',    tagline: 'Veterinary Practice',           desc: 'Consultations, vaccinations, billing, stock, boarding, grooming, and client reminders.',    path: '/products/vetedge',    icon: PawPrint,     color: 'green', badge: null },
+  { name: 'ClinicEdge',  tagline: 'Healthcare Operations',         desc: 'Patient records, appointments, consultation workflows, billing, pharmacy, diagnostics, and clinic reporting.', path: '/products/clinicedge', icon: Activity, color: 'blue',  badge: null },
   { name: 'HotelEdge',  tagline: 'Hospitality Management',        desc: 'Reservations, room management, guest services, billing, and operations reporting.',         path: '/products/hoteledge',  icon: Hotel,        color: 'blue',  badge: null },
   { name: 'CoopEdge',   tagline: 'Cooperative Management',        desc: 'Member records, savings, loans, contributions, approvals, and financial statements.',       path: '/products/coopedge',   icon: Users,        color: 'green', badge: null },
-  { name: 'ChurchEdge', tagline: 'Church & Ministry',             desc: 'Members, first-timers, departments, giving, programmes, cell groups, and growth analytics.', path: '/products/churchedge', icon: Church,       color: 'blue',  badge: null },
+  { name: 'ChurchEdge',  tagline: 'Church & Ministry',             desc: 'Members, first-timers, departments, giving, programmes, cell groups, and growth analytics.', path: '/products/churchedge', icon: Church,    color: 'blue',  badge: null },
+  { name: 'AgricEdge',   tagline: 'Agriculture & Agribusiness',    desc: 'Farm records, input management, farmer profiles, procurement, aggregation, payments, and agribusiness reporting.', path: '/products/agricedge', icon: Sprout,  color: 'green', badge: null },
 ]
-
 const badgeStyle = (badge: string | null) => {
   if (!badge) return {}
   return {
@@ -34,7 +35,7 @@ export default function Products() {
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-label page-hero-label">Product Suite</div>
           <h1>ProcessEdge Products</h1>
-          <p>Six purpose-built products covering five industries and the core ERPNext/Frappe platform layer — each one configurable, scalable, and ready to deploy.</p>
+          <p>Eight purpose-built products covering five industries and the core ERPNext/Frappe platform layer — each one configurable, scalable, and ready to deploy.</p>
         </div>
       </section>
 
