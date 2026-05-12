@@ -1,98 +1,88 @@
-import { Link } from 'react-router-dom'
-import { Calculator, CheckCircle2, BookOpen, TrendingUp, FileText, CreditCard, BarChart2, Shield, ArrowRight } from 'lucide-react'
-import CTASection from '../../components/CTASection'
+import {
+  Calculator, BarChart2, CreditCard, FileText,
+  Shield, TrendingUp, Layers, DollarSign, BookOpen
+} from 'lucide-react'
+import ServicePageLayout from '../../components/ServicePageLayout'
+import type { ServicePageData } from '../../components/ServicePageLayout'
 
-const scope = [
-  { icon: BookOpen, title: 'Bookkeeping & Transaction Recording', desc: 'Accurate, consistent recording of all financial transactions — sales, purchases, receipts, and payments.' },
-  { icon: TrendingUp, title: 'Chart of Accounts Setup', desc: 'A well-structured chart of accounts tailored to your business model, industry, and reporting requirements.' },
-  { icon: CreditCard, title: 'Receivables & Payables Management', desc: 'Track what customers owe you and what you owe suppliers. Ageing reports and reconciliation included.' },
-  { icon: FileText, title: 'Financial Reporting', desc: 'Monthly P&L statements, balance sheets, cash flow statements, and management accounts you can rely on.' },
-  { icon: Shield, title: 'Tax-Ready Records', desc: 'Organized records that make VAT, WHT, and income tax filing straightforward and audit-proof.' },
-  { icon: BarChart2, title: 'ERP Accounting Setup', desc: 'Configure and optimize ERPNext accounting modules — periods, cost centres, multi-currency, and bank reconciliation.' },
-]
+const data: ServicePageData = {
+  name: 'Accounting Solutions',
+  badge: 'Professional Service',
+  tagline: 'Structured Financial Records, Reporting, and Operational Visibility',
+  heroDesc: 'Accounting Solutions helps businesses structure financial records, improve reporting, control cash and bank movement, and connect accounting with daily sales, purchasing, and inventory operations.',
+  icon: Calculator,
+  iconColor: '#7ec5ff',
+  iconBg: 'rgba(0,86,166,0.2)',
+  primaryCTA: 'Book a Consultation',
+  secondaryCTA: 'Talk to ProcessEdge',
+
+  problemHeading: 'Most Businesses Do Not Have Reliable Financial Information When They Need It',
+  problemBody: [
+    'A business that manages its finances in spreadsheets or a standalone accounting package that is not connected to its sales, purchasing, and inventory systems is making decisions with incomplete and often outdated information.',
+    'The profit and loss statement is only available two weeks after month end — after the accountant has manually gathered and reconciled data from multiple sources. Cash flow is managed by checking the bank balance rather than monitoring receivables and payables. VAT filing is an exercise in reconstruction rather than a report generated from clean records.',
+    'These are not just inconveniences. They are structural risks that grow with the business. As transaction volumes increase and the number of accounts, staff, and locations grows, the gap between what is happening and what the financial records show widens.',
+  ],
+  problemPoints: [
+    'No reliable month-end P&L without significant manual effort',
+    'Cash flow managed reactively — no visibility into receivables aging',
+    'VAT and WHT records reconstructed at filing time rather than maintained continuously',
+    'Accounting not connected to sales and purchasing — reconciliation is manual',
+    'Opening balances incorrect or not properly structured in the accounting system',
+    'Staff entering transactions inconsistently — chart of accounts not fit for purpose',
+  ],
+  valueBody: 'Good accounting is not just about compliance — it is about visibility. When financial records are accurate, current, and connected to operations, management can see exactly where the business stands and make decisions with confidence.',
+
+  whatWeDoHeading: 'What Our Accounting Solutions Cover',
+  whatWeDoSub: 'We structure your accounting from the foundation up — so every transaction is recorded correctly and every report reflects the actual state of the business.',
+  whatWeDo: [
+    { icon: Layers,      title: 'Chart of Accounts Setup',           desc: 'We design or restructure the chart of accounts for your business type — with the right account groupings for your industry, reporting needs, and tax obligations.', color: 'blue' },
+    { icon: DollarSign,  title: 'Sales & Purchase Accounting',       desc: 'Sales invoices, purchase bills, credit notes, and returns — all coded correctly and connected to customer and supplier accounts.', color: 'green' },
+    { icon: FileText,    title: 'Expense Tracking',                  desc: 'Expense categories, department-level cost centres, staff expense claims, and petty cash records structured for accurate management reporting.', color: 'blue' },
+    { icon: CreditCard,  title: 'Cash & Bank Control',               desc: 'Bank accounts configured, bank reconciliation workflow established, and cash management controls set up for each business location.', color: 'green' },
+    { icon: TrendingUp,  title: 'Receivables & Payables',            desc: 'Customer payment terms, supplier credit terms, aging reports, and dunning workflows — so outstanding balances are visible and managed proactively.', color: 'blue' },
+    { icon: Shield,      title: 'Payment Tracking',                  desc: 'Every customer receipt and supplier payment recorded against the correct invoice, with bank reconciliation to confirm cleared funds.', color: 'green' },
+    { icon: Layers,      title: 'Inventory/Accounting Connection',   desc: 'Stock movements connected to accounting entries — so the balance sheet reflects actual inventory value and cost of goods flows correctly into the P&L.', color: 'blue' },
+    { icon: BarChart2,   title: 'Financial Reports',                 desc: 'Monthly P&L, balance sheet, cash flow statement, AR/AP aging, bank reconciliation statement, and management accounts configured and ready.', color: 'green' },
+    { icon: BookOpen,    title: 'Accounting Workflow Support',       desc: 'Month-end close process defined, journal entry workflows established, and accounting staff trained on consistent transaction recording.', color: 'blue' },
+  ],
+
+  deliveryHeading: 'How We Deliver Accounting Solutions',
+  deliverySteps: [
+    { number: '01', title: 'Review Current Accounting Process',  desc: 'We assess the current state — chart of accounts, existing records, reconciliation status, and how accounting connects (or does not connect) to operations.' },
+    { number: '02', title: 'Clean & Structure Accounts',         desc: 'We restructure the chart of accounts, correct coding errors, resolve duplicate accounts, and establish a clean foundation for accurate reporting.' },
+    { number: '03', title: 'Configure Sales, Purchases & Expenses', desc: 'We connect sales and purchasing workflows to accounting — so every invoice, bill, and payment posts to the correct account automatically.' },
+    { number: '04', title: 'Connect Accounting with Operations', desc: 'We link inventory, HR, and other operational modules to accounting so that stock movements, payroll, and asset acquisitions all flow into the accounts without manual journals.' },
+    { number: '05', title: 'Set Up Reports & Dashboards',        desc: 'We configure the standard management report suite and any custom reports needed — tested against actual data to confirm accuracy.' },
+    { number: '06', title: 'Train Users & Finance Team',         desc: 'We train the accounting team on correct transaction recording, the month-end close process, and how to use reports to monitor the business.' },
+  ],
+
+  forHeading: 'Who This Service Is For',
+  forIntro: 'Businesses that need accurate, current financial information to manage and grow.',
+  forList: [
+    'SMEs replacing spreadsheet-based bookkeeping',
+    'Growing businesses whose accounting has not kept pace with operations',
+    'Companies preparing for audit, investment, or external financing',
+    'Businesses migrating from QuickBooks or Sage to ERPNext',
+    'Organisations that need management accounts more than once a year',
+    'Any business where accounting is not yet connected to sales and inventory',
+  ],
+
+  relatedResources: [
+    { title: 'Accounting Control for SMEs: Moving Beyond Manual Records',       path: '/resources/accounting-control-for-smes',       category: 'Accounting' },
+    { title: 'ERP Implementation Checklist for Growing Businesses',             path: '/resources/erp-implementation-checklist',       category: 'ERP'        },
+    { title: 'Business Process Optimization: How to Gain Control Before Scaling', path: '/resources/business-process-optimization',   category: 'Operations' },
+  ],
+  relatedLinks: [
+    { label: 'ERP Implementation Service', to: '/services/erp-implementation',  variant: 'secondary' },
+    { label: 'Training & Support',         to: '/services/training-support',     variant: 'secondary' },
+    { label: 'Retail Sales Automation',    to: '/services/retail-sales-automation', variant: 'secondary' },
+    { label: 'Book a Consultation',        to: '/contact',                       variant: 'primary'   },
+  ],
+
+  ctaHeadline: 'Get Your Books in Order',
+  ctaSubtext: 'We structure accounting from the foundation up — chart of accounts, connected workflows, clean records, and management reports that reflect the actual state of your business.',
+}
 
 export default function AccountingSolutions() {
-  return (
-    <div style={{ paddingTop: 72 }}>
-      <section className="page-hero">
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-            <div style={{ width: 48, height: 48, background: 'rgba(0,86,166,0.2)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Calculator size={24} color="#7ec5ff" />
-            </div>
-            <div className="section-label page-hero-label">Service</div>
-          </div>
-          <h1>Accounting Solutions</h1>
-          <p>Professional bookkeeping, chart of accounts setup, financial reporting, receivables/payables management, and tax-ready records — all on ERPNext.</p>
-          <div style={{ display: 'flex', gap: 14, marginTop: 28, flexWrap: 'wrap' }}>
-            <Link to="/contact" className="btn btn-primary btn-lg">Get Started</Link>
-            <Link to="/contact" className="btn cta-section__secondary btn-lg" style={{ color: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.4)' }}>Request a Quote</Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="text-center" style={{ marginBottom: 52 }}>
-            <div className="section-label section-label-blue">Scope of Work</div>
-            <h2 className="section-title">What's Included</h2>
-            <p className="section-subtitle">Accounting solutions designed to give you clean, reliable financial data — and reduce the stress of compliance and reporting.</p>
-          </div>
-          <div className="grid-3">
-            {scope.map(s => (
-              <div key={s.title} className="card">
-                <div className="icon-box icon-box-blue" style={{ marginBottom: 16 }}><s.icon size={22} /></div>
-                <h3 style={{ fontFamily: 'Montserrat', fontSize: '1rem', fontWeight: 700, marginBottom: 8 }}>{s.title}</h3>
-                <p style={{ fontSize: '0.87rem', color: 'var(--text-muted)', lineHeight: 1.65 }}>{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-alt">
-        <div className="container">
-          <div className="grid-2" style={{ gap: 64, alignItems: 'center' }}>
-            <div>
-              <div className="section-label">Why It Matters</div>
-              <h2 className="section-title">Make Confident Financial Decisions</h2>
-              <p style={{ color: 'var(--text-body)', lineHeight: 1.75, marginBottom: 24 }}>
-                Most business owners make financial decisions without reliable numbers. We fix that — giving you clean books, real-time reports, and accounts your auditors won't question.
-              </p>
-              <p style={{ color: 'var(--text-body)', lineHeight: 1.75, marginBottom: 28 }}>
-                Our accounting setup is done on ERPNext, which means your records, reports, inventory, and sales data all live in one integrated system — not disconnected spreadsheets.
-              </p>
-              {['Clean, audit-ready books', 'Real-time financial dashboards', 'IFRS-aligned reporting', 'FIRS & LIRS tax compliance', 'Multi-currency support for importers/exporters'].map(item => (
-                <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: '0.9rem', marginBottom: 10 }}>
-                  <CheckCircle2 size={16} color="var(--green)" /><span>{item}</span>
-                </div>
-              ))}
-              <Link to="/contact" className="btn btn-primary" style={{ marginTop: 24 }}>Talk to Us <ArrowRight size={14} /></Link>
-            </div>
-            <div style={{ background: 'var(--white)', borderRadius: 16, border: '1px solid var(--grey-border)', padding: 32 }}>
-              <div style={{ fontFamily: 'Montserrat', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: 20 }}>Reports We Deliver</div>
-              {[
-                'Monthly Profit & Loss Statement',
-                'Balance Sheet',
-                'Cash Flow Statement',
-                'Accounts Receivable Ageing',
-                'Accounts Payable Ageing',
-                'Bank Reconciliation Statement',
-                'VAT Returns Summary',
-                'Withholding Tax Schedule',
-                'Management Accounts Pack',
-                'Custom KPI Dashboards',
-              ].map((r, i) => (
-                <div key={r} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '9px 0', borderBottom: i < 9 ? '1px solid var(--grey-border)' : 'none', fontSize: '0.86rem', color: 'var(--text-body)' }}>
-                  <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--blue)', flexShrink: 0 }} />{r}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <CTASection headline="Get Your Books in Order" subtext="Let us set up clean, reliable accounting on ERPNext so you always know where your business stands." primaryLabel="Get Started" secondaryLabel="View All Services" secondaryTo="/services" />
-    </div>
-  )
+  return <ServicePageLayout d={data} />
 }

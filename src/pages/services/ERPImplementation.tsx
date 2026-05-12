@@ -1,106 +1,89 @@
-import { Link } from 'react-router-dom'
-import { Settings, CheckCircle2, Database, GitMerge, Code2, Users, Headphones, BarChart2, ArrowRight } from 'lucide-react'
-import ProcessSteps from '../../components/ProcessSteps'
-import CTASection from '../../components/CTASection'
+import {
+  Settings, Database, GitMerge, BarChart2,
+  Users, Layers, Shield, Cpu, CheckCircle2
+} from 'lucide-react'
+import ServicePageLayout from '../../components/ServicePageLayout'
+import type { ServicePageData } from '../../components/ServicePageLayout'
 
-const scope = [
-  { icon: Database, title: 'System Configuration', desc: 'Full ERPNext setup — company structure, chart of accounts, warehouses, cost centres, and master data.' },
-  { icon: GitMerge, title: 'Data Migration', desc: 'Structured migration of your existing data — customers, suppliers, items, opening balances, and historical records.' },
-  { icon: Code2, title: 'Customization & Development', desc: 'Custom fields, DocTypes, workflows, print formats, and integrations tailored to your unique business requirements.' },
-  { icon: Users, title: 'User Setup & Roles', desc: 'User accounts, permission levels, role assignments, and security configurations for every team member.' },
-  { icon: Headphones, title: 'Training & Go-Live', desc: 'Comprehensive training for end-users and administrators, followed by a structured go-live with hands-on support.' },
-  { icon: BarChart2, title: 'Post-Launch Support', desc: 'Ongoing technical support, performance monitoring, and iterative improvements after your system is live.' },
-]
+const data: ServicePageData = {
+  name: 'ERP Implementation',
+  badge: 'Professional Service',
+  tagline: 'From Scattered Operations to Structured, Connected Systems',
+  heroDesc: 'ERP Implementation helps businesses move from manual, disconnected operations to structured systems for sales, purchasing, inventory, accounting, approvals, roles, workflows, and reporting — built on ERPNext and the Frappe Framework.',
+  icon: Settings,
+  iconColor: '#7ec5ff',
+  iconBg: 'rgba(0,86,166,0.2)',
+  primaryCTA: 'Book a Consultation',
+  secondaryCTA: 'Talk to ProcessEdge',
 
-const modules = [
-  'Accounts & Finance', 'Inventory & Stock', 'Purchase', 'Sales', 'HR & Payroll',
-  'Manufacturing', 'CRM', 'Projects', 'Assets', 'Healthcare', 'Education', 'Custom Modules',
-]
+  problemHeading: 'Your Business Is Running on Disconnected Systems and Manual Processes',
+  problemBody: [
+    'Most growing businesses reach a point where their combination of spreadsheets, WhatsApp threads, paper records, and standalone accounting software is no longer sufficient. Sales are recorded in one place, inventory is tracked in another, purchasing happens informally, and the accounts are only reconciled at month end — if at all.',
+    'Management cannot see the actual state of the business without asking several people and waiting for data to be compiled manually. Approval processes exist as verbal agreements rather than structured workflows. Stock levels are unknown until someone counts physically. The business is working harder than it should to produce information that should be available instantly.',
+    'This is not a problem that grows smaller as the business grows. Without a structured system, every additional transaction, employee, and product adds to the operational complexity — and to the risk.',
+  ],
+  problemPoints: [
+    'No single source of truth for sales, inventory, purchasing, and accounting',
+    'Month-end reconciliation takes days because records are not connected',
+    'Approval workflows exist informally — no audit trail or enforcement',
+    'Management reports compiled manually rather than generated from live data',
+    'Stock levels unknown between physical counts',
+    'Different teams working from different versions of the same data',
+  ],
+  valueBody: "We don't just install ERPNext. We understand how your business operates, configure the system to match your real processes, train your team thoroughly, and stay through go-live and beyond — so the system actually delivers the control and visibility you need.",
+
+  whatWeDoHeading: 'What Our ERP Implementation Covers',
+  whatWeDoSub: 'Every engagement is scoped to your business. These are the areas we work through — in the order that makes sense for your operation.',
+  whatWeDo: [
+    { icon: Layers,       title: 'Business Process Review',           desc: 'We map how your business actually operates — sales flow, purchasing flow, inventory movement, and financial processes — before configuring anything.', color: 'blue' },
+    { icon: CheckCircle2, title: 'ERP Readiness Assessment',          desc: 'We identify data quality issues, process gaps, and structural decisions that must be resolved before go-live to avoid carrying problems into the new system.', color: 'green' },
+    { icon: Database,     title: 'Module Configuration',              desc: 'We configure ERPNext modules to reflect your business structure — company, chart of accounts, warehouses, price lists, item groups, and customer/supplier records.', color: 'blue' },
+    { icon: GitMerge,     title: 'Sales & Purchasing Workflow Setup', desc: 'Quotations, sales orders, delivery notes, purchase orders, goods receipt — the full operational workflow configured and tested to match how your team works.', color: 'green' },
+    { icon: Database,     title: 'Inventory & Stock Structure',       desc: 'Warehouses, storage locations, item variants, batch tracking, reorder levels, and valuation methods configured to give you real-time stock visibility.', color: 'blue' },
+    { icon: BarChart2,    title: 'Accounting Setup',                  desc: 'Chart of accounts, cost centres, fiscal year, opening balances, bank accounts, tax configurations, and payment terms — structured for clean financial reporting.', color: 'green' },
+    { icon: Shield,       title: 'Roles, Permissions & Approvals',   desc: 'User roles defined, permissions configured per role, and approval workflows set up so the right people see and control the right data.', color: 'blue' },
+    { icon: BarChart2,    title: 'Reports & Dashboards',              desc: 'Key management reports configured — P&L, balance sheet, stock summary, sales analysis, purchase report, and custom dashboards for your operational KPIs.', color: 'green' },
+    { icon: Users,        title: 'Training & Go-Live Support',        desc: 'Role-based training for every user group, UAT sign-off, go-live support, and a hypercare period to stabilise the system in real operational use.', color: 'blue' },
+  ],
+
+  deliveryHeading: 'How We Deliver ERP Implementation',
+  deliverySteps: [
+    { number: '01', title: 'Understand Current Operations',   desc: 'Discovery sessions with key users and managers to understand how the business currently works — not just how it is supposed to work.' },
+    { number: '02', title: 'Map & Document Processes',        desc: 'Document every process that will be managed in the ERP — with the steps, decision points, approvals, and expected outputs clearly defined.' },
+    { number: '03', title: 'Configure ERP Modules',           desc: 'Configure the system to reflect your documented processes — modules, workflows, roles, reports, and print formats.' },
+    { number: '04', title: 'Prepare & Migrate Data',          desc: 'Clean existing data, resolve duplicates, prepare master records, and migrate opening balances and historical records into the live system.' },
+    { number: '05', title: 'Test & Validate (UAT)',           desc: 'End users test every process against the configured system. Issues are logged, resolved, and retested before sign-off.' },
+    { number: '06', title: 'Train Users by Role',             desc: 'Role-based training for every team — practical exercises, documentation, and sufficient repetition to build genuine competence.' },
+    { number: '07', title: 'Support Go-Live & Stabilise',     desc: 'Active support through the go-live period and the critical first weeks — resolving issues quickly before workarounds take hold.' },
+  ],
+
+  forHeading: 'Who This Service Is For',
+  forIntro: 'Businesses that have outgrown manual and disconnected systems and need operational structure.',
+  forList: [
+    'Growing SMEs replacing spreadsheets with a structured ERP',
+    'Trading, distribution, and manufacturing businesses',
+    'Businesses migrating from Sage, QuickBooks, or legacy software',
+    'Companies with multiple warehouses or branch operations',
+    'Organisations that need structured approval and reporting workflows',
+    'Businesses deploying ProcessEdge industry products (EduEdge, VetEdge, ClinicEdge, etc.)',
+  ],
+
+  relatedResources: [
+    { title: 'ERP Implementation Checklist for Growing Businesses',              path: '/resources/erp-implementation-checklist',    category: 'ERP'       },
+    { title: 'Business Process Optimization: How to Gain Control Before Scaling', path: '/resources/business-process-optimization',  category: 'Operations'},
+    { title: 'Software Training and Adoption: Why Systems Fail Without People',  path: '/resources/software-training-and-adoption',  category: 'Training'  },
+  ],
+  relatedLinks: [
+    { label: 'Training & Support Service', to: '/services/training-support',     variant: 'secondary' },
+    { label: 'Accounting Solutions',       to: '/services/accounting-solutions',  variant: 'secondary' },
+    { label: 'View All Products',          to: '/products',                       variant: 'secondary' },
+    { label: 'Book a Consultation',        to: '/contact',                        variant: 'primary'   },
+  ],
+
+  ctaHeadline: 'Ready to Implement ERP the Right Way?',
+  ctaSubtext: 'We scope every implementation around how your business actually operates — then configure, train, and support your team through go-live and adoption.',
+}
 
 export default function ERPImplementation() {
-  return (
-    <div style={{ paddingTop: 72 }}>
-      <section className="page-hero">
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-            <div style={{ width: 48, height: 48, background: 'rgba(0,86,166,0.2)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Settings size={24} color="#7ec5ff" />
-            </div>
-            <div className="section-label page-hero-label">Service</div>
-          </div>
-          <h1>ERP Implementation</h1>
-          <p>End-to-end ERPNext and Frappe implementation — from discovery and scoping to configuration, migration, customization, training, and go-live support.</p>
-          <div style={{ display: 'flex', gap: 14, marginTop: 28, flexWrap: 'wrap' }}>
-            <Link to="/contact" className="btn btn-primary btn-lg">Start a Project</Link>
-            <Link to="/contact" className="btn cta-section__secondary btn-lg" style={{ color: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.4)' }}>Request a Quote</Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="text-center" style={{ marginBottom: 52 }}>
-            <div className="section-label section-label-blue">Scope of Work</div>
-            <h2 className="section-title">What's Included in Our ERP Implementation</h2>
-            <p className="section-subtitle">A structured, phased approach that gets your ERPNext system live — and gets your team using it effectively.</p>
-          </div>
-          <div className="grid-3">
-            {scope.map(s => (
-              <div key={s.title} className="card">
-                <div className="icon-box icon-box-blue" style={{ marginBottom: 16 }}><s.icon size={22} /></div>
-                <h3 style={{ fontFamily: 'Montserrat', fontSize: '1rem', fontWeight: 700, marginBottom: 8 }}>{s.title}</h3>
-                <p style={{ fontSize: '0.87rem', color: 'var(--text-muted)', lineHeight: 1.65 }}>{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-alt">
-        <div className="container">
-          <div className="grid-2" style={{ gap: 64, alignItems: 'center' }}>
-            <div>
-              <div className="section-label">ERPNext Modules</div>
-              <h2 className="section-title">Modules We Implement</h2>
-              <p style={{ color: 'var(--text-body)', lineHeight: 1.75, marginBottom: 28 }}>
-                We implement the full range of ERPNext modules — from core accounting and inventory to industry-specific Healthcare, Education, and our custom ProcessEdge products. Every implementation is scoped to exactly what your business needs.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 32 }}>
-                {modules.map(m => (
-                  <span key={m} style={{ padding: '6px 14px', background: 'var(--blue-light)', color: 'var(--blue)', borderRadius: 100, fontFamily: 'Montserrat', fontSize: '0.78rem', fontWeight: 600 }}>{m}</span>
-                ))}
-              </div>
-              {['ERPNext 14 & 15 certified', 'Frappe Framework expertise', 'Custom app development', 'Cloud & self-hosted deployments', 'Nigeria-specific configurations (tax, currency, compliance)'].map(item => (
-                <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: '0.9rem', marginBottom: 10 }}>
-                  <CheckCircle2 size={16} color="var(--green)" /><span>{item}</span>
-                </div>
-              ))}
-              <Link to="/contact" className="btn btn-primary" style={{ marginTop: 24 }}>Start a Project <ArrowRight size={14} /></Link>
-            </div>
-            <div style={{ background: 'var(--white)', borderRadius: 16, border: '1px solid var(--grey-border)', padding: 32 }}>
-              <div style={{ fontFamily: 'Montserrat', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: 20 }}>Typical Engagement Timeline</div>
-              {[
-                { phase: 'Discovery & Scoping', duration: '1–2 weeks' },
-                { phase: 'System Design & Configuration', duration: '2–4 weeks' },
-                { phase: 'Data Migration', duration: '1–2 weeks' },
-                { phase: 'Customization & Integration', duration: '2–6 weeks' },
-                { phase: 'Testing & UAT', duration: '1–2 weeks' },
-                { phase: 'Training', duration: '1–2 weeks' },
-                { phase: 'Go-Live & Hypercare', duration: '2–4 weeks' },
-                { phase: 'Ongoing Support', duration: 'Retainer' },
-              ].map((row, i) => (
-                <div key={row.phase} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: i < 7 ? '1px solid var(--grey-border)' : 'none', fontSize: '0.86rem' }}>
-                  <span style={{ color: 'var(--text-body)', fontWeight: 500 }}>{row.phase}</span>
-                  <span style={{ color: 'var(--blue)', fontFamily: 'Montserrat', fontWeight: 700, fontSize: '0.8rem' }}>{row.duration}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <ProcessSteps />
-      <CTASection headline="Ready to Implement ERPNext?" subtext="Let's scope your project and build a system that fits your business perfectly." primaryLabel="Start a Project" secondaryLabel="View All Services" secondaryTo="/services" />
-    </div>
-  )
+  return <ServicePageLayout d={data} />
 }

@@ -1,3 +1,8 @@
+/* ============================================================
+   Resources page styles
+   ============================================================ */
+
+/* ── Article cards ── */
 .resource-card {
   background: var(--white);
   border: 1px solid var(--grey-border);
@@ -40,6 +45,7 @@
   color: var(--text-main);
   line-height: 1.4;
   flex: 1;
+  transition: color var(--transition);
 }
 .resource-card__excerpt {
   font-size: 0.86rem;
@@ -73,47 +79,123 @@
 }
 .resource-card__link:hover { gap: 8px; }
 
-/* ── Category strip ── */
-.resources-cats {
-  border-bottom: 1px solid var(--grey-border);
-  background: var(--white);
-  position: sticky;
-  top: 72px;
-  z-index: 100;
-}
-.resources-cats__inner {
-  display: flex;
-  gap: 4px;
-  overflow-x: auto;
-  padding: 12px 0;
-  scrollbar-width: none;
-}
-.resources-cats__inner::-webkit-scrollbar { display: none; }
-.resources-cat {
-  display: inline-block;
-  padding: 5px 14px;
-  border-radius: 100px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  background: var(--grey-light);
-  border: 1px solid var(--grey-border);
-  white-space: nowrap;
-  cursor: default;
-  transition: background var(--transition), color var(--transition);
-}
-.resources-cat:first-child {
-  background: var(--blue);
-  color: var(--white);
-  border-color: var(--blue);
-}
-
-/* ── Resource card as full link ── */
+/* Clickable card */
 .resource-card--link {
   text-decoration: none;
   cursor: pointer;
 }
 .resource-card--link:hover .resource-card__title {
   color: var(--blue);
+}
+
+/* ── Filter section wrapper ─────────────────────────────────
+   Sits between hero and article grid.
+   Not sticky — scrolls naturally with the page.
+   Top padding creates the gap from the hero section.
+   ─────────────────────────────────────────────────────── */
+.resources-filter-wrap {
+  background: var(--white);
+  border-bottom: 1px solid var(--grey-border);
+  padding: 40px 0 0;   /* 40px gap above filter tabs from hero bottom edge */
+}
+
+/* Scrollable tab row */
+.resources-cats__inner {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 16px;  /* space between tabs and the bottom border */
+  scrollbar-width: none;
+}
+.resources-cats__inner::-webkit-scrollbar { display: none; }
+
+/* ── Individual filter tab (now a <button>) ── */
+.resources-cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 100px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--grey-light);
+  border: 1px solid var(--grey-border);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+              box-shadow 0.18s ease;
+  /* Reset button default styles */
+  outline: none;
+  line-height: 1;
+}
+
+.resources-cat:hover {
+  background: var(--blue-light);
+  color: var(--blue);
+  border-color: rgba(0, 86, 166, 0.3);
+}
+
+/* Active tab */
+.resources-cat--active {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+  box-shadow: 0 3px 10px rgba(0, 86, 166, 0.25);
+}
+.resources-cat--active:hover {
+  background: var(--blue-dark);
+  border-color: var(--blue-dark);
+  color: var(--white);
+}
+
+/* Count badge inside each tab */
+.resources-cat__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 100px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.1);
+  color: inherit;
+  line-height: 1;
+}
+.resources-cat--active .resources-cat__count {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--white);
+}
+
+/* Result count line below tabs */
+.resources-filter-result {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  padding: 10px 0 16px;
+}
+
+/* ── Empty state ── */
+.resources-empty {
+  text-align: center;
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.resources-empty p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .resources-filter-wrap { padding-top: 28px; }
+  .resources-cats__inner { gap: 5px; }
+  .resources-cat { font-size: 0.74rem; padding: 6px 12px; }
 }

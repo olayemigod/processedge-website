@@ -1,0 +1,411 @@
+/* ============================================================
+   ServicePageLayout — shared service page styles
+   ============================================================ */
+
+/* ── Hero ── */
+.sp-hero {
+  background: linear-gradient(135deg, #060d1a 0%, #0a1628 55%, #071e10 100%);
+  padding: 72px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+.sp-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 60%, rgba(0,86,166,0.15) 0%, transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(28,156,93,0.12) 0%, transparent 45%);
+}
+.sp-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.sp-hero__badge-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.sp-hero__icon {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sp-hero__badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.75);
+}
+.sp-hero__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 10px;
+  letter-spacing: -0.025em;
+}
+.sp-hero__tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+.sp-hero__desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+.sp-hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+/* Ghost button for dark hero */
+.btn-hero-ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.82);
+  border: 2px solid rgba(255,255,255,0.28);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+.btn-hero-ghost:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.55);
+  transform: translateY(-1px);
+}
+/* Right card */
+.sp-hero__card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.sp-hero__card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.03);
+}
+.sp-hero__card-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sp-hero__card-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--white);
+}
+.sp-hero__card-sub {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 2px;
+}
+.sp-hero__steps-preview {
+  padding: 12px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.sp-hero__step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.sp-hero__step:last-child { border-bottom: none; }
+.sp-hero__step-num {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(28,156,93,0.3);
+  border: 1px solid rgba(28,156,93,0.5);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #4de8a0;
+  flex-shrink: 0;
+}
+.sp-hero__step-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.78);
+}
+
+/* ── Problem ── */
+.sp-problem {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  align-items: start;
+}
+.sp-para {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.78;
+  margin-bottom: 14px;
+}
+.sp-checklist {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.sp-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.55;
+}
+.sp-checklist li svg { flex-shrink: 0; margin-top: 2px; }
+.sp-value-card {
+  background: linear-gradient(135deg, var(--blue) 0%, #003d7a 100%);
+  border-radius: 14px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: sticky;
+  top: 88px;
+}
+.sp-value-card__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.52);
+}
+.sp-value-card__body {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.72;
+}
+
+/* ── What we do cards ── */
+.sp-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 7px;
+}
+.sp-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* ── Delivery + Who ── */
+.sp-delivery-section {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 56px;
+  align-items: start;
+}
+.sp-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 28px;
+  position: relative;
+}
+.sp-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 28px;
+  position: relative;
+}
+.sp-step:last-child { padding-bottom: 0; }
+.sp-step__num {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--white);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,86,166,0.28);
+  position: relative;
+  z-index: 1;
+}
+.sp-step__connector {
+  position: absolute;
+  left: 17px;
+  top: 36px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--blue-light) 0%, var(--grey-border) 100%);
+}
+.sp-step__body { flex: 1; padding-top: 4px; }
+.sp-step__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+.sp-step__desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+/* Who it's for card */
+.sp-for-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 88px;
+}
+.sp-for-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--grey-border);
+}
+.sp-for-card__header svg { color: var(--blue); }
+.sp-for-card__intro {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.sp-for-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sp-for-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 1.5;
+}
+.sp-for-list li svg { flex-shrink: 0; margin-top: 2px; }
+
+/* ── Related ── */
+.sp-related {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 56px;
+  align-items: start;
+}
+.sp-resource-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+}
+.sp-resource-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.sp-resource-item:hover {
+  border-color: var(--green);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(3px);
+}
+.sp-resource-item svg { color: var(--green); flex-shrink: 0; }
+.sp-resource-item__cat {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 3px;
+}
+.sp-resource-item__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.35;
+}
+.sp-link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .sp-hero__inner       { grid-template-columns: 1fr; }
+  .sp-hero__right       { display: none; }
+  .sp-problem           { grid-template-columns: 1fr; }
+  .sp-value-card        { position: static; }
+  .sp-delivery-section  { grid-template-columns: 1fr; }
+  .sp-for-card          { position: static; }
+  .sp-related           { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .sp-hero { padding: 56px 0 48px; }
+  .sp-hero__actions { flex-direction: column; }
+}
