@@ -1,0 +1,243 @@
+/* ============================================================
+   Company page
+   ============================================================ */
+
+/* ── Who we are ── */
+.co-who {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 56px;
+  align-items: start;
+}
+.co-para {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.78;
+  margin-bottom: 14px;
+}
+.co-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 20px;
+}
+.co-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.5;
+}
+.co-check svg { flex-shrink: 0; margin-top: 2px; }
+
+.co-belief-card {
+  background: linear-gradient(135deg, var(--blue) 0%, #003d7a 100%);
+  border-radius: 14px;
+  padding: 32px;
+  position: sticky;
+  top: 88px;
+}
+.co-belief-card__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+.co-belief-card__heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 14px;
+  line-height: 1.25;
+}
+.co-belief-card__body {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.72;
+}
+
+/* ── Product ecosystem ── */
+.co-products-section {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 56px;
+  align-items: start;
+}
+.co-products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.co-product-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  border: 1px solid;
+}
+.co-product-chip--blue {
+  background: var(--blue-light);
+  border-color: rgba(0,86,166,0.2);
+  color: var(--blue);
+}
+.co-product-chip--green {
+  background: var(--green-light);
+  border-color: rgba(28,156,93,0.2);
+  color: var(--green-dark);
+}
+.co-product-chip:hover {
+  opacity: 0.78;
+  transform: translateY(-1px);
+}
+
+.co-tech-card {
+  background: var(--grey-light);
+  border: 1px solid var(--grey-border);
+  border-radius: 14px;
+  padding: 24px;
+  position: sticky;
+  top: 88px;
+}
+.co-tech-card__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.co-tech-card__body {
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 1.68;
+  margin-bottom: 16px;
+}
+.co-tech-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.co-tech-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--grey-border);
+}
+.co-tech-item:last-child { border-bottom: none; }
+.co-tech-item__name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+.co-tech-item__role {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Approach ── */
+.co-approach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.co-approach-step {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  transition: all 0.22s ease;
+  position: relative;
+}
+.co-approach-step:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+.co-approach-step__icon {
+  width: 44px; height: 44px;
+  background: var(--blue);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white);
+  margin-bottom: 10px;
+  box-shadow: 0 3px 10px rgba(0,86,166,0.25);
+}
+.co-approach-step__num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+.co-approach-step__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.co-approach-step__desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* Why cards hover accent */
+.co-why-card--blue:hover  { border-color: var(--blue);  }
+.co-why-card--green:hover { border-color: var(--green); }
+
+/* Ghost button */
+.btn-hero-ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.82);
+  border: 2px solid rgba(255,255,255,0.3);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.btn-hero-ghost:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.6);
+  transform: translateY(-1px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .co-approach-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 1024px) {
+  .co-who             { grid-template-columns: 1fr; }
+  .co-belief-card     { position: static; }
+  .co-products-section { grid-template-columns: 1fr; }
+  .co-tech-card       { position: static; }
+}
+@media (max-width: 640px) {
+  .co-approach-grid { grid-template-columns: 1fr; }
+}

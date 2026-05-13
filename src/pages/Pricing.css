@@ -1,0 +1,198 @@
+/* ============================================================
+   Pricing page
+   ============================================================ */
+
+/* ── Engagement cards ── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.pricing-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.22s ease;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+.pricing-card--blue::before  { background: var(--blue);  }
+.pricing-card--green::before { background: var(--green); }
+.pricing-card:hover {
+  box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+  transform: translateY(-3px);
+  border-color: transparent;
+}
+.pricing-card:hover::before { opacity: 1; }
+
+.pricing-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pricing-card__icon {
+  width: 46px; height: 46px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.pricing-card__icon--blue  { background: var(--blue-light);  color: var(--blue);  }
+.pricing-card__icon--green { background: var(--green-light); color: var(--green); }
+
+.pricing-card__tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+.pricing-card__tag--blue  { background: var(--blue-light);  color: var(--blue);      }
+.pricing-card__tag--green { background: var(--green-light); color: var(--green-dark); }
+
+.pricing-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+.pricing-card__desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.68;
+}
+.pricing-card__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+}
+.pricing-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 1.5;
+}
+.pricing-card__list li svg { flex-shrink: 0; margin-top: 2px; }
+
+/* ── Next step section ── */
+.pricing-nextstep {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 56px;
+  align-items: start;
+}
+.pricing-nextstep__links {
+  background: var(--grey-light);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: sticky;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pricing-explore-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+.pricing-explore-link:hover {
+  background: var(--blue-light);
+}
+
+/* ── FAQs ── */
+.pricing-faqs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pricing-faq {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  transition: box-shadow var(--transition);
+}
+.pricing-faq:hover { box-shadow: var(--shadow-sm); }
+.pricing-faq__q {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+.pricing-faq__q svg { flex-shrink: 0; margin-top: 2px; }
+.pricing-faq__a {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.72;
+  padding-left: 26px;
+}
+
+/* ── Ghost button (hero) ── */
+.btn-hero-ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.82);
+  border: 2px solid rgba(255,255,255,0.3);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.btn-hero-ghost:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.6);
+  transform: translateY(-1px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .pricing-nextstep { grid-template-columns: 1fr; }
+  .pricing-nextstep__links { position: static; }
+}
+@media (max-width: 768px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+}
