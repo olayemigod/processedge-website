@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Settings, Calculator, ShoppingCart, BookOpen, ArrowRight } from 'lucide-react'
 import CTASection from '../components/CTASection'
+import PageMeta from '../components/PageMeta'
 
 const services = [
   {
@@ -43,7 +44,13 @@ const services = [
 
 export default function Services() {
   return (
-    <div style={{ paddingTop: 72 }}>
+    <>
+        <PageMeta
+        title="Services — ERP Implementation, Accounting, Retail Automation & Training"
+        description="ProcessEdge professional services: ERP implementation, accounting solutions, retail sales automation, and training & support for growing Nigerian businesses."
+        path="/services"
+      />
+      <div style={{ paddingTop: 72 }}>
 
       {/* Hero */}
       <section className="page-hero">
@@ -122,5 +129,6 @@ export default function Services() {
         secondaryTo="/products"
       />
     </div>
+    </>
   )
 }

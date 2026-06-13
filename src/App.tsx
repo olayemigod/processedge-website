@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -77,6 +78,7 @@ function NotFound() {
 
 export default function App() {
   return (
+    <HelmetProvider>
     <BrowserRouter>
       <ScrollToTop />
       <Layout>
@@ -134,5 +136,6 @@ export default function App() {
         </Routes>
       </Layout>
     </BrowserRouter>
+    </HelmetProvider>
   )
 }

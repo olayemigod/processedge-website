@@ -4,8 +4,8 @@ import {
   Users, Church, Sprout, ShoppingCart,
   ArrowRight, BookOpen
 } from 'lucide-react'
-import CTASection from '../components/CTASection'
 import './Industries.css'
+import PageMeta from '../components/PageMeta'
 
 // ── Industry data ─────────────────────────────────────────────────────────────
 
@@ -185,7 +185,13 @@ const industries = [
 
 export default function Industries() {
   return (
-    <div style={{ paddingTop: 72 }}>
+    <>
+        <PageMeta
+        title="Industries — Education, Healthcare, Hospitality, Agriculture & More"
+        description="ProcessEdge builds industry-focused systems for education, veterinary, healthcare, hospitality, cooperatives, churches, agriculture, and retail businesses across Nigeria."
+        path="/industries"
+      />
+      <div style={{ paddingTop: 72 }}>
 
       {/* Hero */}
       <section className="page-hero">
@@ -343,5 +349,6 @@ export default function Industries() {
       </section>
 
     </div>
+    </>
   )
 }

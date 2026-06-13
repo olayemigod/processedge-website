@@ -5,6 +5,7 @@ import {
 } from 'lucide-react'
 import CTASection from '../components/CTASection'
 import './Pricing.css'
+import PageMeta from '../components/PageMeta'
 
 const engagements = [
   {
@@ -109,7 +110,13 @@ const faqs = [
 
 export default function Pricing() {
   return (
-    <div style={{ paddingTop: 72 }}>
+    <>
+        <PageMeta
+        title="Pricing — Flexible Business System Pricing"
+        description="Flexible ProcessEdge pricing for ERP implementation, business automation, industry solutions, training, support, and operational control. Contact us for a scoped quote."
+        path="/pricing"
+      />
+      <div style={{ paddingTop: 72 }}>
 
       {/* Hero */}
       <section className="page-hero">
@@ -289,5 +296,6 @@ export default function Pricing() {
         secondaryTo="/contact"
       />
     </div>
+    </>
   )
 }

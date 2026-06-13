@@ -1,0 +1,115 @@
+/* ── Trust / Sector Credibility Section ── */
+.trust-section {
+  background: var(--grey-light);
+  padding: 64px 0 72px;
+}
+
+.trust-section__header {
+  margin-bottom: 40px;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.trust-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-lg);
+  padding: 32px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left accent bar — always visible at 40% opacity, goes full on hover */
+.trust-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 3px;
+  opacity: 0.4;
+  transition: opacity 0.25s ease, width 0.25s ease;
+}
+.trust-card--blue::before  { background: var(--blue);  }
+.trust-card--green::before { background: var(--green); }
+
+.trust-card:hover {
+  box-shadow: 0 10px 36px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+}
+.trust-card--blue:hover  { border-color: rgba(0,86,166,0.2);  }
+.trust-card--green:hover { border-color: rgba(28,156,93,0.2); }
+.trust-card:hover::before {
+  opacity: 1;
+  width: 4px;
+}
+
+/* Icon */
+.trust-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 4px;
+}
+.trust-card__icon--blue  { background: var(--blue-light);  color: var(--blue);  }
+.trust-card__icon--green { background: var(--green-light); color: var(--green); }
+
+/* Sector label */
+.trust-card__sector {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.trust-card__sector--blue  { color: var(--blue);  }
+.trust-card__sector--green { color: var(--green); }
+
+/* Headline */
+.trust-card__headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.45;
+  margin-bottom: 2px;
+}
+
+/* Body */
+.trust-card__body {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.72;
+  flex: 1;
+}
+
+/* CTA link */
+.trust-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 6px;
+  transition: gap 0.2s ease;
+}
+.trust-card__cta--blue  { color: var(--blue);  }
+.trust-card__cta--green { color: var(--green); }
+.trust-card:hover .trust-card__cta { gap: 9px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .trust-grid { grid-template-columns: 1fr; }
+}

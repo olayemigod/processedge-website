@@ -1,56 +1,85 @@
+/* ── CTA Section ── */
 .cta-section {
-  padding: 96px 0;
+  padding: 100px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
+
+/* Variant backgrounds */
 .cta-section--blue {
-  background: linear-gradient(135deg, #003b80 0%, var(--blue) 50%, #1a6fc4 100%);
+  background: linear-gradient(145deg, #002d6e 0%, #003f99 35%, var(--blue) 65%, #1a6fc4 100%);
 }
 .cta-section--dark {
-  background: linear-gradient(135deg, #060d1a 0%, #0a1628 60%, #0d1f3c 100%);
+  background: linear-gradient(145deg, #060d1a 0%, #0a1628 60%, #0d1f3c 100%);
 }
 .cta-section--green {
-  background: linear-gradient(135deg, #0d5c37 0%, var(--green) 60%, #22b56b 100%);
+  background: linear-gradient(145deg, #0a3d25 0%, #0d5c37 45%, var(--green) 100%);
 }
+
+/* Mesh overlay — subtle texture */
 .cta-section::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
 }
+
+/* Bottom edge accent line */
+.cta-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+}
+
 .cta-section__inner {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 740px;
   margin: 0 auto;
 }
+
 .cta-section__badge {
   display: inline-block;
-  padding: 5px 16px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
+  padding: 5px 18px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 100px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.69rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 20px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 24px;
 }
+
 .cta-section__headline {
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.65rem, 3.2vw, 2.6rem);
   color: var(--white);
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
 }
+
 .cta-section__subtext {
-  font-size: 1.05rem;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.7;
-  margin-bottom: 40px;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.75;
+  margin-bottom: 44px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .cta-section__actions {
   display: flex;
   align-items: center;
@@ -58,13 +87,40 @@
   gap: 16px;
   flex-wrap: wrap;
 }
+
+/* White primary button on dark backgrounds */
+.btn-white {
+  background: var(--white);
+  color: var(--blue);
+  border-color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+.btn-white:hover {
+  background: rgba(255,255,255,0.92);
+  border-color: rgba(255,255,255,0.92);
+  color: var(--blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+}
+
+/* Ghost secondary button */
 .cta-section__secondary {
-  color: rgba(255,255,255,0.85);
-  border-color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.88);
+  border-color: rgba(255,255,255,0.35);
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 .cta-section__secondary:hover {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.1);
   color: var(--white);
-  border-color: rgba(255,255,255,0.7);
-  transform: translateY(-1px);
+  border-color: rgba(255,255,255,0.65);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 540px) {
+  .cta-section { padding: 72px 0; }
+  .cta-section__actions { flex-direction: column; width: 100%; }
+  .cta-section__actions .btn { width: 100%; justify-content: center; }
 }

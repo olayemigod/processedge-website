@@ -1,6 +1,7 @@
 import { GraduationCap, PawPrint, Hotel, Users, Church, Cpu, Activity, Sprout } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import CTASection from '../components/CTASection'
+import PageMeta from '../components/PageMeta'
 import { ArrowRight } from 'lucide-react'
 
 const apps = [
@@ -30,7 +31,13 @@ const badgeStyle = (badge: string | null) => {
 
 export default function Products() {
   return (
-    <div style={{ paddingTop: 72 }}>
+    <>
+        <PageMeta
+        title="Products — EduEdge, VetEdge, ClinicEdge, HotelEdge, CoopEdge, ChurchEdge, AgricEdge"
+        description="ProcessEdge industry-focused products: EduEdge, VetEdge, ClinicEdge, HotelEdge, CoopEdge, ChurchEdge, AgricEdge, and ProcessEdge Core — purpose-built for Nigerian organisations."
+        path="/products"
+      />
+      <div style={{ paddingTop: 72 }}>
       <section className="page-hero">
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-label page-hero-label">Product Suite</div>
@@ -106,5 +113,6 @@ export default function Products() {
         secondaryTo="/contact"
       />
     </div>
+    </>
   )
 }

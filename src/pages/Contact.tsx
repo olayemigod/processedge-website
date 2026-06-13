@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import {
   Globe, MessageSquare, CheckCircle2, ArrowRight, Send
 } from 'lucide-react'
-import { BRAND_DOMAIN, BRAND_HANDLE, PORTAL_URL } from '../config'
+import { BRAND_DOMAIN, BRAND_HANDLE, PORTAL_URL, WHATSAPP_URL, WHATSAPP_DISPLAY } from '../config'
 import './Contact.css'
+import PageMeta from '../components/PageMeta'
 
 const industries = [
   'Education',
@@ -82,7 +83,13 @@ export default function Contact() {
   }
 
   return (
-    <div style={{ paddingTop: 72 }}>
+    <>
+        <PageMeta
+        title="Contact ProcessEdge Solutions"
+        description="Contact ProcessEdge Solutions for ERP implementation, business automation, product demos, training, support, and operational control solutions. Book a free consultation."
+        path="/contact"
+      />
+      <div style={{ paddingTop: 72 }}>
 
       {/* Hero */}
       <section className="page-hero">
@@ -113,7 +120,7 @@ export default function Contact() {
                   before production use.
                 </p>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' as const, justifyContent: 'center' }}>
-                  <a href={`https://wa.me/2348096086857`} target="_blank" rel="noopener noreferrer"
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
                     className="btn btn-green">
                     <MessageSquare size={15} /> WhatsApp Us
                   </a>
@@ -212,12 +219,12 @@ export default function Contact() {
                     <div className="ct-contact-item__value">{BRAND_DOMAIN}</div>
                   </div>
                 </a>
-                <a href="https://wa.me/2348096086857" target="_blank" rel="noopener noreferrer"
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
                   className="ct-contact-item">
                   <MessageSquare size={16} />
                   <div>
                     <div className="ct-contact-item__label">WhatsApp</div>
-                    <div className="ct-contact-item__value">+234 809 608 6857</div>
+                    <div className="ct-contact-item__value">{WHATSAPP_DISPLAY}</div>
                   </div>
                 </a>
                 <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer"
@@ -225,7 +232,7 @@ export default function Contact() {
                   <Globe size={16} />
                   <div>
                     <div className="ct-contact-item__label">Customer Portal</div>
-                    <div className="ct-contact-item__value">portal.processedge.com.ng</div>
+                    <div className="ct-contact-item__value">{PORTAL_URL.replace("https://", "")}</div>
                   </div>
                 </a>
                 <div className="ct-contact-item">
@@ -306,7 +313,7 @@ export default function Contact() {
             of what the right path forward looks like.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const }}>
-            <a href="https://wa.me/2348096086857" target="_blank" rel="noopener noreferrer"
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
               className="btn btn-green btn-lg">
               <MessageSquare size={15} /> WhatsApp ProcessEdge
             </a>
@@ -318,5 +325,6 @@ export default function Contact() {
       </section>
 
     </div>
+    </>
   )
 }

@@ -70,8 +70,7 @@ export default function Footer() {
             <h4>Company</h4>
             <Link to="/company">About Us</Link>
             <Link to="/resources">Resources</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/contact">Book a Consultation</Link>
+            <Link to="/contact">Contact Us</Link>
             <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer">
               <ExternalLink size={12} style={{ marginRight: 4 }} />
               Staff Login
@@ -83,6 +82,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
 
       <div className="footer__bottom">
         <div className="container footer__bottom-inner">

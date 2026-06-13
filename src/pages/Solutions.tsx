@@ -6,6 +6,7 @@ import {
 } from 'lucide-react'
 import CTASection from '../components/CTASection'
 import './Solutions.css'
+import PageMeta from '../components/PageMeta'
 
 // ── Solution categories ──────────────────────────────────────────────────────
 
@@ -179,7 +180,13 @@ const steps = [
 
 export default function Solutions() {
   return (
-    <div style={{ paddingTop: 72 }}>
+    <>
+        <PageMeta
+        title="Solutions — Operational Control, ERP, Accounting, Retail, Education & More"
+        description="ProcessEdge solutions for operational control, ERP implementation, accounting, retail automation, education, healthcare, agriculture, and training across Nigerian businesses."
+        path="/solutions"
+      />
+      <div style={{ paddingTop: 72 }}>
 
       {/* Hero */}
       <section className="page-hero">
@@ -294,5 +301,6 @@ export default function Solutions() {
         secondaryTo="/products"
       />
     </div>
+    </>
   )
 }

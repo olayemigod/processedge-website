@@ -1,3 +1,4 @@
+/* ── Process Steps ── */
 .process-steps {
   display: flex;
   gap: 0;
@@ -11,10 +12,11 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 16px;
+  padding: 0 20px;
   position: relative;
 }
 
+/* Horizontal connector line between steps */
 .process-step__connector {
   position: absolute;
   top: 26px;
@@ -24,11 +26,12 @@
 }
 .process-step__line {
   height: 2px;
-  background: linear-gradient(90deg, var(--blue) 0%, var(--blue-light) 100%);
-  margin-left: 26px;
-  margin-right: -8px;
+  background: linear-gradient(90deg, var(--blue) 0%, rgba(0,86,166,0.2) 100%);
+  margin-left: 28px;
+  margin-right: -10px;
 }
 
+/* Step icon circle */
 .process-step__dot {
   width: 52px;
   height: 52px;
@@ -40,52 +43,77 @@
   color: var(--white);
   position: relative;
   z-index: 1;
-  box-shadow: 0 4px 16px rgba(0,86,166,0.30);
+  box-shadow:
+    0 0 0 6px rgba(0,86,166,0.1),
+    0 4px 18px rgba(0,86,166,0.3);
   flex-shrink: 0;
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 .process-step:hover .process-step__dot {
-  transform: scale(1.1);
-  box-shadow: 0 8px 24px rgba(0,86,166,0.40);
+  transform: scale(1.12);
+  background: var(--blue-dark);
+  box-shadow:
+    0 0 0 8px rgba(0,86,166,0.12),
+    0 8px 28px rgba(0,86,166,0.40);
+}
+
+/* Alternate every other step icon to green */
+.process-step:nth-child(even) .process-step__dot {
+  background: var(--green);
+  box-shadow:
+    0 0 0 6px rgba(28,156,93,0.1),
+    0 4px 18px rgba(28,156,93,0.28);
+}
+.process-step:nth-child(even):hover .process-step__dot {
+  background: var(--green-dark);
+  box-shadow:
+    0 0 0 8px rgba(28,156,93,0.12),
+    0 8px 28px rgba(28,156,93,0.35);
 }
 
 .process-step__number {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.67rem;
   font-weight: 800;
   color: var(--blue);
-  letter-spacing: 0.06em;
-  margin-top: 10px;
+  letter-spacing: 0.08em;
+  margin-top: 12px;
   margin-bottom: 4px;
 }
+.process-step:nth-child(even) .process-step__number { color: var(--green); }
 
 .process-step__content h3 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
+  font-size: 0.97rem;
   font-weight: 700;
   color: var(--text-main);
   margin-bottom: 8px;
+  transition: color 0.22s ease;
 }
+.process-step:hover .process-step__content h3 { color: var(--blue); }
+.process-step:nth-child(even):hover .process-step__content h3 { color: var(--green); }
+
 .process-step__content p {
   font-size: 0.83rem;
   color: var(--text-muted);
-  line-height: 1.65;
+  line-height: 1.68;
 }
 
+/* Mobile — vertical stack */
 @media (max-width: 768px) {
   .process-steps {
     flex-direction: column;
-    gap: 32px;
+    gap: 36px;
   }
   .process-step {
     flex-direction: row;
     text-align: left;
     align-items: flex-start;
-    gap: 16px;
+    gap: 18px;
     padding: 0;
   }
   .process-step__connector { display: none; }
   .process-step__dot { flex-shrink: 0; }
   .process-step__number { display: none; }
-  .process-step__content { flex: 1; }
+  .process-step__content { flex: 1; padding-top: 4px; }
 }

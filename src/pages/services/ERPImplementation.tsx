@@ -1,6 +1,6 @@
 import {
   Settings, Database, GitMerge, BarChart2,
-  Users, Layers, Shield, Cpu, CheckCircle2
+  Users, Layers, Shield, CheckCircle2
 } from 'lucide-react'
 import ServicePageLayout from '../../components/ServicePageLayout'
 import type { ServicePageData } from '../../components/ServicePageLayout'

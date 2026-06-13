@@ -1,4 +1,4 @@
-import { PawPrint, FileText, Stethoscope, Package, Bell, CreditCard, Calendar, BarChart2, Scissors } from 'lucide-react'
+import { PawPrint, FileText, Stethoscope, Package, Bell, CreditCard, Calendar, Scissors } from 'lucide-react'
 import ProductPageLayout from '../../components/ProductPageLayout'
 import type { ProductPageData } from '../../components/ProductPageLayout'
 

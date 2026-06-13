@@ -408,3 +408,41 @@ img { max-width: 100%; display: block; }
 @media (max-width: 768px) {
   .svc-index-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Scroll-reveal utilities ─────────────────────────────────────────────────
+   Add .reveal-card or .reveal-block to elements you want to animate in.
+   JavaScript sets data-revealed="true" once the element enters the viewport.
+   prefers-reduced-motion: skip all animations.
+   ─────────────────────────────────────────────────────────────────────────── */
+.reveal-card,
+.reveal-block {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-card[data-revealed="true"],
+.reveal-block[data-revealed="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger siblings automatically via nth-child delays */
+.reveal-card:nth-child(2) { transition-delay: 0.08s; }
+.reveal-card:nth-child(3) { transition-delay: 0.16s; }
+.reveal-card:nth-child(4) { transition-delay: 0.24s; }
+.reveal-card:nth-child(5) { transition-delay: 0.32s; }
+.reveal-card:nth-child(6) { transition-delay: 0.40s; }
+.reveal-card:nth-child(7) { transition-delay: 0.48s; }
+.reveal-card:nth-child(8) { transition-delay: 0.56s; }
+
+/* No motion? — show everything immediately */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-card,
+  .reveal-block {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

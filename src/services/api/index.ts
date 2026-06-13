@@ -14,7 +14,8 @@
 // Example Formspree endpoint: https://formspree.io/f/YOUR_FORM_ID
 // Example: POST { name, email, phone, company, interest, message }
 
-export const FORM_ENDPOINT = ((import.meta as any).env?.VITE_CONTACT_FORM_ENDPOINT) || ''
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const FORM_ENDPOINT = ((import.meta as any).env?.VITE_CONTACT_FORM_ENDPOINT as string) || ''
 
 export interface ContactFormData {
   name: string

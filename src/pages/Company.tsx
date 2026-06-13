@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import CTASection from '../components/CTASection'
 import './Company.css'
+import PageMeta from '../components/PageMeta'
 
 const whatWeDo = [
   { icon: Layers,      title: 'Business Process Optimization', desc: 'We help organisations map, document, and restructure their workflows before implementing any system — so technology fits the business, not the other way around.', color: 'blue'  },
@@ -49,7 +50,13 @@ const whyItems = [
 
 export default function Company() {
   return (
-    <div style={{ paddingTop: 72 }}>
+    <>
+        <PageMeta
+        title="Company — About ProcessEdge Solutions"
+        description="ProcessEdge Solutions is a business process and technology company helping organisations improve operational control, visibility, and performance through structured systems and training."
+        path="/company"
+      />
+      <div style={{ paddingTop: 72 }}>
 
       {/* Hero */}
       <section className="page-hero">
@@ -218,7 +225,7 @@ export default function Company() {
             </p>
           </div>
           <div className="co-approach-grid">
-            {approach.map((step, i) => (
+            {approach.map((step, _i) => (
               <div key={step.num} className="co-approach-step">
                 <div className="co-approach-step__icon">
                   <step.icon size={19} />
@@ -262,5 +269,6 @@ export default function Company() {
         secondaryTo="/solutions"
       />
     </div>
+    </>
   )
 }

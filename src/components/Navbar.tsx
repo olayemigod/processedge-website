@@ -41,8 +41,10 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen]             = useState(false)
   const [scrolled, setScrolled]             = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const location   = useLocation()
+  const closeTimer  = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
+  const location    = useLocation()
 
   // ── Scroll detection ────────────────────────────────────────────────────────
   useEffect(() => {
@@ -62,6 +64,71 @@ export default function Navbar() {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
+  // ── Focus trap: move focus into mobile menu when it opens ───────────────────
+  useEffect(() => {
+    if (!menuOpen) return
+
+    // Wait a tick so the menu is rendered before we query it
+    const frame = requestAnimationFrame(() => {
+      const menu = mobileMenuRef.current
+      if (!menu) return
+      const firstFocusable = menu.querySelector<HTMLElement>(
+        'a[href], button, [tabindex]:not([tabindex="-1"])'
+      )
+      firstFocusable?.focus()
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [menuOpen])
+
+  // ── Escape key closes mobile menu + returns focus ───────────────────────────
+  useEffect(() => {
+    if (!menuOpen) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false)
+        hamburgerRef.current?.focus()
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [menuOpen])
+
+  // ── Tab focus trap inside mobile menu ──────────────────────────────────────
+  useEffect(() => {
+    if (!menuOpen) return
+    const menu = mobileMenuRef.current
+    if (!menu) return
+
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return
+      const focusable = Array.from(
+        menu.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => !el.closest('[disabled]'))
+
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last  = focusable[focusable.length - 1]
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
+
+    menu.addEventListener('keydown', handleTab)
+    return () => menu.removeEventListener('keydown', handleTab)
   }, [menuOpen])
 
   // ── Hover helpers with delay ─────────────────────────────────────────────────
@@ -96,6 +163,15 @@ export default function Navbar() {
   const panelProps = {
     onMouseEnter: cancelClose,
     onMouseLeave: scheduleClose,
+  }
+
+  const toggleMenu = () => {
+    const next = !menuOpen
+    setMenuOpen(next)
+    // When closing via hamburger, return focus to hamburger button
+    if (!next) {
+      requestAnimationFrame(() => hamburgerRef.current?.focus())
+    }
   }
 
   return (
@@ -223,10 +299,12 @@ export default function Navbar() {
             Book Demo
           </Link>
           <button
+            ref={hamburgerRef}
             className="navbar__hamburger"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={toggleMenu}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
+            aria-controls="navbar-mobile-menu"
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -235,7 +313,14 @@ export default function Navbar() {
 
       {/* ── Mobile Menu Panel ── */}
       {menuOpen && (
-        <div className="navbar__mobile" role="dialog" aria-label="Mobile navigation">
+        <div
+          id="navbar-mobile-menu"
+          className="navbar__mobile"
+          role="dialog"
+          aria-label="Mobile navigation"
+          aria-modal="true"
+          ref={mobileMenuRef}
+        >
           <Link to="/" className="navbar__mobile-link">Home</Link>
 
           <div className="navbar__mobile-section">

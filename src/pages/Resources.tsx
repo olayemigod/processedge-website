@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import CTASection from '../components/CTASection'
 import './Resources.css'
+import PageMeta from '../components/PageMeta'
 
 // ── Article data ──────────────────────────────────────────────────────────────
 
@@ -159,7 +160,13 @@ export default function Resources() {
     : articles.filter(a => a.category === active)
 
   return (
-    <div style={{ paddingTop: 72 }}>
+    <>
+        <PageMeta
+        title="Resources — Guides & Articles on ERP, Accounting, and Business Systems"
+        description="Practical guides and articles on ERP implementation, business process optimization, accounting, retail automation, and industry-specific systems for Nigerian organisations."
+        path="/resources"
+      />
+      <div style={{ paddingTop: 72 }}>
 
       {/* ── Page Hero ── */}
       <section className="page-hero">
@@ -281,5 +288,6 @@ export default function Resources() {
         secondaryTo="/products"
       />
     </div>
+    </>
   )
 }
