@@ -4,11 +4,11 @@ import type { ProductPageData } from '../../components/ProductPageLayout'
 
 const data: ProductPageData = {
   name: 'EduEdge',
-  badge: 'Featured Product',
+  badge: 'Under Development',
   badgeVariant: 'green',
   tagline: 'Education Management & CBT Platform',
-  heroDesc: 'EduEdge is an education-focused ProcessEdge solution that combines ERPNext/Frappe Education capabilities with CBT exam management, question banks, result synchronization, and academic workflow automation.',
-  primaryCTA: 'Book a Demo',
+  heroDesc: 'EduEdge is a development-stage education solution under active planning that combines ERPNext/Frappe Education capabilities with CBT exam management, question banks, result synchronization, and academic workflow automation.',
+  primaryCTA: 'Register Interest',
   secondaryCTA: 'Explore Resources',
   secondaryTo: '/resources/school-management-cbt',
   icon: GraduationCap,
@@ -80,8 +80,8 @@ const data: ProductPageData = {
     { title: 'Software Training and Adoption: Why Systems Fail Without People', path: '/resources/software-training-and-adoption', category: 'Training' },
   ],
 
-  ctaHeadline: 'Ready to Modernise Your School Operations?',
-  ctaSubtext: 'Book a personalised EduEdge demo and see how it connects your student records, CBT exams, fee management, and academic reporting in one platform.',
+  ctaHeadline: 'Interested in Modernising Your School Operations?',
+  ctaSubtext: 'Register interest for a walkthrough preview and see how EduEdge connects student records, CBT exams, fee management, and academic reporting in one platform.',
 }
 
 export default function EduEdge() {

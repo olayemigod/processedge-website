@@ -3,7 +3,8 @@ import {
   Target, Zap, Users, Globe, Layers, Calculator,
   ShoppingCart, BookOpen, GraduationCap, PawPrint,
   Activity, Hotel, Church, Sprout, Cpu, CheckCircle2,
-  ArrowRight, Search, GitMerge, Database, Monitor, TrendingUp, RefreshCw
+  ArrowRight, Search, GitMerge, Database, Monitor, TrendingUp, RefreshCw,
+  CreditCard
 } from 'lucide-react'
 import CTASection from '../components/CTASection'
 import './Company.css'
@@ -21,11 +22,13 @@ const whatWeDo = [
 const products = [
   { name: 'EduEdge',          icon: GraduationCap, path: '/products/eduedge',    color: 'blue'  },
   { name: 'VetEdge',          icon: PawPrint,      path: '/products/vetedge',    color: 'green' },
+  { name: 'RetailEdge',       icon: ShoppingCart,  path: '/contact',             color: 'green' },
   { name: 'ClinicEdge',       icon: Activity,      path: '/products/clinicedge', color: 'blue'  },
   { name: 'HotelEdge',        icon: Hotel,         path: '/products/hoteledge',  color: 'green' },
   { name: 'CoopEdge',         icon: Users,         path: '/products/coopedge',   color: 'blue'  },
   { name: 'ChurchEdge',       icon: Church,        path: '/products/churchedge', color: 'green' },
   { name: 'AgricEdge',        icon: Sprout,        path: '/products/agricedge',  color: 'blue'  },
+  { name: 'EdgePay',          icon: CreditCard,    path: '/contact',             color: 'purple' },
   { name: 'CoreEdge',         icon: Cpu,           path: '/products/core',       color: 'green' },
 ]
 

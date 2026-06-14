@@ -1,35 +1,53 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, ChevronDown, LogIn, CalendarCheck } from 'lucide-react'
+import {
+  Menu, X, ChevronDown, LogIn, CalendarCheck,
+  Settings, GitMerge, FileText, ShoppingCart, Calculator, BookOpen, Cpu, Info, Globe, Tag, Mail
+} from 'lucide-react'
 import Logo from './Logo'
 import { PORTAL_URL } from '../config'
 import './Navbar.css'
+import { EDGESUITE_PRODUCTS } from '../data/edgeSuiteProducts'
 
 // ── Nav data ──────────────────────────────────────────────────────────────────
 
-const NAV_PRODUCTS = [
-  { name: 'EduEdge',          desc: 'School & CBT management',              path: '/products/eduedge',    badge: 'Featured' },
-  { name: 'VetEdge',          desc: 'Veterinary practice management',        path: '/products/vetedge'    },
-  { name: 'ClinicEdge',       desc: 'Healthcare operations management',       path: '/products/clinicedge' },
-  { name: 'HotelEdge',        desc: 'Hospitality & hotel management',         path: '/products/hoteledge'  },
-  { name: 'CoopEdge',         desc: 'Cooperative management',                 path: '/products/coopedge'   },
-  { name: 'ChurchEdge',       desc: 'Church & ministry management',           path: '/products/churchedge' },
-  { name: 'AgricEdge',        desc: 'Agriculture & agribusiness management',  path: '/products/agricedge'  },
-  { name: 'CoreEdge',         desc: 'The ERPNext platform layer',             path: '/products/core',       badge: 'Platform' },
+const NAV_SERVICES_GROUPS = [
+  {
+    title: 'Implementation & Advisory',
+    items: [
+      { name: 'ERP Implementation', desc: 'Full ERPNext deployment & go-live', path: '/services/erp-implementation', icon: Settings },
+      { name: 'Business Process Optimization', desc: 'Streamline workflows and audit readiness', path: '/resources/business-process-optimization', icon: GitMerge },
+      { name: 'Process Review & Consultation', desc: 'Operational assessment and system design', path: '/services/erp-implementation', icon: FileText }
+    ]
+  },
+  {
+    title: 'Business Operations',
+    items: [
+      { name: 'Retail Sales Automation', desc: 'POS, inventory & branch controls', path: '/services/retail-sales-automation', icon: ShoppingCart },
+      { name: 'Accounting Solutions', desc: 'Bookkeeping, reporting & compliance', path: '/services/accounting-solutions', icon: Calculator },
+      { name: 'Training & Support', desc: 'User training & ongoing ERP support', path: '/services/training-support', icon: BookOpen }
+    ]
+  }
 ]
 
-const NAV_SERVICES = [
-  { name: 'ERP Implementation',      desc: 'Full ERPNext deployment & go-live',   path: '/services/erp-implementation'     },
-  { name: 'Accounting Solutions',    desc: 'Bookkeeping, reporting & compliance',  path: '/services/accounting-solutions'   },
-  { name: 'Retail Sales Automation', desc: 'POS, inventory & branch controls',     path: '/services/retail-sales-automation' },
-  { name: 'Training & Support',      desc: 'User training & ongoing ERP support',  path: '/services/training-support'       },
-]
-
-// Resources and Contact live here — not as standalone nav links
-const NAV_COMPANY = [
-  { name: 'About Us',  path: '/company'   },
-  { name: 'Resources', path: '/resources' },
-  { name: 'Contact',   path: '/contact'   },
+const NAV_COMPANY_GROUPS = [
+  {
+    title: 'About ProcessEdge',
+    items: [
+      { name: 'Company', desc: 'Learn about our mission and team', path: '/company', icon: Info },
+      { name: 'Industries', desc: 'Sectors we serve across Africa', path: '/industries', icon: Globe },
+      { name: 'Pricing', desc: 'Transparent subscription plans', path: '/pricing', icon: Tag },
+      { name: 'Contact', desc: 'Get in touch with our office', path: '/contact', icon: Mail }
+    ]
+  },
+  {
+    title: 'Resources / Action',
+    items: [
+      { name: 'Book a Consultation', desc: 'Schedule a free process audit', path: '/contact', icon: CalendarCheck },
+      { name: 'Client Portal', desc: 'Access your cloud dashboard', path: PORTAL_URL, icon: LogIn, external: true },
+      { name: 'Explore Products', desc: 'Browse the full EdgeSuite', path: '/products', icon: Cpu }
+    ]
+  }
 ]
 
 // ── Hover-delay constants ─────────────────────────────────────────────────────
@@ -41,6 +59,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen]             = useState(false)
   const [scrolled, setScrolled]             = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [expandedSection, setExpandedSection] = useState<string | null>(null)
   const closeTimer  = useRef<ReturnType<typeof setTimeout> | null>(null)
   const hamburgerRef = useRef<HTMLButtonElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
@@ -57,6 +76,7 @@ export default function Navbar() {
   useEffect(() => {
     setMenuOpen(false)
     setActiveDropdown(null)
+    setExpandedSection(null)
     if (closeTimer.current) clearTimeout(closeTimer.current)
   }, [location])
 
@@ -158,6 +178,10 @@ export default function Navbar() {
   const isGroupActive = (paths: string[]) =>
     paths.some(p => location.pathname === p || location.pathname.startsWith(p + '/'))
 
+  const toggleMobileSection = (section: string) => {
+    setExpandedSection(prev => prev === section ? null : section)
+  }
+
   // ── Shared dropdown props factory ────────────────────────────────────────────
   const dropdownProps = (name: string) => ({
     onMouseEnter: () => openDropdown(name),
@@ -201,30 +225,72 @@ export default function Navbar() {
           {/* Products dropdown */}
           <div className="navbar__dropdown-wrap" {...dropdownProps('products')}>
             <button
-              className={`navbar__link navbar__link--btn${isGroupActive(NAV_PRODUCTS.map(p => p.path)) ? ' active' : ''}`}
+              className={`navbar__link navbar__link--btn${isGroupActive(EDGESUITE_PRODUCTS.map(p => p.ctaLink)) ? ' active' : ''}`}
               aria-haspopup="true"
               aria-expanded={activeDropdown === 'products'}
             >
               Products <ChevronDown size={13} />
             </button>
             {activeDropdown === 'products' && (
-              <div className="navbar__dropdown navbar__dropdown--wide" role="menu" {...panelProps}>
-                <div className="navbar__dropdown-header">Our Products</div>
-                {NAV_PRODUCTS.map(p => (
-                  <Link key={p.path} to={p.path} className="navbar__dropdown-item" role="menuitem">
-                    <span className="navbar__dropdown-name">
-                      {p.name}
-                      {p.badge && (
-                        <span className={`navbar__dropdown-badge navbar__dropdown-badge--${p.badge === 'Featured' ? 'featured' : 'platform'}`}>
-                          {p.badge}
-                        </span>
-                      )}
-                    </span>
-                    <span className="navbar__dropdown-desc">{p.desc}</span>
-                  </Link>
-                ))}
-                <div className="navbar__dropdown-footer">
-                  <Link to="/products">View all products →</Link>
+              <div className="navbar__mega-panel navbar__mega-panel--products" role="menu" {...panelProps}>
+                <div className="navbar__mega-inner">
+                  {/* Left Column: Platform & Infrastructure */}
+                  <div className="navbar__mega-section navbar__mega-section--left">
+                    <div className="navbar__mega-header">Platform &amp; Infrastructure</div>
+                    <div className="navbar__mega-list">
+                      {EDGESUITE_PRODUCTS.filter(p => p.category === 'Platform Foundation' || p.category === 'Payments Infrastructure').map(p => {
+                        const Icon = p.icon
+                        const statusClass = p.status.toLowerCase().replace(' ', '-')
+                        return (
+                          <Link key={p.slug} to={p.ctaLink} className="navbar__mega-item navbar__mega-item--foundation" role="menuitem">
+                            <div className="navbar__mega-item-icon">
+                              <Icon size={18} />
+                            </div>
+                            <div className="navbar__mega-item-content">
+                              <div className="navbar__mega-item-title">
+                                <span className="navbar__mega-item-name">{p.name}</span>
+                                <span className={`navbar__mega-badge navbar__mega-badge--${statusClass}`}>
+                                  {p.status}
+                                </span>
+                              </div>
+                              <div className="navbar__mega-item-sector">{p.targetSector}</div>
+                              <div className="navbar__mega-item-desc">{p.shortDescription}</div>
+                            </div>
+                          </Link>
+                        )
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Right Column: Industry Solutions */}
+                  <div className="navbar__mega-section navbar__mega-section--right">
+                    <div className="navbar__mega-header">Industry Solutions</div>
+                    <div className="navbar__mega-grid">
+                      {EDGESUITE_PRODUCTS.filter(p => p.category === 'Industry App').map(p => {
+                        const Icon = p.icon
+                        const statusClass = p.status.toLowerCase().replace(' ', '-')
+                        return (
+                          <Link key={p.slug} to={p.ctaLink} className="navbar__mega-item" role="menuitem">
+                            <div className="navbar__mega-item-icon">
+                              <Icon size={16} />
+                            </div>
+                            <div className="navbar__mega-item-content">
+                              <div className="navbar__mega-item-title">
+                                <span className="navbar__mega-item-name">{p.name}</span>
+                                <span className={`navbar__mega-badge navbar__mega-badge--${statusClass}`}>
+                                  {p.status}
+                                </span>
+                              </div>
+                              <div className="navbar__mega-item-sector">{p.targetSector}</div>
+                            </div>
+                          </Link>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar__mega-footer">
+                  <Link to="/products">View all EdgeSuite products →</Link>
                 </div>
               </div>
             )}
@@ -233,23 +299,41 @@ export default function Navbar() {
           {/* Services dropdown */}
           <div className="navbar__dropdown-wrap" {...dropdownProps('services')}>
             <button
-              className={`navbar__link navbar__link--btn${isGroupActive(NAV_SERVICES.map(s => s.path)) ? ' active' : ''}`}
+              className={`navbar__link navbar__link--btn${isGroupActive(NAV_SERVICES_GROUPS.flatMap(g => g.items.map(i => i.path))) ? ' active' : ''}`}
               aria-haspopup="true"
               aria-expanded={activeDropdown === 'services'}
             >
               Services <ChevronDown size={13} />
             </button>
             {activeDropdown === 'services' && (
-              <div className="navbar__dropdown navbar__dropdown--wide" role="menu" {...panelProps}>
-                <div className="navbar__dropdown-header">Professional Services</div>
-                {NAV_SERVICES.map(s => (
-                  <Link key={s.path} to={s.path} className="navbar__dropdown-item" role="menuitem">
-                    <span className="navbar__dropdown-name">{s.name}</span>
-                    <span className="navbar__dropdown-desc">{s.desc}</span>
-                  </Link>
-                ))}
-                <div className="navbar__dropdown-footer">
-                  <Link to="/services">View all services →</Link>
+              <div className="navbar__mega-panel navbar__mega-panel--compact" role="menu" {...panelProps}>
+                <div className="navbar__mega-inner navbar__mega-inner--compact">
+                  {NAV_SERVICES_GROUPS.map(group => (
+                    <div key={group.title} className="navbar__mega-section">
+                      <div className="navbar__mega-header">{group.title}</div>
+                      <div className="navbar__mega-list">
+                        {group.items.map(item => {
+                          const Icon = item.icon
+                          return (
+                            <Link key={item.path} to={item.path} className="navbar__mega-item" role="menuitem">
+                              <div className="navbar__mega-item-icon">
+                                <Icon size={16} />
+                              </div>
+                              <div className="navbar__mega-item-content">
+                                <div className="navbar__mega-item-title">
+                                  <span className="navbar__mega-item-name">{item.name}</span>
+                                </div>
+                                <div className="navbar__mega-item-desc">{item.desc}</div>
+                              </div>
+                            </Link>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="navbar__mega-footer">
+                  <Link to="/services">Explore all services →</Link>
                 </div>
               </div>
             )}
@@ -259,23 +343,54 @@ export default function Navbar() {
           <Link to="/industries" className={`navbar__link${isActive('/industries') ? ' active' : ''}`}>Industries</Link>
           <Link to="/pricing"    className={`navbar__link${isActive('/pricing')    ? ' active' : ''}`}>Pricing</Link>
 
-          {/* Company dropdown — contains About, Resources, Contact */}
+          {/* Company dropdown */}
           <div className="navbar__dropdown-wrap" {...dropdownProps('company')}>
             <button
-              className={`navbar__link navbar__link--btn${isGroupActive(['/company', '/about', '/resources', '/contact']) ? ' active' : ''}`}
+              className={`navbar__link navbar__link--btn${isGroupActive(['/company', '/about', '/resources', '/contact', '/pricing', '/industries']) ? ' active' : ''}`}
               aria-haspopup="true"
               aria-expanded={activeDropdown === 'company'}
             >
               Company <ChevronDown size={13} />
             </button>
             {activeDropdown === 'company' && (
-              <div className="navbar__dropdown" role="menu" {...panelProps}>
-                <div className="navbar__dropdown-header">Company</div>
-                {NAV_COMPANY.map(c => (
-                  <Link key={c.path} to={c.path} className="navbar__dropdown-item" role="menuitem">
-                    <span className="navbar__dropdown-name">{c.name}</span>
-                  </Link>
-                ))}
+              <div className="navbar__mega-panel navbar__mega-panel--compact" role="menu" {...panelProps}>
+                <div className="navbar__mega-inner navbar__mega-inner--compact">
+                  {NAV_COMPANY_GROUPS.map(group => (
+                    <div key={group.title} className="navbar__mega-section">
+                      <div className="navbar__mega-header">{group.title}</div>
+                      <div className="navbar__mega-list">
+                        {group.items.map(item => {
+                          const Icon = item.icon
+                          return item.external ? (
+                            <a key={item.path} href={item.path} target="_blank" rel="noopener noreferrer" className="navbar__mega-item" role="menuitem">
+                              <div className="navbar__mega-item-icon">
+                                <Icon size={16} />
+                              </div>
+                              <div className="navbar__mega-item-content">
+                                <div className="navbar__mega-item-title">
+                                  <span className="navbar__mega-item-name">{item.name}</span>
+                                </div>
+                                <div className="navbar__mega-item-desc">{item.desc}</div>
+                              </div>
+                            </a>
+                          ) : (
+                            <Link key={item.path} to={item.path} className="navbar__mega-item" role="menuitem">
+                              <div className="navbar__mega-item-icon">
+                                <Icon size={16} />
+                              </div>
+                              <div className="navbar__mega-item-content">
+                                <div className="navbar__mega-item-title">
+                                  <span className="navbar__mega-item-name">{item.name}</span>
+                                </div>
+                                <div className="navbar__mega-item-desc">{item.desc}</div>
+                              </div>
+                            </Link>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
@@ -327,42 +442,110 @@ export default function Navbar() {
         >
           <Link to="/" className="navbar__mobile-link">Home</Link>
 
-          <div className="navbar__mobile-section">
-            <span className="navbar__mobile-section-label">Products</span>
-            {NAV_PRODUCTS.map(p => (
-              <Link key={p.path} to={p.path} className="navbar__mobile-link navbar__mobile-link--sub">
-                {p.name}
-              </Link>
-            ))}
-            <Link to="/products" className="navbar__mobile-link navbar__mobile-link--all">
-              View all products →
-            </Link>
+          {/* Products Accordion */}
+          <div className="navbar__mobile-accordion">
+            <button
+              className="navbar__mobile-accordion-trigger"
+              onClick={() => toggleMobileSection('products')}
+              aria-expanded={expandedSection === 'products'}
+              aria-controls="mobile-products-panel"
+            >
+              <span>Products</span>
+              <ChevronDown size={16} className={expandedSection === 'products' ? 'rotate-180' : ''} />
+            </button>
+            {expandedSection === 'products' && (
+              <div id="mobile-products-panel" className="navbar__mobile-accordion-content">
+                <div className="navbar__mobile-section-title">Platform &amp; Infrastructure</div>
+                {EDGESUITE_PRODUCTS.filter(p => p.category === 'Platform Foundation' || p.category === 'Payments Infrastructure').map(p => {
+                  const statusClass = p.status.toLowerCase().replace(' ', '-')
+                  return (
+                    <Link key={p.slug} to={p.ctaLink} className="navbar__mobile-sublink">
+                      <span className="navbar__mobile-sublink-name">{p.name}</span>
+                      <span className={`navbar__mobile-badge navbar__mobile-badge--${statusClass}`}>{p.status}</span>
+                    </Link>
+                  )
+                })}
+
+                <div className="navbar__mobile-section-title" style={{ marginTop: 12 }}>Industry Solutions</div>
+                {EDGESUITE_PRODUCTS.filter(p => p.category === 'Industry App').map(p => {
+                  const statusClass = p.status.toLowerCase().replace(' ', '-')
+                  return (
+                    <Link key={p.slug} to={p.ctaLink} className="navbar__mobile-sublink">
+                      <span className="navbar__mobile-sublink-name">{p.name}</span>
+                      <span className={`navbar__mobile-badge navbar__mobile-badge--${statusClass}`}>{p.status}</span>
+                    </Link>
+                  )
+                })}
+                <Link to="/products" className="navbar__mobile-link-all" style={{ marginTop: 8 }}>
+                  View all products →
+                </Link>
+              </div>
+            )}
           </div>
 
-          <div className="navbar__mobile-section">
-            <span className="navbar__mobile-section-label">Services</span>
-            {NAV_SERVICES.map(s => (
-              <Link key={s.path} to={s.path} className="navbar__mobile-link navbar__mobile-link--sub">
-                {s.name}
-              </Link>
-            ))}
-            <Link to="/services" className="navbar__mobile-link navbar__mobile-link--all">
-              View all services →
-            </Link>
+          {/* Services Accordion */}
+          <div className="navbar__mobile-accordion">
+            <button
+              className="navbar__mobile-accordion-trigger"
+              onClick={() => toggleMobileSection('services')}
+              aria-expanded={expandedSection === 'services'}
+              aria-controls="mobile-services-panel"
+            >
+              <span>Services</span>
+              <ChevronDown size={16} className={expandedSection === 'services' ? 'rotate-180' : ''} />
+            </button>
+            {expandedSection === 'services' && (
+              <div id="mobile-services-panel" className="navbar__mobile-accordion-content">
+                {NAV_SERVICES_GROUPS.map(group => (
+                  <div key={group.title} style={{ marginBottom: 12 }}>
+                    <div className="navbar__mobile-section-title">{group.title}</div>
+                    {group.items.map(item => (
+                      <Link key={item.path} to={item.path} className="navbar__mobile-sublink">
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                ))}
+                <Link to="/services" className="navbar__mobile-link-all">
+                  View all services →
+                </Link>
+              </div>
+            )}
           </div>
 
           <Link to="/solutions"  className="navbar__mobile-link">Solutions</Link>
           <Link to="/industries" className="navbar__mobile-link">Industries</Link>
           <Link to="/pricing"    className="navbar__mobile-link">Pricing</Link>
 
-          {/* Company section — Resources and Contact live here, not as standalone items */}
-          <div className="navbar__mobile-section">
-            <span className="navbar__mobile-section-label">Company</span>
-            {NAV_COMPANY.map(c => (
-              <Link key={c.path} to={c.path} className="navbar__mobile-link navbar__mobile-link--sub">
-                {c.name}
-              </Link>
-            ))}
+          {/* Company Accordion */}
+          <div className="navbar__mobile-accordion">
+            <button
+              className="navbar__mobile-accordion-trigger"
+              onClick={() => toggleMobileSection('company')}
+              aria-expanded={expandedSection === 'company'}
+              aria-controls="mobile-company-panel"
+            >
+              <span>Company</span>
+              <ChevronDown size={16} className={expandedSection === 'company' ? 'rotate-180' : ''} />
+            </button>
+            {expandedSection === 'company' && (
+              <div id="mobile-company-panel" className="navbar__mobile-accordion-content">
+                {NAV_COMPANY_GROUPS.map(group => (
+                  <div key={group.title} style={{ marginBottom: 12 }}>
+                    <div className="navbar__mobile-section-title">{group.title}</div>
+                    {group.items.map(item => item.external ? (
+                      <a key={item.path} href={item.path} target="_blank" rel="noopener noreferrer" className="navbar__mobile-sublink">
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link key={item.path} to={item.path} className="navbar__mobile-sublink">
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="navbar__mobile-actions">

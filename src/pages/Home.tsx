@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import {
-  GraduationCap, PawPrint, Hotel, Users, Church, Cpu, Activity, Sprout,
+  GraduationCap,
   Settings, Calculator, ShoppingCart, BookOpen,
   AlertCircle, Database, BarChart2, RefreshCw, FileWarning, Timer,
   CheckCircle2, Zap, Layers, TrendingUp, ShieldCheck, HeadphonesIcon,
@@ -14,6 +14,7 @@ import TrustSection from '../components/TrustSection'
 import RevealGroup from '../components/RevealGroup'
 import './Home.css'
 import PageMeta from '../components/PageMeta'
+import { EDGESUITE_PRODUCTS } from '../data/edgeSuiteProducts'
 
 // ── Problems ──────────────────────────────────────────────────────────────────
 const problems = [
@@ -23,82 +24,6 @@ const problems = [
   { icon: RefreshCw,   title: 'Repeated Errors',   desc: 'The same mistakes repeated because nothing is tracked, monitored, or automated.' },
   { icon: FileWarning, title: 'Weak Reporting',    desc: 'Management decisions made on guesswork because reports are slow or non-existent.' },
   { icon: Timer,       title: 'Slow Operations',   desc: 'Approvals, paperwork, and coordination bottlenecks that slow your business down.' },
-]
-
-// ── 8 Industry Apps ───────────────────────────────────────────────────────────
-const industryApps = [
-  {
-    name: 'EduEdge',
-    tagline: 'School & CBT Management',
-    desc: 'CBT, question banks, result sync, academic records, fee management, and school analytics.',
-    path: '/products/eduedge',
-    icon: GraduationCap,
-    color: 'blue',
-    badge: 'Featured',
-  },
-  {
-    name: 'VetEdge',
-    tagline: 'Veterinary Practice',
-    desc: 'Consultations, vaccinations, billing, stock control, boarding, and client reminders.',
-    path: '/products/vetedge',
-    icon: PawPrint,
-    color: 'green',
-    badge: null,
-  },
-  {
-    name: 'ClinicEdge',
-    tagline: 'Healthcare Operations',
-    desc: 'Patient records, appointments, consultation workflows, billing, pharmacy, diagnostics, and clinic reporting.',
-    path: '/products/clinicedge',
-    icon: Activity,
-    color: 'blue',
-    badge: null,
-  },
-  {
-    name: 'HotelEdge',
-    tagline: 'Hospitality Management',
-    desc: 'Reservations, rooms, guest services, billing, inventory, and operations reporting.',
-    path: '/products/hoteledge',
-    icon: Hotel,
-    color: 'blue',
-    badge: null,
-  },
-  {
-    name: 'CoopEdge',
-    tagline: 'Cooperative Management',
-    desc: 'Member records, savings, loans, contributions, approvals, and financial statements.',
-    path: '/products/coopedge',
-    icon: Users,
-    color: 'green',
-    badge: null,
-  },
-  {
-    name: 'ChurchEdge',
-    tagline: 'Church & Ministry',
-    desc: 'Members, first-timers, departments, giving, programmes, and growth analytics.',
-    path: '/products/churchedge',
-    icon: Church,
-    color: 'blue',
-    badge: null,
-  },
-  {
-    name: 'AgricEdge',
-    tagline: 'Agriculture & Agribusiness',
-    desc: 'Farm records, input management, farmer profiles, procurement, aggregation, payments, and agribusiness reporting.',
-    path: '/products/agricedge',
-    icon: Sprout,
-    color: 'green',
-    badge: null,
-  },
-  {
-    name: 'CoreEdge',
-    tagline: 'Platform Foundation',
-    desc: 'The CoreEdge platform powers identity, app access, branch context, subscriptions, notifications, and administrative control across all EdgeSuite apps.',
-    path: '/products/core',
-    icon: Cpu,
-    color: 'green',
-    badge: 'Platform',
-  },
 ]
 
 // ── Professional Services ─────────────────────────────────────────────────────
@@ -402,17 +327,17 @@ export default function Home() {
             <div className="featured-product__inner">
               <div className="featured-product__content reveal-block" data-revealed="true">
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-                  <div className="section-label section-label-green" style={{ marginBottom: 0 }}>Featured Product</div>
-                  <div className="featured-badge">⭐ EduEdge</div>
+                  <div className="section-label section-label-green" style={{ marginBottom: 0 }}>Product In Planning</div>
+                  <div className="featured-badge">🛠️ Under Development — EduEdge</div>
                 </div>
                 <h2 className="section-title" style={{ marginBottom: 16 }}>
-                  Complete Education Management &amp; CBT Platform
+                  Next-Gen Education Management &amp; CBT Planning
                 </h2>
                 <p style={{ color: 'var(--text-body)', lineHeight: 1.75, marginBottom: 28, fontSize: '1rem' }}>
-                  EduEdge is an education-focused ProcessEdge solution that combines
+                  EduEdge is an education-focused solution currently in the development stage. It is planned to combine
                   ERPNext/Frappe Education capabilities with CBT exam management,
                   question banks, result synchronization, and academic workflow
-                  automation — built for Nigerian schools and institutions.
+                  automation — being designed specifically for Nigerian schools and institutions.
                 </p>
                 <ul className="featured-product__list">
                   {eduFeatures.map(f => (
@@ -424,10 +349,10 @@ export default function Home() {
                 </ul>
                 <div style={{ display: 'flex', gap: 12, marginTop: 32, flexWrap: 'wrap' }}>
                   <Link to="/products/eduedge" className="btn btn-primary btn-lg">
-                    Explore EduEdge <ArrowRight size={15} />
+                    Explore EduEdge Planning <ArrowRight size={15} />
                   </Link>
                   <Link to="/contact" className="btn btn-green btn-lg">
-                    <CalendarCheck size={15} /> Book a Demo
+                    <CalendarCheck size={15} /> Register Interest
                   </Link>
                 </div>
               </div>
@@ -439,19 +364,19 @@ export default function Home() {
                     </div>
                     <div>
                       <div className="featured-product__title">EduEdge</div>
-                      <div className="featured-product__sub">Education Management Platform</div>
+                      <div className="featured-product__sub">Education Management (In Development)</div>
                     </div>
                   </div>
                   <div className="featured-product__modules">
                     {[
-                      { label: 'CBT Engine',     status: 'active' },
-                      { label: 'Question Bank',  status: 'active' },
-                      { label: 'Student Portal', status: 'active' },
-                      { label: 'Result Sync',    status: 'active' },
-                      { label: 'Fee Management', status: 'active' },
-                      { label: 'Analytics',      status: 'active' },
-                      { label: 'Parent Portal',  status: 'active' },
-                      { label: 'Mobile App',     status: 'soon'   },
+                      { label: 'CBT Engine',     status: 'soon' },
+                      { label: 'Question Bank',  status: 'soon' },
+                      { label: 'Student Portal', status: 'soon' },
+                      { label: 'Result Sync',    status: 'soon' },
+                      { label: 'Fee Management', status: 'soon' },
+                      { label: 'Analytics',      status: 'soon' },
+                      { label: 'Parent Portal',  status: 'soon' },
+                      { label: 'Mobile App',     status: 'soon' },
                     ].map(m => (
                       <div key={m.label} className="featured-product__module">
                         <div className={`featured-product__module-dot ${m.status}`} />
@@ -469,7 +394,7 @@ export default function Home() {
                       { val: 'Auto',   label: 'Result Sync'    },
                     ].map(s => (
                       <div key={s.label} className="featured-product__stat">
-                        <div className="featured-product__stat-val">{s.val}</div>
+                        <div className="featured-product__stat-val" style={{ color: '#9ca3af' }}>{s.val}</div>
                         <div className="featured-product__stat-label">{s.label}</div>
                       </div>
                     ))}
@@ -492,34 +417,94 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Group A — Industry Apps */}
+            {/* Group A — Platform & Payments Infrastructure */}
+            <div className="ps-group">
+              <div className="ps-group__header">
+                <div className="ps-group__badge ps-group__badge--foundation" style={{ background: 'var(--blue-light)', color: 'var(--blue)' }}>Platform &amp; Payments</div>
+                <h3 className="ps-group__title">EdgeSuite Foundations</h3>
+                <p className="ps-group__desc">
+                  The infrastructure powering EdgeSuite applications and standalone business operations.
+                </p>
+              </div>
+              <RevealGroup className="grid-2" style={{ gap: 28, marginBottom: 48 }}>
+                {[
+                  EDGESUITE_PRODUCTS.find(p => p.slug === 'core'),
+                  EDGESUITE_PRODUCTS.find(p => p.slug === 'edgepay')
+                ].map(prod => {
+                  if (!prod) return null;
+                  const Icon = prod.icon;
+                  return (
+                    <Link
+                      key={prod.name}
+                      to={prod.ctaLink}
+                      className={`ps-card ps-card--${prod.color} reveal-card`}
+                      style={{ padding: '32px 28px' }}
+                    >
+                      <div className={`ps-card__badge ps-card__badge--${prod.status.toLowerCase().replace(' ', '-')}`}>
+                        {prod.status}
+                      </div>
+                      <div className={`ps-card__icon ps-card__icon--${prod.color}`}>
+                        <Icon size={24} />
+                      </div>
+                      <div className="ps-card__name" style={{ fontSize: '1.25rem', marginTop: 8 }}>{prod.name}</div>
+                      <div className="ps-card__tagline">{prod.targetSector}</div>
+                      <p className="ps-card__desc" style={{ fontSize: '0.88rem', margin: '12px 0 20px', lineHeight: 1.6 }}>{prod.shortDescription}</p>
+                      
+                      <div style={{ marginBottom: 20 }}>
+                        <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.07em', color: 'var(--text-muted)', marginBottom: 8 }}>Key Capabilities</div>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                          {prod.keyFeatures.map(f => (
+                            <li key={f} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.8rem', color: 'var(--text-body)' }}>
+                              <CheckCircle2 size={13} color="var(--green)" />
+                              <span>{f}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="ps-card__link" style={{ marginTop: 'auto' }}>
+                        {prod.ctaLabel} <ArrowRight size={13} />
+                      </div>
+                    </Link>
+                  );
+                })}
+              </RevealGroup>
+            </div>
+
+            {/* Group B — Industry Applications */}
             <div className="ps-group">
               <div className="ps-group__header">
                 <div className="ps-group__badge ps-group__badge--app">Industry Apps</div>
-                <h3 className="ps-group__title">8+ Purpose-Built Industry Applications</h3>
+                <h3 className="ps-group__title">Featured EdgeSuite Applications</h3>
                 <p className="ps-group__desc">
-                  Each app is designed around the real operational workflow of its sector — not a generic ERP relabelled to fit.
+                  Operational suites built to automate workflows for specific industries.
                 </p>
               </div>
-              <RevealGroup className="ps-grid ps-grid--apps">
-                {industryApps.map(app => (
-                  <Link key={app.name} to={app.path} className={`ps-card ps-card--${app.color} reveal-card`}>
-                    {app.badge && (
-                      <div className={`ps-card__badge ps-card__badge--${app.badge === 'Featured' ? 'featured' : app.badge === 'Platform' ? 'platform' : 'new'}`}>
-                        {app.badge}
+              <RevealGroup className="grid-2" style={{ gap: 24 }}>
+                {EDGESUITE_PRODUCTS.filter(p => ['retailedge', 'vetedge'].includes(p.slug)).map(prod => {
+                  const Icon = prod.icon;
+                  return (
+                    <Link
+                      key={prod.name}
+                      to={prod.ctaLink}
+                      className={`ps-card ps-card--${prod.color} reveal-card`}
+                    >
+                      <div className={`ps-card__badge ps-card__badge--${prod.status.toLowerCase().replace(' ', '-')}`}>
+                        {prod.status}
                       </div>
-                    )}
-                    <div className={`ps-card__icon ps-card__icon--${app.color}`}>
-                      <app.icon size={22} />
-                    </div>
-                    <div className="ps-card__name">{app.name}</div>
-                    <div className="ps-card__tagline">{app.tagline}</div>
-                    <p className="ps-card__desc">{app.desc}</p>
-                    <div className="ps-card__link">
-                      Learn More <ArrowRight size={13} />
-                    </div>
-                  </Link>
-                ))}
+                      <div className={`ps-card__icon ps-card__icon--${prod.color}`}>
+                        <Icon size={22} />
+                      </div>
+                      <div className="ps-card__name">{prod.name}</div>
+                      <div className="ps-card__tagline">{prod.targetSector}</div>
+                      <p className="ps-card__desc" style={{ margin: '8px 0 16px' }}>{prod.shortDescription}</p>
+                      
+                      <div className="ps-card__link" style={{ marginTop: 'auto' }}>
+                        {prod.ctaLabel} <ArrowRight size={13} />
+                      </div>
+                    </Link>
+                  );
+                })}
               </RevealGroup>
               <div style={{ textAlign: 'center', marginTop: 32 }}>
                 <Link to="/products" className="btn btn-secondary">

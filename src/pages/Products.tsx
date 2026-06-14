@@ -1,118 +1,187 @@
-import { GraduationCap, PawPrint, Hotel, Users, Church, Cpu, Activity, Sprout } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { CheckCircle2, ArrowRight } from 'lucide-react'
 import CTASection from '../components/CTASection'
 import PageMeta from '../components/PageMeta'
-import { ArrowRight } from 'lucide-react'
-
-const apps = [
-  { name: 'EduEdge',    tagline: 'School & CBT Management',       desc: 'CBT, question banks, result sync, student portals, academic records, and school analytics.', path: '/products/eduedge',    icon: GraduationCap, color: 'blue',  badge: 'Featured' },
-  { name: 'VetEdge',    tagline: 'Veterinary Practice',           desc: 'Consultations, vaccinations, billing, stock, boarding, grooming, and client reminders.',    path: '/products/vetedge',    icon: PawPrint,     color: 'green', badge: null },
-  { name: 'ClinicEdge',  tagline: 'Healthcare Operations',         desc: 'Patient records, appointments, consultation workflows, billing, pharmacy, diagnostics, and clinic reporting.', path: '/products/clinicedge', icon: Activity, color: 'blue',  badge: null },
-  { name: 'HotelEdge',  tagline: 'Hospitality Management',        desc: 'Reservations, room management, guest services, billing, and operations reporting.',         path: '/products/hoteledge',  icon: Hotel,        color: 'blue',  badge: null },
-  { name: 'CoopEdge',   tagline: 'Cooperative Management',        desc: 'Member records, savings, loans, contributions, approvals, and financial statements.',       path: '/products/coopedge',   icon: Users,        color: 'green', badge: null },
-  { name: 'ChurchEdge',  tagline: 'Church & Ministry',             desc: 'Members, first-timers, departments, giving, programmes, cell groups, and growth analytics.', path: '/products/churchedge', icon: Church,    color: 'blue',  badge: null },
-  { name: 'AgricEdge',   tagline: 'Agriculture & Agribusiness',    desc: 'Farm records, input management, farmer profiles, procurement, aggregation, payments, and agribusiness reporting.', path: '/products/agricedge', icon: Sprout,  color: 'green', badge: null },
-]
-const badgeStyle = (badge: string | null) => {
-  if (!badge) return {}
-  return {
-    background: badge === 'Featured' ? '#fef3c7' : 'var(--green-light)',
-    color: badge === 'Featured' ? '#92400e' : 'var(--green-dark)',
-    fontFamily: 'Montserrat, sans-serif',
-    fontSize: '0.65rem',
-    fontWeight: 700,
-    letterSpacing: '0.07em',
-    padding: '3px 10px',
-    borderRadius: '100px',
-    display: 'inline-block',
-    marginBottom: 8,
-  }
-}
+import { EDGESUITE_PRODUCTS } from '../data/edgeSuiteProducts'
+import './Products.css'
 
 export default function Products() {
+  const coreEdge = EDGESUITE_PRODUCTS.find(p => p.slug === 'core')
+  const edgePay = EDGESUITE_PRODUCTS.find(p => p.slug === 'edgepay')
+  const industryApps = EDGESUITE_PRODUCTS.filter(p => p.category === 'Industry App')
+
   return (
     <>
-        <PageMeta
-        title="Products — EduEdge, VetEdge, ClinicEdge, HotelEdge, CoopEdge, ChurchEdge, AgricEdge"
-        description="ProcessEdge industry-focused products: EduEdge, VetEdge, ClinicEdge, HotelEdge, CoopEdge, ChurchEdge, AgricEdge, and CoreEdge — purpose-built for Nigerian organisations."
+      <PageMeta
+        title="EdgeSuite Product Catalog — Business Operations & Payments Ecosystem"
+        description="Explore the ProcessEdge EdgeSuite: CoreEdge platform foundation, EdgePay infrastructure, and purpose-built industry applications for schools, clinics, retail, cooperatives, and hotels."
         path="/products"
       />
-      <div style={{ paddingTop: 72 }}>
-      <section className="page-hero">
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="section-label page-hero-label">Product Suite</div>
-          <h1>ProcessEdge Products</h1>
-          <p>Eight purpose-built products covering five industries and the core ERPNext/Frappe platform layer — each one configurable, scalable, and ready to deploy.</p>
-        </div>
-      </section>
-
-      {/* Industry Apps */}
-      <section className="section">
-        <div className="container">
-          <div style={{ marginBottom: 40 }}>
-            <div className="section-label">Industry Apps</div>
-            <h2 className="section-title">Purpose-Built for Your Industry</h2>
-            <p className="section-subtitle">Each app is designed around the real operational workflow of its sector — not a generic ERP fitted with a new label.</p>
-          </div>
-          <div className="grid-3" style={{ gap: 24 }}>
-            {apps.map(app => (
-              <div key={app.name} style={{ background: 'var(--white)', border: '1px solid var(--grey-border)', borderRadius: 16, padding: 28, display: 'flex', flexDirection: 'column', gap: 10, transition: 'all 0.22s', position: 'relative', overflow: 'hidden' }}
-                className="card">
-                {app.badge && <span style={badgeStyle(app.badge) as React.CSSProperties}>{app.badge}</span>}
-                <div className={`icon-box icon-box-${app.color}`} style={{ width: 48, height: 48, marginBottom: 4 }}>
-                  <app.icon size={22} />
-                </div>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)' }}>{app.name}</div>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.73rem', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.07em', color: app.color === 'green' ? 'var(--green)' : 'var(--blue)', marginTop: -4 }}>{app.tagline}</div>
-                <p style={{ fontSize: '0.87rem', color: 'var(--text-muted)', lineHeight: 1.65, flex: 1 }}>{app.desc}</p>
-                <Link to={app.path} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: 'Montserrat, sans-serif', fontSize: '0.82rem', fontWeight: 700, color: app.color === 'green' ? 'var(--green)' : 'var(--blue)', textDecoration: 'none', marginTop: 4 }}>
-                  Learn More <ArrowRight size={13} />
-                </Link>
+      <div className="products-page">
+        {/* --- Hero --- */}
+        <section className="products-hero" aria-label="EdgeSuite Hero">
+          <div className="container">
+            <div className="products-hero__content">
+              <div className="section-label page-hero-label" style={{ background: 'rgba(255, 255, 255, 0.15)', color: 'var(--white)', border: '1px solid rgba(255, 255, 255, 0.25)' }}>
+                EdgeSuite Product Suite
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Platform */}
-      <section className="section section-alt">
-        <div className="container">
-          <div style={{ marginBottom: 32 }}>
-            <div className="section-label section-label-blue">Platform</div>
-            <h2 className="section-title">The Foundation</h2>
-            <p className="section-subtitle">All ProcessEdge industry apps run on CoreEdge — the ERPNext/Frappe platform layer.</p>
-          </div>
-          <div style={{ background: 'var(--white)', border: '1px solid var(--grey-border)', borderRadius: 16, padding: 36, display: 'flex', alignItems: 'flex-start', gap: 28, flexWrap: 'wrap' as const }}>
-            <div style={{ width: 56, height: 56, background: 'var(--blue)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-              <Cpu size={28} color="white" />
-            </div>
-            <div style={{ flex: 1, minWidth: 240 }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 4 }}>CoreEdge</div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.73rem', fontWeight: 700, color: 'var(--blue)', textTransform: 'uppercase' as const, letterSpacing: '0.07em', marginBottom: 10 }}>The ERPNext Platform Layer</div>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-body)', lineHeight: 1.7, maxWidth: 520, marginBottom: 20 }}>
-                Accounting, HR, inventory, CRM, purchasing, projects, workflows, and multi-company support — the full ERPNext suite, configured and supported for Nigerian businesses.
+              <h1>Our Product Ecosystem</h1>
+              <p>
+                ProcessEdge products are integrated under the EdgeSuite ecosystem. From our robust platform layer to modular payment infrastructure and vertical apps, we provide end-to-end operational software tailored for African businesses.
               </p>
-              <Link to="/products/core" className="btn btn-primary">
-                Learn About CoreEdge <ArrowRight size={14} />
-              </Link>
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8, alignSelf: 'center' }}>
-              {['Accounting','HR','Inventory','CRM','Projects','Payroll','Assets','Reports'].map(m => (
-                <span key={m} style={{ padding: '5px 12px', background: 'var(--blue-light)', border: '1px solid rgba(0,86,166,0.15)', borderRadius: 100, fontSize: '0.75rem', fontFamily: 'Montserrat, sans-serif', fontWeight: 600, color: 'var(--blue)' }}>{m}</span>
-              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <CTASection
-        headline="Not Sure Which Product Fits?"
-        subtext="Book a free consultation and we'll recommend the right solution for your business, industry, and goals."
-        primaryLabel="Book a Free Consultation"
-        secondaryLabel="Contact Us"
-        secondaryTo="/contact"
-      />
-    </div>
+        {/* --- Platform Foundation Section --- */}
+        {coreEdge && (
+          <section className="products-section" aria-labelledby="platform-heading">
+            <div className="container">
+              <div className="products-section__header">
+                <div className="section-label">Platform Foundation</div>
+                <h2 id="platform-heading" className="products-section__title">The Core EdgeSuite Foundation</h2>
+                <p className="products-section__subtitle">
+                  CoreEdge serves as the unified platform engine behind the entire EdgeSuite, handling fundamental services and administration.
+                </p>
+              </div>
+
+              <div className="platform-hero-card">
+                <div className="platform-hero-card__info">
+                  <div className="platform-hero-card__icon-box">
+                    <coreEdge.icon size={28} />
+                  </div>
+                  <h3 className="platform-hero-card__title">{coreEdge.name}</h3>
+                  <div className="platform-hero-card__tagline">{coreEdge.targetSector}</div>
+                  <p className="platform-hero-card__desc">{coreEdge.shortDescription}</p>
+                  
+                  <Link to={coreEdge.ctaLink} className="btn btn-primary" style={{ alignSelf: 'flex-start', marginTop: 'auto' }}>
+                    {coreEdge.ctaLabel} <ArrowRight size={14} style={{ marginLeft: 6 }} />
+                  </Link>
+                </div>
+
+                <div className="platform-hero-card__features">
+                  <div className="platform-hero-card__features-title">Core Administration Capabilities</div>
+                  <ul className="platform-hero-card__features-list">
+                    {coreEdge.keyFeatures.map(feat => (
+                      <li key={feat}>
+                        <CheckCircle2 size={16} color="var(--blue)" style={{ marginTop: 2 }} />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* --- Payments Infrastructure Section --- */}
+        {edgePay && (
+          <section className="products-section products-section--alt" aria-labelledby="payments-heading">
+            <div className="container">
+              <div className="products-section__header">
+                <div className="section-label" style={{ background: '#f5f3ff', color: '#7c3aed', border: '1px solid rgba(124, 58, 237, 0.15)' }}>Payments Infrastructure</div>
+                <h2 id="payments-heading" className="products-section__title">Standalone Payments Infrastructure</h2>
+                <p className="products-section__subtitle">
+                  EdgePay is a standalone payments orchestration engine providing secure transaction clearing, bank transfers matching, and external API widgets.
+                </p>
+              </div>
+
+              <div className="payments-hero-card">
+                <div className="payments-hero-card__info">
+                  <div className="payments-hero-card__icon-box">
+                    <edgePay.icon size={28} />
+                  </div>
+                  <h3 className="payments-hero-card__title">{edgePay.name}</h3>
+                  <div className="payments-hero-card__tagline">{edgePay.targetSector}</div>
+                  <p className="payments-hero-card__desc">{edgePay.shortDescription}</p>
+                  
+                  <Link to={edgePay.ctaLink} className="btn" style={{ background: '#7c3aed', color: 'var(--white)', alignSelf: 'flex-start', marginTop: 'auto' }}>
+                    {edgePay.ctaLabel} <ArrowRight size={14} style={{ marginLeft: 6 }} />
+                  </Link>
+                </div>
+
+                <div className="payments-hero-card__features">
+                  <div className="payments-hero-card__features-title">Transaction Capabilities</div>
+                  <ul className="payments-hero-card__features-list">
+                    {edgePay.keyFeatures.map(feat => (
+                      <li key={feat}>
+                        <CheckCircle2 size={16} color="#7c3aed" style={{ marginTop: 2 }} />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* --- Industry Applications Grid --- */}
+        <section className="products-section" aria-labelledby="industry-heading">
+          <div className="container">
+            <div className="products-section__header">
+              <div className="section-label">Industry Applications</div>
+              <h2 id="industry-heading" className="products-section__title">Industry-Specific Applications</h2>
+              <p className="products-section__subtitle">
+                Vertical operational suites built specifically for the workflows of key industries, running on our unified platform.
+              </p>
+            </div>
+
+            <div className="catalog-grid">
+              {industryApps.map(prod => {
+                const IconComponent = prod.icon
+                const statusClass = prod.status.toLowerCase().replace(' ', '-')
+                
+                return (
+                  <div key={prod.name} className={`catalog-card catalog-card--${prod.color}`}>
+                    <div className="catalog-card__header-row">
+                      <div className={`catalog-card__icon-box catalog-card__icon-box--${prod.color}`}>
+                        <IconComponent size={22} />
+                      </div>
+                      <span className={`catalog-badge catalog-badge--${statusClass}`}>
+                        {prod.status}
+                      </span>
+                    </div>
+
+                    <h3 className="catalog-card__title">{prod.name}</h3>
+                    <div className="catalog-card__tagline">{prod.targetSector}</div>
+                    <p className="catalog-card__desc">{prod.shortDescription}</p>
+
+                    <div className="catalog-card__features-title">Key Modules</div>
+                    <ul className="catalog-card__features">
+                      {prod.keyFeatures.map(feat => (
+                        <li key={feat}>
+                          <CheckCircle2 size={13} color={prod.color === 'green' ? 'var(--green)' : prod.color === 'purple' ? '#7c3aed' : 'var(--blue)'} />
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link 
+                      to={prod.ctaLink} 
+                      className="catalog-card__cta"
+                    >
+                      {prod.ctaLabel} <ArrowRight size={13} />
+                    </Link>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* --- Footer CTA --- */}
+        <CTASection
+          headline="Looking for a Tailored Implementation?"
+          subtext="Book a discovery consultation and let's review your operational processes, scoping details, and integration requirements."
+          primaryLabel="Book a Free Consultation"
+          primaryTo="/contact"
+          secondaryLabel="Contact Sales"
+          secondaryTo="/contact"
+          variant="blue"
+        />
+      </div>
     </>
   )
 }

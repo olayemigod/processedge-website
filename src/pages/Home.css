@@ -700,6 +700,7 @@
 }
 .ps-card--blue::after  { background: var(--blue);  }
 .ps-card--green::after { background: var(--green); }
+.ps-card--purple::after { background: #7c3aed; }
 .ps-card:hover {
   box-shadow: 0 6px 24px rgba(0,0,0,0.09);
   transform: translateY(-3px);
@@ -720,6 +721,10 @@
 .ps-card__badge--featured { background: #fef3c7; color: #92400e; }
 .ps-card__badge--platform { background: var(--blue-light); color: var(--blue); }
 .ps-card__badge--new      { background: var(--green-light); color: var(--green-dark); }
+.ps-card__badge--platform-foundation { background: var(--blue-light); color: var(--blue); }
+.ps-card__badge--in-development { background: #fef3c7; color: #b45309; }
+.ps-card__badge--active-development { background: #dcfce7; color: #166534; }
+.ps-card__badge--planned { background: #f3f4f6; color: #4b5563; }
 
 .ps-card__icon {
   width: 42px; height: 42px;
@@ -730,6 +735,7 @@
 }
 .ps-card__icon--blue  { background: var(--blue-light);  color: var(--blue);  }
 .ps-card__icon--green { background: var(--green-light); color: var(--green); }
+.ps-card__icon--purple { background: #f5f3ff; color: #7c3aed; }
 
 .ps-card__name {
   font-family: 'Montserrat', sans-serif;
@@ -748,6 +754,7 @@
 }
 .ps-card--blue  .ps-card__tagline { color: var(--blue);  }
 .ps-card--green .ps-card__tagline { color: var(--green); }
+.ps-card--purple .ps-card__tagline { color: #7c3aed; }
 .ps-card__desc { font-size: 0.81rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
 .ps-card__link {
   display: inline-flex;
@@ -761,6 +768,7 @@
 }
 .ps-card--blue  .ps-card__link { color: var(--blue);  }
 .ps-card--green .ps-card__link { color: var(--green); }
+.ps-card--purple .ps-card__link { color: #7c3aed; }
 .ps-card:hover .ps-card__link  { gap: 9px; }
 
 /* Service cards */

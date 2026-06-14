@@ -7,6 +7,7 @@ interface RevealGroupProps {
   className?: string
   tag?: keyof JSX.IntrinsicElements
   threshold?: number
+  style?: React.CSSProperties
 }
 
 /**
@@ -19,6 +20,7 @@ export default function RevealGroup({
   className,
   tag: Tag = 'div',
   threshold = 0.12,
+  style,
 }: RevealGroupProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -57,7 +59,7 @@ export default function RevealGroup({
   // We need a concrete wrapper to hold the ref; use the requested tag
   const Element = Tag as React.ElementType
   return (
-    <Element className={className} ref={containerRef as React.RefObject<HTMLDivElement>}>
+    <Element className={className} style={style} ref={containerRef as React.RefObject<HTMLDivElement>}>
       {children}
     </Element>
   )

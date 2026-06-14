@@ -1,0 +1,524 @@
+/* ============================================================
+   Products Page Stylesheet
+   Design Inspiration: Moniepoint / Monnify / Paystack Product Showcase
+   Colors:
+     - Blue: #0056A6 (var(--blue))
+     - Green: #1C9C5D (var(--green))
+     - Grey: #6C757D (var(--text-muted))
+   ============================================================ */
+
+.products-page {
+  padding-top: 72px; /* Navbar height offset */
+  background-color: var(--grey-light);
+}
+
+.products-hero {
+  background: linear-gradient(135deg, #0056A6 0%, #003366 100%);
+  color: var(--white);
+  padding: 80px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.products-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 80% 20%, rgba(28, 156, 93, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.products-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.products-hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 12px 0 16px;
+  line-height: 1.15;
+}
+
+.products-hero p {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+/* --- Section groupings --- */
+.products-section {
+  padding: 64px 0;
+}
+
+.products-section--alt {
+  background-color: var(--white);
+  border-top: 1px solid var(--grey-border);
+  border-bottom: 1px solid var(--grey-border);
+}
+
+.products-section__header {
+  margin-bottom: 40px;
+}
+
+.products-section__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin-top: 8px;
+}
+
+.products-section__subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 680px;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+/* --- Premium Platform Foundation Layout (CoreEdge) --- */
+.platform-hero-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-xl);
+  padding: 44px;
+  box-shadow: 0 4px 20px rgba(0, 86, 166, 0.04);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.platform-hero-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 86, 166, 0.12);
+  border-color: rgba(0, 86, 166, 0.3);
+}
+
+.platform-hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 5px;
+  background: var(--blue);
+}
+
+.platform-hero-card__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.platform-hero-card__icon-box {
+  width: 56px;
+  height: 56px;
+  background: var(--blue-light);
+  color: var(--blue);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.platform-hero-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.platform-hero-card__tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.platform-hero-card__desc {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.platform-hero-card__features {
+  background: var(--grey-light);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.platform-hero-card__features-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.platform-hero-card__features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.platform-hero-card__features-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.4;
+}
+
+.platform-hero-card__features-list li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* --- Standalone Payments Infrastructure Layout (EdgePay) --- */
+.payments-hero-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-xl);
+  padding: 44px;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.04);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.payments-hero-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(124, 58, 237, 0.12);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+.payments-hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 5px;
+  background: #7c3aed; /* Payments purple */
+}
+
+.payments-hero-card__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.payments-hero-card__icon-box {
+  width: 56px;
+  height: 56px;
+  background: #f5f3ff;
+  color: #7c3aed;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.payments-hero-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.payments-hero-card__tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #7c3aed;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.payments-hero-card__desc {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.payments-hero-card__features {
+  background: var(--grey-light);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.payments-hero-card__features-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.payments-hero-card__features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payments-hero-card__features-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.4;
+}
+
+.payments-hero-card__features-list li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* --- Catalog Grid of Industry Applications --- */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.catalog-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  height: 100%;
+}
+
+.catalog-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.catalog-card--blue::after { background-color: var(--blue); }
+.catalog-card--green::after { background-color: var(--green); }
+.catalog-card--purple::after { background-color: #7c3aed; }
+
+.catalog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.catalog-card:hover::after {
+  opacity: 1;
+}
+
+.catalog-card__icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.catalog-card__icon-box--blue { background: var(--blue-light); color: var(--blue); }
+.catalog-card__icon-box--green { background: var(--green-light); color: var(--green); }
+.catalog-card__icon-box--purple { background: #f5f3ff; color: #7c3aed; }
+
+.catalog-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.catalog-card__tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.catalog-card--blue .catalog-card__tagline { color: var(--blue); }
+.catalog-card--green .catalog-card__tagline { color: var(--green); }
+.catalog-card--purple .catalog-card__tagline { color: #7c3aed; }
+
+.catalog-card__desc {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.catalog-card__features-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.catalog-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.catalog-card__features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-body);
+}
+
+.catalog-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: gap 0.2s ease;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.catalog-card--blue .catalog-card__cta { color: var(--blue); }
+.catalog-card--green .catalog-card__cta { color: var(--green); }
+.catalog-card--purple .catalog-card__cta { color: #7c3aed; }
+
+.catalog-card__cta:hover {
+  gap: 10px;
+  text-decoration: underline;
+}
+
+.catalog-card__cta--disabled {
+  color: var(--text-muted) !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* --- Status Badges --- */
+.catalog-badge, .platform-badge, .payments-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.catalog-badge--platform-foundation, .platform-badge {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+.catalog-badge--in-development, .payments-badge {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.catalog-badge--active-development {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.catalog-badge--development {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.catalog-badge--planned {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.catalog-card__header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+/* --- Keyboard Access outlines --- */
+.catalog-card:focus-within, .platform-hero-card:focus-within, .payments-hero-card:focus-within {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .platform-hero-card, .payments-hero-card {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px;
+  }
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .products-hero h1 {
+    font-size: 2.2rem;
+  }
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+  .platform-hero-card__features, .payments-hero-card__features {
+    padding: 24px;
+  }
+}
