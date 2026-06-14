@@ -9,9 +9,9 @@
  */
 
 // ── Public URLs ───────────────────────────────────────────────────────────────
-export const SITE_URL     = 'https://www.processedge.com.ng'
-export const PORTAL_URL   = 'https://portal.processedge.com.ng'
-export const API_BASE_URL = 'https://portal.processedge.com.ng'
+export const SITE_URL     = import.meta.env.VITE_SITE_URL || 'https://www.processedge.com.ng'
+export const PORTAL_URL   = import.meta.env.VITE_PORTAL_URL || 'https://portal.processedge.com.ng'
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://portal.processedge.com.ng'
 // API_BASE_URL → ERPNext/Frappe portal.
 // All authenticated / CRM operations must go through this domain only.
 // Do NOT implement auth or backend logic in this Vite frontend.
@@ -23,10 +23,10 @@ export const BRAND_DOMAIN   = 'www.processedge.com.ng'
 export const BRAND_HANDLE   = '@processedgeng'
 
 // Email: shown publicly — update if a confirmed public address differs
-export const BRAND_EMAIL    = 'hello@processedge.com.ng'
+export const BRAND_EMAIL    = import.meta.env.VITE_BRAND_EMAIL || 'hello@processedge.com.ng'
 
 // WhatsApp: confirmed number +234 809 608 6857
-export const WHATSAPP_NUMBER = '2348096086857'
+export const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || '2348096086857'
 export const WHATSAPP_URL    = `https://wa.me/${WHATSAPP_NUMBER}`
 export const WHATSAPP_DISPLAY = '+234 809 608 6857'
 

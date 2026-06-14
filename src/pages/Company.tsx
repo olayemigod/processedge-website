@@ -26,7 +26,7 @@ const products = [
   { name: 'CoopEdge',         icon: Users,         path: '/products/coopedge',   color: 'blue'  },
   { name: 'ChurchEdge',       icon: Church,        path: '/products/churchedge', color: 'green' },
   { name: 'AgricEdge',        icon: Sprout,        path: '/products/agricedge',  color: 'blue'  },
-  { name: 'ProcessEdge Core', icon: Cpu,           path: '/products/core',       color: 'green' },
+  { name: 'CoreEdge',         icon: Cpu,           path: '/products/core',       color: 'green' },
 ]
 
 const approach = [

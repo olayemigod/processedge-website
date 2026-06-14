@@ -34,7 +34,7 @@ export default function Products() {
     <>
         <PageMeta
         title="Products — EduEdge, VetEdge, ClinicEdge, HotelEdge, CoopEdge, ChurchEdge, AgricEdge"
-        description="ProcessEdge industry-focused products: EduEdge, VetEdge, ClinicEdge, HotelEdge, CoopEdge, ChurchEdge, AgricEdge, and ProcessEdge Core — purpose-built for Nigerian organisations."
+        description="ProcessEdge industry-focused products: EduEdge, VetEdge, ClinicEdge, HotelEdge, CoopEdge, ChurchEdge, AgricEdge, and CoreEdge — purpose-built for Nigerian organisations."
         path="/products"
       />
       <div style={{ paddingTop: 72 }}>
@@ -80,20 +80,20 @@ export default function Products() {
           <div style={{ marginBottom: 32 }}>
             <div className="section-label section-label-blue">Platform</div>
             <h2 className="section-title">The Foundation</h2>
-            <p className="section-subtitle">All ProcessEdge industry apps run on ProcessEdge Core — the ERPNext/Frappe platform layer.</p>
+            <p className="section-subtitle">All ProcessEdge industry apps run on CoreEdge — the ERPNext/Frappe platform layer.</p>
           </div>
           <div style={{ background: 'var(--white)', border: '1px solid var(--grey-border)', borderRadius: 16, padding: 36, display: 'flex', alignItems: 'flex-start', gap: 28, flexWrap: 'wrap' as const }}>
             <div style={{ width: 56, height: 56, background: 'var(--blue)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <Cpu size={28} color="white" />
             </div>
             <div style={{ flex: 1, minWidth: 240 }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 4 }}>ProcessEdge Core</div>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 4 }}>CoreEdge</div>
               <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.73rem', fontWeight: 700, color: 'var(--blue)', textTransform: 'uppercase' as const, letterSpacing: '0.07em', marginBottom: 10 }}>The ERPNext Platform Layer</div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-body)', lineHeight: 1.7, maxWidth: 520, marginBottom: 20 }}>
                 Accounting, HR, inventory, CRM, purchasing, projects, workflows, and multi-company support — the full ERPNext suite, configured and supported for Nigerian businesses.
               </p>
               <Link to="/products/core" className="btn btn-primary">
-                Learn About Core <ArrowRight size={14} />
+                Learn About CoreEdge <ArrowRight size={14} />
               </Link>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8, alignSelf: 'center' }}>

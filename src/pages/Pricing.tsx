@@ -45,7 +45,7 @@ const engagements = [
     icon: Layers,
     title: 'Product Subscription / SaaS Readiness',
     tag: 'Industry Products',
-    desc: 'For organisations deploying ProcessEdge industry products — EduEdge, VetEdge, ClinicEdge, HotelEdge, CoopEdge, ChurchEdge, AgricEdge, and future ProcessEdge Core-enabled services.',
+    desc: 'For organisations deploying ProcessEdge industry products — EduEdge, VetEdge, ClinicEdge, HotelEdge, CoopEdge, ChurchEdge, AgricEdge, and future CoreEdge-enabled services.',
     includes: [
       'Product access and configuration',
       'User and module planning',

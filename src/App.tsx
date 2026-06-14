@@ -23,7 +23,7 @@ import VetEdge         from './pages/products/VetEdge'
 import HotelEdge       from './pages/products/HotelEdge'
 import CoopEdge        from './pages/products/CoopEdge'
 import ChurchEdge      from './pages/products/ChurchEdge'
-import ProcessEdgeCore from './pages/products/ProcessEdgeCore'
+import CoreEdge from './pages/products/CoreEdge'
 import ClinicEdge        from './pages/products/ClinicEdge'
 import AgricEdge         from './pages/products/AgricEdge'
 
@@ -105,8 +105,8 @@ export default function App() {
           <Route path="/products/hoteledge"  element={<HotelEdge />}       />
           <Route path="/products/coopedge"   element={<CoopEdge />}        />
           <Route path="/products/churchedge" element={<ChurchEdge />}      />
-          <Route path="/products/core"          element={<ProcessEdgeCore />} />
-          <Route path="/products/processedge-core" element={<ProcessEdgeCore />} />
+          <Route path="/products/core"          element={<CoreEdge />} />
+          <Route path="/products/processedge-core" element={<CoreEdge />} />
           <Route path="/products/clinicedge"       element={<ClinicEdge />}        />
           <Route path="/products/agricedge"        element={<AgricEdge />}         />
 

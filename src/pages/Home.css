@@ -439,7 +439,7 @@
   letter-spacing: -0.025em;
 }
 .section-subtitle--light {
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.72);
 }
 
 /* ── Problem cards — on dark background ── */
@@ -484,7 +484,7 @@
   color: rgba(255,255,255,0.88);
   margin-bottom: 8px;
 }
-.problem-card p { font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+.problem-card p { font-size: 0.84rem; color: rgba(255,255,255,0.68); line-height: 1.7; }
 
 
 /* ── Solution ── */

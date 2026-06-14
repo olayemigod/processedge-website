@@ -3,11 +3,11 @@ import ProductPageLayout from '../../components/ProductPageLayout'
 import type { ProductPageData } from '../../components/ProductPageLayout'
 
 const data: ProductPageData = {
-  name: 'ProcessEdge Core',
+  name: 'CoreEdge',
   badge: 'Platform',
   badgeVariant: 'platform',
   tagline: 'The Shared Foundation for ProcessEdge Products & Services',
-  heroDesc: 'ProcessEdge Core is the shared platform foundation that powers connected ProcessEdge services, enables future SaaS products, and provides notification, integration, and automation capabilities across the ProcessEdge ecosystem.',
+  heroDesc: 'CoreEdge is the shared platform foundation that powers connected ProcessEdge services, enables future SaaS products, and provides notification, integration, and automation capabilities across the ProcessEdge ecosystem.',
   primaryCTA: 'Talk to Us',
   secondaryCTA: 'View Industry Products',
   secondaryTo: '/products',
@@ -18,7 +18,7 @@ const data: ProductPageData = {
   problemHeading: 'Growing Businesses Need More Than Separate Apps',
   problemBody: [
     'As a business adopts more software tools — accounting here, CRM there, notifications from a third service — the connections between them become the problem. Data does not flow. Communications require manual triggers. Each system needs its own maintenance.',
-    'ProcessEdge Core is the platform layer that makes the ProcessEdge product suite coherent. It provides the shared services — notifications, integrations, automation, and future SaaS readiness — that allow each product to do more than it could as a standalone application.',
+    'CoreEdge is the platform layer that makes the ProcessEdge product suite coherent. It provides the shared services — notifications, integrations, automation, and future SaaS readiness — that allow each product to do more than it could as a standalone application.',
   ],
   problemPoints: [
     'Disconnected tools that do not share data',
@@ -27,9 +27,9 @@ const data: ProductPageData = {
     'Integrations built point-to-point rather than through a shared layer',
     'Future SaaS capabilities not yet accessible from industry products',
   ],
-  valueBody: 'ProcessEdge Core is not a product you buy separately — it is the foundation beneath every ProcessEdge product. It enables the platform-level capabilities that make connected, automated operations possible.',
+  valueBody: 'CoreEdge is not a product you buy separately — it is the foundation beneath every ProcessEdge product. It enables the platform-level capabilities that make connected, automated operations possible.',
 
-  featuresHeading: 'What ProcessEdge Core Provides',
+  featuresHeading: 'What CoreEdge Provides',
   featuresSubtext: 'The platform capabilities that power the ProcessEdge ecosystem — presented at the level of business value, not technical detail.',
   features: [
     { icon: Layers,   title: 'Shared Platform Services',          desc: 'Common services used across all ProcessEdge products — authentication foundation, shared data models, and platform configuration.', color: 'blue' },
@@ -43,7 +43,7 @@ const data: ProductPageData = {
   ],
 
   modulesHeading: 'Platform Capabilities That Power Every Product',
-  modulesNote: 'ProcessEdge Core capabilities are delivered through the products — not as a separate interface for end users. The value is in what it enables.',
+  modulesNote: 'CoreEdge capabilities are delivered through the products — not as a separate interface for end users. The value is in what it enables.',
   modules: [
     { label: 'Shared Authentication Foundation',  color: 'blue'  },
     { label: 'Notification Wallet',               color: 'green' },
@@ -60,14 +60,14 @@ const data: ProductPageData = {
   ],
 
   forHeading: 'Who This Is Relevant For',
-  forIntro: 'ProcessEdge Core is the foundation beneath every ProcessEdge product. It is relevant to businesses that want to understand the platform they are building on.',
+  forIntro: 'CoreEdge is the foundation beneath every ProcessEdge product. It is relevant to businesses that want to understand the platform they are building on.',
   forList: [
-    'Businesses implementing multiple ProcessEdge products',
-    'Organisations planning future integration with external systems',
-    'Businesses that need notification and communication automation',
-    'Teams evaluating the technical foundation of ProcessEdge solutions',
-    'Businesses planning a phased migration to SaaS delivery',
-  ],
+    { text: 'Businesses implementing multiple ProcessEdge products' },
+    { text: 'Organisations planning future integration with external systems' },
+    { text: 'Businesses that need notification and communication automation' },
+    { text: 'Teams evaluating the technical foundation of ProcessEdge solutions' },
+    { text: 'Businesses planning a phased migration to SaaS delivery' },
+  ].map(item => item.text), // keeping structure matches parent array expectation
 
   relatedResources: [
     { title: 'ERP Implementation Checklist for Growing Businesses', path: '/resources/erp-implementation-checklist', category: 'ERP' },
@@ -79,6 +79,6 @@ const data: ProductPageData = {
   ctaSubtext: "Talk to us about your business requirements and we'll recommend the right combination of ProcessEdge products and platform services.",
 }
 
-export default function ProcessEdgeCore() {
+export default function CoreEdge() {
   return <ProductPageLayout d={data} />
 }

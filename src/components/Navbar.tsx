@@ -15,7 +15,7 @@ const NAV_PRODUCTS = [
   { name: 'CoopEdge',         desc: 'Cooperative management',                 path: '/products/coopedge'   },
   { name: 'ChurchEdge',       desc: 'Church & ministry management',           path: '/products/churchedge' },
   { name: 'AgricEdge',        desc: 'Agriculture & agribusiness management',  path: '/products/agricedge'  },
-  { name: 'ProcessEdge Core', desc: 'The ERPNext platform layer',             path: '/products/core',       badge: 'Platform' },
+  { name: 'CoreEdge',         desc: 'The ERPNext platform layer',             path: '/products/core',       badge: 'Platform' },
 ]
 
 const NAV_SERVICES = [
@@ -109,6 +109,10 @@ export default function Navbar() {
         )
       ).filter((el) => !el.closest('[disabled]'))
 
+      if (hamburgerRef.current) {
+        focusable.unshift(hamburgerRef.current)
+      }
+
       if (focusable.length === 0) return
 
       const first = focusable[0]
@@ -127,8 +131,8 @@ export default function Navbar() {
       }
     }
 
-    menu.addEventListener('keydown', handleTab)
-    return () => menu.removeEventListener('keydown', handleTab)
+    document.addEventListener('keydown', handleTab)
+    return () => document.removeEventListener('keydown', handleTab)
   }, [menuOpen])
 
   // ── Hover helpers with delay ─────────────────────────────────────────────────
