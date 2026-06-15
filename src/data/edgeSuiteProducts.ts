@@ -60,7 +60,7 @@ export const EDGESUITE_PRODUCTS: EdgeSuiteProduct[] = [
       'Direct API Integration'
     ],
     ctaLabel: 'Contact Sales',
-    ctaLink: '/contact',
+    ctaLink: '/products/edgepay',
     icon: CreditCard,
     color: 'purple'
   },
@@ -78,7 +78,7 @@ export const EDGESUITE_PRODUCTS: EdgeSuiteProduct[] = [
       'Bank Statement Matching'
     ],
     ctaLabel: 'Request Access',
-    ctaLink: '/contact',
+    ctaLink: '/products/retailedge',
     icon: ShoppingCart,
     color: 'green'
   },

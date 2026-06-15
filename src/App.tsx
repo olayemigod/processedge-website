@@ -26,6 +26,8 @@ import ChurchEdge      from './pages/products/ChurchEdge'
 import CoreEdge from './pages/products/CoreEdge'
 import ClinicEdge        from './pages/products/ClinicEdge'
 import AgricEdge         from './pages/products/AgricEdge'
+import RetailEdge        from './pages/products/RetailEdge'
+import EdgePay           from './pages/products/EdgePay'
 
 // Service pages
 import ERPImplementation     from './pages/services/ERPImplementation'
@@ -109,6 +111,8 @@ export default function App() {
           <Route path="/products/processedge-core" element={<CoreEdge />} />
           <Route path="/products/clinicedge"       element={<ClinicEdge />}        />
           <Route path="/products/agricedge"        element={<AgricEdge />}         />
+          <Route path="/products/retailedge"       element={<RetailEdge />}        />
+          <Route path="/products/edgepay"          element={<EdgePay />}           />
 
           {/* Services */}
           <Route path="/services/erp-implementation"      element={<ERPImplementation />}     />

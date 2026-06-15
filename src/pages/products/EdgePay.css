@@ -1,0 +1,560 @@
+/* ============================================================
+   EdgePay Product Page Stylesheet
+   ============================================================ */
+
+.edgepay-page {
+  background: var(--white);
+  color: var(--text-body);
+}
+
+/* --- Hero Section --- */
+.ep-hero {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #fbfcfe 0%, #f1f4fa 100%);
+  border-bottom: 1px solid var(--grey-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.ep-hero::after {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0,86,166,0.05) 0%, rgba(255,255,255,0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ep-hero__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.ep-hero__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.ep-hero__badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.ep-hero__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0,86,166,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ep-hero__badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+  border: 1px solid rgba(0,86,166,0.3);
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(0,86,166,0.04);
+}
+
+.ep-hero__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.ep-hero__tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--blue);
+  margin-bottom: 24px;
+}
+
+.ep-hero__desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-body);
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+.ep-hero__actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* --- Hero Visual & Developer Logs Overlay --- */
+.ep-hero__visual {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.ep-hero__image-wrap {
+  position: relative;
+  max-width: 100%;
+}
+
+.ep-hero__image {
+  width: 440px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--grey-border);
+  box-shadow: 0 20px 48px rgba(0,86,166,0.1);
+  display: block;
+}
+
+.ep-hero__overlay-card {
+  position: absolute;
+  bottom: -24px;
+  left: -32px;
+  background: rgba(26, 32, 44, 0.95); /* Sleek dark code layout */
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.3);
+  width: 290px;
+  animation: floatOverlay 6s ease-in-out infinite;
+}
+
+@keyframes floatOverlay {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ep-hero__overlay-card {
+    animation: none;
+  }
+}
+
+.ep-hero__overlay-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Fira Code', monospace, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 8px;
+}
+
+.ep-hero__overlay-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
+}
+
+.ep-hero__overlay-logs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+}
+
+.ep-hero__log-line {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.72rem;
+}
+
+.ep-hero__log-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.ep-hero__log-tag--get {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.ep-hero__log-tag--post {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+}
+
+.ep-hero__log-tag--status {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+}
+
+.ep-hero__log-route {
+  color: #e2e8f0;
+}
+
+/* --- Problem Section --- */
+.ep-problem {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 52px;
+  align-items: flex-start;
+}
+
+.ep-para {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--text-body);
+  margin-bottom: 20px;
+}
+
+.ep-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ep-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.ep-checklist svg {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.ep-value-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0,86,166,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 96px;
+}
+
+.ep-value-card__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.ep-value-card__body {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-body);
+}
+
+/* --- Workflow Section --- */
+.ep-workflow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  position: relative;
+  margin-top: 16px;
+}
+
+.ep-workflow::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 48px;
+  right: 48px;
+  height: 2px;
+  background: var(--grey-border);
+  z-index: 0;
+}
+
+.ep-workflow__node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.ep-workflow__icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,86,166,0.08);
+}
+
+.ep-workflow__step-number {
+  position: absolute;
+  top: -4px; right: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ep-workflow__node-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.ep-workflow__node-desc {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  max-width: 170px;
+}
+
+/* --- Feature Cards Grid --- */
+.ep-feat-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.ep-feat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,86,166,0.08);
+}
+
+.ep-feat-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ep-feat-card__icon--blue {
+  background: rgba(0,86,166,0.1);
+  color: var(--blue);
+}
+
+.ep-feat-card__icon--green {
+  background: rgba(28,156,93,0.1);
+  color: var(--green);
+}
+
+.ep-feat-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ep-feat-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.ep-feat-card__desc {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+/* --- Roadmap & Honesty Section --- */
+.ep-roadmap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.ep-roadmap__card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow var(--transition);
+}
+
+.ep-roadmap__card--active {
+  border-color: var(--blue);
+  box-shadow: 0 12px 32px rgba(0,86,166,0.08);
+}
+
+.ep-roadmap__card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.ep-roadmap__card-stage {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.ep-roadmap__card-status {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ep-roadmap__card-status--completed {
+  background: rgba(28,156,93,0.1);
+  color: var(--green);
+}
+
+.ep-roadmap__card-status--in-active-development {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.ep-roadmap__card-status--planned-for-q4-2026 {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.ep-roadmap__card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.ep-roadmap__card-desc {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.ep-roadmap__current-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1120px) {
+  .ep-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .ep-hero__content {
+    align-items: center;
+  }
+  .ep-hero__desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ep-hero__actions {
+    justify-content: center;
+  }
+  .ep-hero__visual {
+    margin-top: 12px;
+  }
+  
+  .ep-problem {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .ep-value-card {
+    position: static;
+  }
+  
+  .ep-workflow {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .ep-workflow::before {
+    display: none;
+  }
+  .ep-workflow__node-desc {
+    max-width: 100%;
+  }
+  
+  .ep-roadmap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .ep-hero {
+    padding: 60px 0;
+  }
+  .ep-hero__title {
+    font-size: 2.25rem;
+  }
+  .ep-hero__tagline {
+    font-size: 1.1rem;
+  }
+  .ep-hero__image {
+    width: 100%;
+  }
+  .ep-hero__overlay-card {
+    display: none; /* Hide floating card on small viewports */
+  }
+}

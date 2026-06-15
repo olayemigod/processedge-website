@@ -50,8 +50,8 @@ export default function Footer() {
           <div className="footer__col">
             <h4>Products</h4>
             <Link to="/products/core">CoreEdge</Link>
-            <Link to="/contact">EdgePay</Link>
-            <Link to="/contact">RetailEdge</Link>
+            <Link to="/products/edgepay">EdgePay</Link>
+            <Link to="/products/retailedge">RetailEdge</Link>
             <Link to="/products/eduedge">EduEdge</Link>
             <Link to="/products/vetedge">VetEdge</Link>
             <Link to="/products/hoteledge">HotelEdge</Link>

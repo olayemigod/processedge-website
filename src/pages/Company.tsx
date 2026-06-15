@@ -22,13 +22,13 @@ const whatWeDo = [
 const products = [
   { name: 'EduEdge',          icon: GraduationCap, path: '/products/eduedge',    color: 'blue'  },
   { name: 'VetEdge',          icon: PawPrint,      path: '/products/vetedge',    color: 'green' },
-  { name: 'RetailEdge',       icon: ShoppingCart,  path: '/contact',             color: 'green' },
+  { name: 'RetailEdge',       icon: ShoppingCart,  path: '/products/retailedge', color: 'green' },
   { name: 'ClinicEdge',       icon: Activity,      path: '/products/clinicedge', color: 'blue'  },
   { name: 'HotelEdge',        icon: Hotel,         path: '/products/hoteledge',  color: 'green' },
   { name: 'CoopEdge',         icon: Users,         path: '/products/coopedge',   color: 'blue'  },
   { name: 'ChurchEdge',       icon: Church,        path: '/products/churchedge', color: 'green' },
   { name: 'AgricEdge',        icon: Sprout,        path: '/products/agricedge',  color: 'blue'  },
-  { name: 'EdgePay',          icon: CreditCard,    path: '/contact',             color: 'purple' },
+  { name: 'EdgePay',          icon: CreditCard,    path: '/products/edgepay',    color: 'purple' },
   { name: 'CoreEdge',         icon: Cpu,           path: '/products/core',       color: 'green' },
 ]
 
