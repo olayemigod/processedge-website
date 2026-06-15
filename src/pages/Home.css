@@ -896,17 +896,94 @@
   .ps-grid--apps     { grid-template-columns: repeat(2, 1fr); }
   .ps-grid--services { grid-template-columns: repeat(2, 1fr); }
   .grid-3            { grid-template-columns: 1fr; }
-  .hero__consultant-img { min-height: 280px; }
-  .hero__overlay-card { padding: 10px 10px 8px; }
+  
+  /* Reset the photo frame styles for vertical column layout */
+  .hero__photo-frame {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    max-width: 100%;
+  }
+  
+  /* Hide the dark bottom gradient overlay on mobile */
+  .hero__photo-frame::after {
+    display: none;
+  }
+  
+  /* Style image with its own border, radius and shadow */
+  .hero__consultant-img {
+    min-height: 380px;
+    height: auto;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 
+      0 16px 40px rgba(0,0,0,0.32),
+      0 0 0 1px rgba(255,255,255,0.06);
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+  }
+  
+  /* Position overlay card relatively below the image with negative margin overlap */
+  .hero__overlay-card {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin-top: -24px;
+    width: calc(100% - 24px);
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px;
+    background: rgba(10, 18, 35, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    z-index: 2;
+  }
+  .hero__overlay-title { font-size: 0.64rem; }
+  .hero__app-status { font-size: 0.58rem; }
+  .hero__stages-label { font-size: 0.52rem; }
+  .hero__stage-name { font-size: 0.58rem; }
+  .hero__stage-badge { font-size: 0.48rem; }
+  .hero__chip { font-size: 0.58rem; }
 }
 @media (max-width: 540px) {
   .ps-grid--apps     { grid-template-columns: 1fr; }
   .ps-grid--services { grid-template-columns: 1fr; }
   .hero__actions     { flex-direction: column; }
   .featured-product__modules { grid-template-columns: 1fr; }
-  .hero__photo-frame { max-width: 100%; border-radius: 14px; }
-  .hero__consultant-img { min-height: 240px; border-radius: 14px; }
-  .hero__overlay-card { left: 10px; right: 10px; bottom: 14px; }
+  
+  .hero__photo-frame {
+    max-width: 100%;
+    border-radius: 0;
+  }
+  
+  .hero__consultant-img {
+    min-height: 300px;
+    border-radius: 14px;
+  }
+  
+  .hero__overlay-card {
+    margin-top: -20px;
+    width: calc(100% - 16px);
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 10px 10px 8px;
+    border-radius: 10px;
+  }
+  .hero__overlay-title { font-size: 0.6rem; }
+  .hero__app-status { font-size: 0.54rem; }
+  .hero__stages-label { font-size: 0.48rem; }
+  .hero__stage-name { font-size: 0.54rem; }
+  .hero__stage-badge { font-size: 0.44rem; }
+  .hero__chip { font-size: 0.54rem; }
+  
   .trust-section { padding: 48px 0 56px; }
   .why-us-section { padding-top: 44px; padding-bottom: 56px; }
 }
