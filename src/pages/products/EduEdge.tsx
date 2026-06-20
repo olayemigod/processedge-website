@@ -1,89 +1,298 @@
-import { GraduationCap, Monitor, BookOpen, BarChart2, Bell, Users, FileText, Cpu, CheckCircle2 } from 'lucide-react'
-import ProductPageLayout from '../../components/ProductPageLayout'
-import type { ProductPageData } from '../../components/ProductPageLayout'
+import { Link } from 'react-router-dom'
+import { GraduationCap, Monitor, BookOpen, BarChart2, Bell, Users, CheckCircle2, ArrowRight, Clock, Calendar } from 'lucide-react'
+import PageMeta from '../../components/PageMeta'
+import CTASection from '../../components/CTASection'
+import './EduEdge.css'
 
-const data: ProductPageData = {
-  name: 'EduEdge',
-  badge: 'Under Development',
-  badgeVariant: 'green',
-  tagline: 'Education Management & CBT Platform',
-  heroDesc: 'EduEdge is a development-stage education solution under active planning that combines ERPNext/Frappe Education capabilities with CBT exam management, question banks, result synchronization, and academic workflow automation.',
-  primaryCTA: 'Register Interest',
-  secondaryCTA: 'Explore Resources',
-  secondaryTo: '/resources/school-management-cbt',
-  icon: GraduationCap,
-  iconColor: '#4de8a0',
-  iconBg: 'rgba(28,156,93,0.2)',
-
-  problemHeading: 'Schools Are Running Multiple Disconnected Systems',
-  problemBody: [
-    'Student records are in one spreadsheet. Fee payments are tracked in another. Exam timetables are printed and distributed manually. Results are compiled in Excel after every sitting — then manually entered into report cards.',
-    'This fragmentation means the bursar\'s fee clearance list is different from the academic office\'s exam access list. Results contain transcription errors. Management cannot see how the school is performing without spending hours pulling data together.',
-    'The result is a school that works harder than it should — and still produces unreliable information.',
-  ],
-  problemPoints: [
+export default function EduEdge() {
+  const problemPoints = [
     'No single source of student and academic records',
     'Exam management disconnected from academic records',
     'Results manually re-entered multiple times',
     'Fee clearance and exam access not automatically linked',
-    'No real-time visibility into academic performance trends',
-  ],
-  valueBody: 'EduEdge gives schools operational control — from admission to result publication — in a single connected platform. We configure it for your academic structure, train your team, and support you through adoption.',
+    'No real-time visibility into academic performance trends'
+  ]
 
-  featuresHeading: 'Everything Your School Needs',
-  featuresSubtext: 'EduEdge covers the full academic management lifecycle — from student records and fee management to CBT exams, result synchronization, and school analytics.',
-  features: [
-    { icon: Users,       title: 'Student & Guardian Records',       desc: 'Complete student profiles — academic history, guardian contacts, medical notes, and documents. All in one place.', color: 'blue' },
-    { icon: BookOpen,    title: 'Courses, Classes & Sessions',       desc: 'Configure academic sessions, terms, classes, streams, and subject assignments. Flexible for any school structure.', color: 'green' },
-    { icon: Monitor,     title: 'CBT Exam Delivery',                 desc: 'Timed, randomised CBT exams delivered directly in the browser. Auto-grading on submission for objective questions.', color: 'blue' },
-    { icon: CheckCircle2,title: 'Question Bank Management',          desc: 'Build and organise questions by subject, class, topic, and difficulty. Shuffle and reuse across exam sittings.', color: 'green' },
-    { icon: FileText,    title: 'CBT Result Synchronization',        desc: 'Exam results flow automatically into the academic record — no re-entry, no broadsheet errors, no manual transfer.', color: 'blue' },
-    { icon: BarChart2,   title: 'Assessment & Grading Workflows',    desc: 'Configure grading scales, compute cumulative averages, generate broadsheets, transcripts, and report cards.', color: 'green' },
-    { icon: Bell,        title: 'Notifications & Communication',     desc: 'SMS and email notifications to parents for results, fees, attendance, and school communications.', color: 'blue' },
-    { icon: Cpu,         title: 'Education Operations Automation',   desc: 'Automate repetitive academic admin — term rollover, attendance reminders, fee schedules, and result publication.', color: 'green' },
-  ],
+  const features = [
+    {
+      title: 'Student & Guardian Records',
+      desc: 'Complete student profiles with academic history, guardian contacts, medical notes, and uploaded documents — all planned to live in one connected system.',
+      icon: Users,
+      color: 'blue' as const
+    },
+    {
+      title: 'CBT Exam Delivery',
+      desc: 'Timed, randomised CBT exams delivered in the browser with auto-grading on submission. Being designed for objective and theory-based assessments.',
+      icon: Monitor,
+      color: 'amber' as const
+    },
+    {
+      title: 'Academic Grading & Reports',
+      desc: 'Configurable grading scales, cumulative averages, broadsheet generation, transcripts, and report card printing — planned for full academic workflow coverage.',
+      icon: BarChart2,
+      color: 'blue' as const
+    },
+    {
+      title: 'School Communication',
+      desc: 'SMS and email notifications to parents for results, fee reminders, attendance alerts, and school-wide communications — in development.',
+      icon: Bell,
+      color: 'amber' as const
+    }
+  ]
 
-  modulesHeading: 'How EduEdge Supports Your School Operations',
-  modulesNote: 'Every module is connected. A student registered in the system is visible to the academic office, the bursar, and the exam team — from a single record.',
-  modules: [
-    { label: 'Academic Session & Term Setup',     color: 'blue'  },
-    { label: 'Student Registration',              color: 'blue'  },
-    { label: 'Guardian & Contact Records',        color: 'green' },
-    { label: 'Class & Subject Assignment',        color: 'blue'  },
-    { label: 'Attendance Tracking',               color: 'green' },
-    { label: 'Fee Schedule & Payment Tracking',   color: 'blue'  },
-    { label: 'Exam Timetable Management',         color: 'green' },
-    { label: 'CBT Question Bank',                 color: 'blue'  },
-    { label: 'CBT Exam Engine',                   color: 'blue'  },
-    { label: 'Auto-Grading & Result Computation', color: 'green' },
-    { label: 'Broadsheet Generation',             color: 'blue'  },
-    { label: 'Report Card Printing',              color: 'green' },
-    { label: 'Student Portal',                    color: 'blue'  },
-    { label: 'Parent Portal',                     color: 'green' },
-    { label: 'SMS/Email Notifications',           color: 'blue'  },
-    { label: 'School Analytics Dashboard',        color: 'green' },
-  ],
+  const audienceItems = [
+    { label: 'Primary & Secondary Schools', desc: 'Structured academic record management and result processing.' },
+    { label: 'CBT Centres & Coaching', desc: 'Exam delivery, question bank management, and result tracking.' },
+    { label: 'Vocational Institutions', desc: 'Course management, assessment tracking, and certification.' },
+    { label: 'Multi-Branch School Networks', desc: 'Centralised academic oversight across multiple campuses.' },
+    { label: 'Schools Using ERPNext/Frappe', desc: 'Familiar platform with education-specific extensions.' }
+  ]
 
-  forHeading: 'Who EduEdge Is For',
-  forIntro: 'Built for schools and educational institutions operating in Nigeria.',
-  forList: [
-    'Primary and secondary schools',
-    'Exam preparation and coaching centres',
-    'Tertiary and vocational institutions',
-    'Multi-branch school networks',
-    'Schools with existing ERPNext or Frappe setups',
-  ],
+  const timelinePhases = [
+    {
+      title: 'Phase 1: Foundation',
+      desc: 'Student records, class management, and fee tracking modules.',
+      status: 'In Progress',
+      statusColor: 'amber' as const
+    },
+    {
+      title: 'Phase 2: CBT Engine',
+      desc: 'Question bank, exam engine, auto-grading, and result synchronisation.',
+      status: 'Design',
+      statusColor: 'grey' as const
+    },
+    {
+      title: 'Phase 3: Portal & Analytics',
+      desc: 'Student portal, parent portal, and school analytics dashboard.',
+      status: 'Planned',
+      statusColor: 'grey' as const
+    }
+  ]
 
-  relatedResources: [
-    { title: 'School Management with CBT: Connecting Academic Operations and Exams', path: '/resources/school-management-cbt', category: 'Education' },
-    { title: 'CBT Question Bank and Result Synchronization Explained', path: '/resources/cbt-question-bank-result-sync', category: 'Education' },
-    { title: 'Software Training and Adoption: Why Systems Fail Without People', path: '/resources/software-training-and-adoption', category: 'Training' },
-  ],
+  return (
+    <>
+      <PageMeta
+        title="EduEdge — Education Management & CBT Platform (Under Development)"
+        description="EduEdge is a development-stage education solution combining school management, CBT exam delivery, question banks, result synchronisation, and academic workflow automation."
+        path="/products/eduedge"
+      />
 
-  ctaHeadline: 'Interested in Modernising Your School Operations?',
-  ctaSubtext: 'Register interest for a walkthrough preview and see how EduEdge connects student records, CBT exams, fee management, and academic reporting in one platform.',
-}
+      <div className="edu-page" style={{ paddingTop: 72 }}>
+        {/* Hero Section */}
+        <section className="ee-hero">
+          <div className="container ee-hero__inner">
+            <div className="ee-hero__content">
+              <div className="ee-hero__badge-row">
+                <div className="ee-hero__icon">
+                  <GraduationCap size={24} color="#e8a84d" />
+                </div>
+                <span className="ee-hero__badge">Under Development</span>
+              </div>
+              <h1 className="ee-hero__title">EduEdge</h1>
+              <p className="ee-hero__tagline">Education Management &amp; CBT Platform</p>
+              <p className="ee-hero__desc">
+                EduEdge is a development-stage education solution that will combine school management,
+                CBT exam delivery, question banks, result synchronisation, and academic workflow
+                automation — built on the ProcessEdge platform.
+              </p>
+              <div className="ee-hero__actions">
+                <Link to="/contact" className="btn btn-primary btn-lg">
+                  Register Interest <ArrowRight size={15} />
+                </Link>
+                <a href="#capabilities" className="btn btn-hero-ghost btn-lg">
+                  Explore Capabilities
+                </a>
+              </div>
+            </div>
 
-export default function EduEdge() {
-  return <ProductPageLayout d={data} />
+            <div className="ee-hero__visual">
+              <div className="ee-hero__image-wrap">
+                <img
+                  src="/eduedge-school-hero.png"
+                  alt="Modern school management platform concept"
+                  className="ee-hero__image"
+                />
+                <div className="ee-hero__overlay-card">
+                  <div className="ee-hero__overlay-header">
+                    <span className="ee-hero__overlay-dot" />
+                    <span>Development Roadmap</span>
+                  </div>
+                  <div className="ee-hero__overlay-list">
+                    <div className="ee-hero__overlay-item">
+                      <span className="ee-hero__overlay-label">Student Records:</span>
+                      <span className="ee-hero__overlay-val ee-hero__overlay-val--progress">In Design</span>
+                    </div>
+                    <div className="ee-hero__overlay-item">
+                      <span className="ee-hero__overlay-label">CBT Engine:</span>
+                      <span className="ee-hero__overlay-val ee-hero__overlay-val--progress">Prototyping</span>
+                    </div>
+                    <div className="ee-hero__overlay-item">
+                      <span className="ee-hero__overlay-label">Fee Module:</span>
+                      <span className="ee-hero__overlay-val ee-hero__overlay-val--planned">Planned</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="container">
+            <div className="ee-hero__notice">
+              <Calendar size={15} />
+              <span>EduEdge is currently in development. Features shown represent our planned capabilities.</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Problem Section */}
+        <section className="section section-alt">
+          <div className="container ee-problem">
+            <div className="ee-problem__left">
+              <div className="section-label ee-section-label-amber">The Education Challenge</div>
+              <h2 className="section-title">Why Schools Are Running Disconnected Systems</h2>
+              <p className="ee-para">
+                Student records live in one spreadsheet. Fee payments are tracked in another. Exam
+                timetables are printed and distributed manually. Results are compiled in Excel after
+                every sitting — then manually entered into report cards.
+              </p>
+              <p className="ee-para">
+                This fragmentation means the bursar's fee clearance list is different from the academic
+                office's exam access list. Results contain transcription errors. Management cannot see
+                how the school is performing without spending hours pulling data together.
+              </p>
+              <ul className="ee-checklist">
+                {problemPoints.map((pt, i) => (
+                  <li key={i}>
+                    <BookOpen size={16} className="ee-check-icon" style={{ minWidth: '16px', marginTop: '2px' }} />
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="ee-problem__right">
+              <div className="ee-value-card">
+                <div className="ee-value-card__label">The EduEdge Vision</div>
+                <p className="ee-value-card__body">
+                  EduEdge aims to give schools operational control — from admission to result
+                  publication — in a single connected platform. We are designing it for Nigerian
+                  academic structures, with built-in CBT capabilities and automatic result
+                  synchronisation to eliminate manual re-entry.
+                </p>
+                <Link to="/contact" className="btn btn-primary btn-sm" style={{ marginTop: 8, alignSelf: 'flex-start' }}>
+                  Register Interest <ArrowRight size={13} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Planned Capabilities */}
+        <section id="capabilities" className="section">
+          <div className="container">
+            <div className="text-center" style={{ marginBottom: 48 }}>
+              <div className="section-label ee-section-label-amber">Planned Capabilities</div>
+              <h2 className="section-title">What EduEdge Will Cover</h2>
+              <p className="section-subtitle">
+                These capabilities are currently being designed and developed.
+              </p>
+            </div>
+
+            <div className="grid-2">
+              {features.map((feat, i) => (
+                <div key={i} className="ee-feat-card">
+                  <div className={`ee-feat-card__icon ee-feat-card__icon--${feat.color}`}>
+                    <feat.icon size={22} />
+                  </div>
+                  <div className="ee-feat-card__body">
+                    <div className="ee-feat-card__header">
+                      <h3 className="ee-feat-card__title">{feat.title}</h3>
+                      <span className="ee-feat-card__planned">Planned</span>
+                    </div>
+                    <p className="ee-feat-card__desc">{feat.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Built For Section */}
+        <section className="section section-alt">
+          <div className="container ee-for__inner">
+            <div className="ee-for__text">
+              <div className="section-label ee-section-label-amber">Target Audience</div>
+              <h2 className="section-title">Who EduEdge Is Being Built For</h2>
+              <p className="ee-para">
+                EduEdge is being designed for schools and educational institutions operating in Nigeria
+                that need a connected academic management platform.
+              </p>
+              <div className="ee-for__grid">
+                {audienceItems.map((item, idx) => (
+                  <div key={idx} className="ee-for__item">
+                    <CheckCircle2 size={16} className="ee-check-icon" style={{ minWidth: '16px', marginTop: '2px' }} />
+                    <div>
+                      <div className="ee-for__item-label">{item.label}</div>
+                      <div className="ee-for__item-desc">{item.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="ee-for__panel">
+              <div className="ee-for__panel-card">
+                <Clock size={24} className="ee-amber-icon" style={{ marginBottom: 14 }} />
+                <h3>Early Access Program</h3>
+                <p>
+                  Register your interest now to be among the first schools invited to preview
+                  EduEdge when early access becomes available. We will notify you as development
+                  milestones are reached.
+                </p>
+                <Link to="/contact" className="btn btn-primary btn-sm" style={{ marginTop: 12, width: '100%', justifyContent: 'center' }}>
+                  Register Interest
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Development Timeline */}
+        <section className="section">
+          <div className="container">
+            <div className="text-center" style={{ marginBottom: 52 }}>
+              <div className="section-label ee-section-label-amber">Timeline</div>
+              <h2 className="section-title">Development Progress</h2>
+              <p className="section-subtitle">
+                EduEdge is being built in phases. No specific dates are committed — we will share
+                updates as each phase progresses.
+              </p>
+            </div>
+
+            <div className="ee-timeline">
+              {timelinePhases.map((phase, idx) => (
+                <div key={idx} className="ee-timeline__card">
+                  <div className="ee-timeline__status-row">
+                    <span className={`ee-timeline__dot ee-timeline__dot--${phase.statusColor}`} />
+                    <span className={`ee-timeline__status ee-timeline__status--${phase.statusColor}`}>{phase.status}</span>
+                  </div>
+                  <h3 className="ee-timeline__title">{phase.title}</h3>
+                  <p className="ee-timeline__desc">{phase.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <CTASection
+          headline="Interested in Modernising Your School Operations?"
+          subtext="Register your interest to be notified when EduEdge reaches early access. We are building a connected academic management platform for Nigerian schools."
+          primaryLabel="Register Interest"
+          primaryTo="/contact"
+          secondaryLabel="View All Products"
+          secondaryTo="/products"
+          variant="green"
+        />
+      </div>
+    </>
+  )
 }

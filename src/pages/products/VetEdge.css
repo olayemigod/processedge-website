@@ -1,0 +1,611 @@
+/* ============================================================
+   VetEdge Product Page Stylesheet
+   ============================================================ */
+
+.vet-page {
+  background: var(--white);
+  color: var(--text-body);
+}
+
+/* --- Hero Section --- */
+.ve-hero {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  border-bottom: 1px solid var(--grey-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.ve-hero::after {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(28,156,93,0.06) 0%, rgba(255,255,255,0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ve-hero__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.ve-hero__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.ve-hero__badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.ve-hero__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(28,156,93,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ve-hero__badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  border: 1px solid rgba(28,156,93,0.3);
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(28,156,93,0.04);
+}
+
+.ve-hero__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.ve-hero__tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--blue);
+  margin-bottom: 24px;
+}
+
+.ve-hero__desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-body);
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+.ve-hero__actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* --- Hero Visual & Overlay --- */
+.ve-hero__visual {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.ve-hero__image-wrap {
+  position: relative;
+  max-width: 100%;
+}
+
+.ve-hero__image {
+  width: 440px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--grey-border);
+  box-shadow: 0 20px 48px rgba(0,86,166,0.1);
+  display: block;
+}
+
+.ve-hero__overlay-card {
+  position: absolute;
+  bottom: -24px;
+  left: -32px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  box-shadow: 0 16px 36px rgba(0,86,166,0.12);
+  width: 280px;
+  animation: veFloatOverlay 6s ease-in-out infinite;
+}
+
+@keyframes veFloatOverlay {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ve-hero__overlay-card {
+    animation: none;
+  }
+}
+
+.ve-hero__overlay-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--grey-border);
+  padding-bottom: 8px;
+}
+
+.ve-hero__overlay-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+
+.ve-hero__overlay-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ve-hero__overlay-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+}
+
+.ve-hero__overlay-label {
+  font-weight: 600;
+  color: var(--text-body);
+}
+
+.ve-hero__overlay-val {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.ve-hero__overlay-val--highlight {
+  color: var(--green);
+  background: rgba(28,156,93,0.1);
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-size: 0.72rem;
+}
+
+/* --- Problem Section --- */
+.ve-problem {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 52px;
+  align-items: flex-start;
+}
+
+.ve-problem__left {
+  display: flex;
+  flex-direction: column;
+}
+
+.ve-problem__right {
+  display: flex;
+  flex-direction: column;
+}
+
+.ve-para {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--text-body);
+  margin-bottom: 20px;
+}
+
+.ve-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ve-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.ve-checklist svg {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.ve-value-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0,86,166,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 96px;
+}
+
+.ve-value-card__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.ve-value-card__body {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-body);
+}
+
+/* --- Workflow Section --- */
+.ve-workflow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  position: relative;
+  margin-top: 16px;
+}
+
+.ve-workflow::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 48px;
+  right: 48px;
+  height: 2px;
+  background: var(--grey-border);
+  z-index: 0;
+}
+
+.ve-workflow__node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.ve-workflow__icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,86,166,0.08);
+}
+
+.ve-workflow__step-number {
+  position: absolute;
+  top: -4px; right: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ve-workflow__node-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.ve-workflow__node-desc {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  max-width: 170px;
+}
+
+/* --- Feature Cards Grid --- */
+.ve-feat-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.ve-feat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,86,166,0.08);
+}
+
+.ve-feat-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ve-feat-card__icon--blue {
+  background: rgba(0,86,166,0.1);
+  color: var(--blue);
+}
+
+.ve-feat-card__icon--green {
+  background: rgba(28,156,93,0.1);
+  color: var(--green);
+}
+
+.ve-feat-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ve-feat-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.ve-feat-card__desc {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+/* --- Audience Section --- */
+.ve-for__inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.ve-for__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.ve-for__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.ve-for__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ve-for__item-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.ve-for__item-desc {
+  font-size: 0.82rem;
+  color: var(--text-body);
+  line-height: 1.45;
+}
+
+.ve-for__panel {
+  display: flex;
+  justify-content: center;
+}
+
+.ve-for__panel-card {
+  background: #fafbfd;
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  width: 100%;
+  max-width: 340px;
+  box-shadow: 0 8px 24px rgba(0,86,166,0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.ve-for__panel-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.ve-for__panel-card p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin-bottom: 16px;
+}
+
+/* --- Implementation Stages --- */
+.ve-stages {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.ve-stage-card {
+  background: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.ve-stage-card__num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: rgba(28,156,93,0.18);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.ve-stage-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.ve-stage-card__desc {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1120px) {
+  .ve-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .ve-hero__content {
+    align-items: center;
+  }
+  .ve-hero__badge-row {
+    justify-content: center;
+  }
+  .ve-hero__desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ve-hero__actions {
+    justify-content: center;
+  }
+  .ve-hero__visual {
+    margin-top: 12px;
+  }
+  
+  .ve-problem {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .ve-value-card {
+    position: static;
+  }
+  
+  .ve-workflow {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .ve-workflow::before {
+    display: none;
+  }
+  .ve-workflow__node-desc {
+    max-width: 100%;
+  }
+  
+  .ve-for__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .ve-for__panel-card {
+    max-width: 100%;
+  }
+  
+  .ve-stages {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ve-hero {
+    padding: 64px 0;
+  }
+  .ve-hero__title {
+    font-size: 2.5rem;
+  }
+  .ve-hero__tagline {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .ve-hero {
+    padding: 56px 0;
+  }
+  .ve-hero__title {
+    font-size: 2.25rem;
+  }
+  .ve-hero__tagline {
+    font-size: 1.1rem;
+  }
+  .ve-hero__image {
+    width: 100%;
+  }
+  .ve-hero__overlay-card {
+    display: none; /* Hide floating card on small viewports to save space */
+  }
+  .ve-stages {
+    grid-template-columns: 1fr;
+  }
+}
