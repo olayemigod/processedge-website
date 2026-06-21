@@ -471,6 +471,37 @@ export default function Home() {
               </RevealGroup>
             </div>
 
+            {/* EdgeFinder Discovery Strip */}
+            {(() => {
+              const ef = EDGESUITE_PRODUCTS.find(p => p.slug === 'edgefinder');
+              if (!ef) return null;
+              const EFIcon = ef.icon;
+              return (
+                <div className="ps-group" style={{ paddingBottom: 8 }}>
+                  <div className="ps-group__header" style={{ marginBottom: 16 }}>
+                    <div className="ps-group__badge ps-group__badge--app" style={{ background: 'rgba(0,86,166,0.08)', color: 'var(--blue)', border: '1px solid rgba(0,86,166,0.15)' }}>Discovery Layer</div>
+                    <h3 className="ps-group__title">EdgeFinder</h3>
+                    <p className="ps-group__desc">Business discovery layer built on CoreEdge — helping customers find EdgeSuite-powered businesses by industry, service, and location.</p>
+                  </div>
+                  <Link to={ef.ctaLink} className={`ps-card ps-card--${ef.color} reveal-card`} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 20, padding: '20px 24px', marginBottom: 32 }}>
+                    <div className={`ps-card__icon ps-card__icon--${ef.color}`} style={{ flexShrink: 0 }}>
+                      <EFIcon size={22} />
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 4 }}>
+                        <div className="ps-card__name" style={{ margin: 0 }}>{ef.name}</div>
+                        <div className={`ps-card__badge ps-card__badge--${ef.status.toLowerCase().replace(' ', '-')}`}>{ef.status}</div>
+                      </div>
+                      <p className="ps-card__desc" style={{ margin: 0, fontSize: '0.86rem' }}>{ef.shortDescription}</p>
+                    </div>
+                    <div className="ps-card__link" style={{ flexShrink: 0, whiteSpace: 'nowrap' }}>
+                      {ef.ctaLabel} <ArrowRight size={13} />
+                    </div>
+                  </Link>
+                </div>
+              );
+            })()}
+
             {/* Group B — Industry Applications */}
             <div className="ps-group">
               <div className="ps-group__header">

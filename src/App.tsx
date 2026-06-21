@@ -28,6 +28,7 @@ import ClinicEdge        from './pages/products/ClinicEdge'
 import AgricEdge         from './pages/products/AgricEdge'
 import RetailEdge        from './pages/products/RetailEdge'
 import EdgePay           from './pages/products/EdgePay'
+import EdgeFinder        from './pages/products/EdgeFinder'
 
 // Service pages
 import ERPImplementation     from './pages/services/ERPImplementation'
@@ -113,6 +114,7 @@ export default function App() {
           <Route path="/products/agricedge"        element={<AgricEdge />}         />
           <Route path="/products/retailedge"       element={<RetailEdge />}        />
           <Route path="/products/edgepay"          element={<EdgePay />}           />
+          <Route path="/products/edgefinder"       element={<EdgeFinder />}        />
 
           {/* Services */}
           <Route path="/services/erp-implementation"      element={<ERPImplementation />}     />

@@ -8,6 +8,7 @@ import './Products.css'
 export default function Products() {
   const coreEdge = EDGESUITE_PRODUCTS.find(p => p.slug === 'core')
   const edgePay = EDGESUITE_PRODUCTS.find(p => p.slug === 'edgepay')
+  const edgeFinder = EDGESUITE_PRODUCTS.find(p => p.slug === 'edgefinder')
   const industryApps = EDGESUITE_PRODUCTS.filter(p => p.category === 'Industry App')
 
   return (
@@ -111,6 +112,51 @@ export default function Products() {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* --- Discovery Layer Section --- */}
+        {edgeFinder && (
+          <section className="products-section" aria-labelledby="discovery-heading">
+            <div className="container">
+              <div className="products-section__header">
+                <div className="section-label" style={{ background: 'rgba(0,86,166,0.08)', color: 'var(--blue)', border: '1px solid rgba(0,86,166,0.15)' }}>Discovery Layer</div>
+                <h2 id="discovery-heading" className="products-section__title">Business Discovery, Powered by CoreEdge</h2>
+                <p className="products-section__subtitle">
+                  EdgeFinder is the discovery layer that connects customers with EdgeSuite-powered businesses — by industry, service, and location.
+                </p>
+              </div>
+
+              <div className="platform-hero-card" style={{ background: 'linear-gradient(135deg, #f0f7ff 0%, #e8f2fd 100%)', border: '1px solid rgba(0,86,166,0.15)' }}>
+                <div className="platform-hero-card__info">
+                  <div className="platform-hero-card__icon-box" style={{ background: 'rgba(0,86,166,0.1)', color: 'var(--blue)' }}>
+                    <edgeFinder.icon size={28} />
+                  </div>
+                  <h3 className="platform-hero-card__title">{edgeFinder.name}</h3>
+                  <div className="platform-hero-card__tagline">{edgeFinder.targetSector}</div>
+                  <p className="platform-hero-card__desc">{edgeFinder.shortDescription}</p>
+                  
+                  <Link to={edgeFinder.ctaLink} className="btn btn-primary" style={{ alignSelf: 'flex-start', marginTop: 'auto' }}>
+                    {edgeFinder.ctaLabel} <ArrowRight size={14} style={{ marginLeft: 6 }} />
+                  </Link>
+                </div>
+
+                <div className="platform-hero-card__features">
+                  <div className="platform-hero-card__features-title">Planned Discovery Capabilities</div>
+                  <ul className="platform-hero-card__features-list">
+                    {edgeFinder.keyFeatures.map(feat => (
+                      <li key={feat}>
+                        <CheckCircle2 size={16} color="var(--blue)" style={{ marginTop: 2 }} />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 16, lineHeight: 1.6 }}>
+                    EdgeFinder is currently in development. No live business directory is available yet.
+                  </p>
                 </div>
               </div>
             </div>

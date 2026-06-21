@@ -51,6 +51,7 @@ export default function Footer() {
             <h4>Products</h4>
             <Link to="/products/core">CoreEdge</Link>
             <Link to="/products/edgepay">EdgePay</Link>
+            <Link to="/products/edgefinder">EdgeFinder</Link>
             <Link to="/products/retailedge">RetailEdge</Link>
             <Link to="/products/eduedge">EduEdge</Link>
             <Link to="/products/vetedge">VetEdge</Link>

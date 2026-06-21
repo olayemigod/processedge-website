@@ -134,6 +134,10 @@
   background: var(--white);
 }
 
+.navbar__mega-panel--products .navbar__mega-inner {
+  grid-template-columns: 1fr 1fr 1.8fr;
+}
+
 .navbar__mega-inner--compact {
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
@@ -145,6 +149,11 @@
 
 .navbar__mega-section--left {
   background: #fafbfd;
+  border-right: 1px solid var(--grey-border);
+}
+
+.navbar__mega-section--middle {
+  background: var(--white);
   border-right: 1px solid var(--grey-border);
 }
 
@@ -245,7 +254,7 @@
 
 .navbar__mega-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
   gap: 16px 20px;
 }
 
@@ -304,6 +313,41 @@
 .navbar__mega-badge--planned {
   background: #f3f4f6;
   color: #4b5563;
+}
+
+/* --- Discovery Strip (EdgeFinder) --- */
+.navbar__mega-discovery {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(0, 86, 166, 0.04);
+  border: 1px solid rgba(0, 86, 166, 0.12);
+  transition: background var(--transition), border-color var(--transition);
+  margin: 0 0 16px;
+}
+
+.navbar__mega-discovery:hover {
+  background: rgba(0, 86, 166, 0.08);
+  border-color: rgba(0, 86, 166, 0.22);
+}
+
+.navbar__mega-discovery-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--green);
+  background: rgba(28, 156, 93, 0.08);
+  border: 1px solid rgba(28, 156, 93, 0.2);
+  border-radius: 100px;
+  padding: 2px 7px;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 /* --- Mobile Navigation badge styling --- */

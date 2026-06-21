@@ -9,13 +9,14 @@ import {
   Hotel,
   Users,
   Church,
+  Search,
   LucideIcon
 } from 'lucide-react'
 
 export interface EdgeSuiteProduct {
   name: string
   slug: string
-  category: 'Platform Foundation' | 'Payments Infrastructure' | 'Industry App'
+  category: 'Platform Foundation' | 'Payments Infrastructure' | 'Discovery Layer' | 'Industry App'
   status: 'Platform Foundation' | 'In Development' | 'Active Development' | 'Planned' | 'Development'
   targetSector: string
   shortDescription: string
@@ -65,6 +66,26 @@ export const EDGESUITE_PRODUCTS: EdgeSuiteProduct[] = [
     color: 'purple'
   },
   {
+    name: 'EdgeFinder',
+    slug: 'edgefinder',
+    category: 'Discovery Layer',
+    status: 'In Development',
+    targetSector: 'Customers & EdgeSuite-Powered Businesses',
+    shortDescription: 'Business discovery layer that helps customers find EdgeSuite-powered businesses by industry, service, and location.',
+    keyFeatures: [
+      'Industry-based business discovery',
+      'Location-aware search concept',
+      'Business profile visibility',
+      'Service category discovery',
+      'EdgeSuite-powered trust layer',
+      'Customer-to-business connection flow'
+    ],
+    ctaLabel: 'Register Interest',
+    ctaLink: '/products/edgefinder',
+    icon: Search,
+    color: 'blue'
+  },
+  {
     name: 'RetailEdge',
     slug: 'retailedge',
     category: 'Industry App',
@@ -104,7 +125,7 @@ export const EDGESUITE_PRODUCTS: EdgeSuiteProduct[] = [
     name: 'EduEdge',
     slug: 'eduedge',
     category: 'Industry App',
-    status: 'Development',
+    status: 'In Development',
     targetSector: 'Education & CBT',
     shortDescription: 'School management, CBT, exams, academic records, analytics, and education workflow automation.',
     keyFeatures: [

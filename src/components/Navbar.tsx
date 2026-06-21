@@ -234,7 +234,7 @@ export default function Navbar() {
             {activeDropdown === 'products' && (
               <div className="navbar__mega-panel navbar__mega-panel--products" role="menu" {...panelProps}>
                 <div className="navbar__mega-inner">
-                  {/* Left Column: Platform & Infrastructure */}
+                  {/* Column 1: Platform & Infrastructure */}
                   <div className="navbar__mega-section navbar__mega-section--left">
                     <div className="navbar__mega-header">Platform &amp; Infrastructure</div>
                     <div className="navbar__mega-list">
@@ -262,7 +262,35 @@ export default function Navbar() {
                     </div>
                   </div>
 
-                  {/* Right Column: Industry Solutions */}
+                  {/* Column 2: Discovery Layer */}
+                  <div className="navbar__mega-section navbar__mega-section--middle">
+                    <div className="navbar__mega-header">Discovery Layer</div>
+                    <div className="navbar__mega-list">
+                      {EDGESUITE_PRODUCTS.filter(p => p.category === 'Discovery Layer').map(p => {
+                        const Icon = p.icon
+                        const statusClass = p.status.toLowerCase().replace(' ', '-')
+                        return (
+                          <Link key={p.slug} to={p.ctaLink} className="navbar__mega-item" role="menuitem">
+                            <div className="navbar__mega-item-icon">
+                              <Icon size={16} />
+                            </div>
+                            <div className="navbar__mega-item-content">
+                              <div className="navbar__mega-item-title">
+                                <span className="navbar__mega-item-name">{p.name}</span>
+                                <span className={`navbar__mega-badge navbar__mega-badge--${statusClass}`}>
+                                  {p.status}
+                                </span>
+                              </div>
+                              <div className="navbar__mega-item-sector">{p.targetSector}</div>
+                              <div className="navbar__mega-item-desc">{p.shortDescription}</div>
+                            </div>
+                          </Link>
+                        )
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Column 3: Industry Solutions */}
                   <div className="navbar__mega-section navbar__mega-section--right">
                     <div className="navbar__mega-header">Industry Solutions</div>
                     <div className="navbar__mega-grid">
@@ -457,6 +485,17 @@ export default function Navbar() {
               <div id="mobile-products-panel" className="navbar__mobile-accordion-content">
                 <div className="navbar__mobile-section-title">Platform &amp; Infrastructure</div>
                 {EDGESUITE_PRODUCTS.filter(p => p.category === 'Platform Foundation' || p.category === 'Payments Infrastructure').map(p => {
+                  const statusClass = p.status.toLowerCase().replace(' ', '-')
+                  return (
+                    <Link key={p.slug} to={p.ctaLink} className="navbar__mobile-sublink">
+                      <span className="navbar__mobile-sublink-name">{p.name}</span>
+                      <span className={`navbar__mobile-badge navbar__mobile-badge--${statusClass}`}>{p.status}</span>
+                    </Link>
+                  )
+                })}
+
+                <div className="navbar__mobile-section-title" style={{ marginTop: 12 }}>Discovery Layer</div>
+                {EDGESUITE_PRODUCTS.filter(p => p.category === 'Discovery Layer').map(p => {
                   const statusClass = p.status.toLowerCase().replace(' ', '-')
                   return (
                     <Link key={p.slug} to={p.ctaLink} className="navbar__mobile-sublink">
