@@ -97,8 +97,8 @@ export default function SellerTrayAccountDeletion() {
             gap: 14,
             flexWrap: 'wrap' as const,
           }}>
-            <Link to="/privacy" className="btn btn-secondary">Privacy Policy</Link>
-            <Link to="/contact" className="btn btn-secondary">Contact ProcessEdge</Link>
+            <Link to="/sellertray/privacy" className="btn btn-secondary">SellerTray Privacy</Link>
+            <Link to="/sellertray/terms" className="btn btn-secondary">SellerTray Terms</Link>
           </div>
         </div>
       </section>
