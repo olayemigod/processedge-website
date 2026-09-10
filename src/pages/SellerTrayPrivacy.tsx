@@ -12,8 +12,8 @@ const sections = [
     body: 'SellerTray may process account data such as email address and authentication identifiers; merchant business profile, catalogue, team and invitation data; customer names, phone numbers, WhatsApp messages and order details; order status and notification history; subscription and payment-reference metadata; and technical security, audit and service logs. SellerTray does not need advertising identifiers and does not sell personal data for advertising.',
   },
   {
-    title: '3. Why we process data',
-    body: 'We process data to create and secure accounts, provision merchant workspaces, receive and organise WhatsApp orders, assist with order interpretation, apply merchant catalogue pricing, support fulfilment and customer notifications, manage teams and subscriptions, provide support, prevent abuse, investigate incidents, meet legal obligations and improve service reliability.',
+    title: '3. Lawful bases and why we process data',
+    body: 'Depending on the activity, ProcessEdge relies on performance of a contract or steps requested before a contract, legitimate interests in securely operating and improving SellerTray, compliance with legal obligations, and consent where the law requires consent or the feature is genuinely optional. We process data to create and secure accounts, provision merchant workspaces, receive and organise WhatsApp orders, assist with order interpretation, apply merchant catalogue pricing, support fulfilment and customer notifications, manage teams and subscriptions, provide support, prevent abuse, investigate incidents, meet legal obligations and improve service reliability.',
   },
   {
     title: '4. AI-assisted order interpretation',
@@ -21,7 +21,7 @@ const sections = [
   },
   {
     title: '5. Service providers',
-    body: 'SellerTray uses service providers to operate the product. These may include Supabase for authentication, database, storage and server functions; Meta/WhatsApp for messaging; Paystack for subscription payment processing when billing is enabled; OpenAI for AI-assisted parsing when enabled; and Vercel for ProcessEdge public web resources. Each provider processes data under its own service terms and security controls.',
+    body: 'SellerTray uses service providers to operate the product. These may include Supabase for authentication, database, storage and server functions; Meta/WhatsApp for messaging; Paystack for subscription payment processing when billing is enabled; OpenAI for AI-assisted parsing when enabled; and Vercel for ProcessEdge public web resources. Each provider processes data under applicable service terms and security controls. Where a deletion request covers account-linked copies held by a service provider and those copies are not independently retained under a lawful obligation, ProcessEdge will use available provider controls or deletion requests to have the relevant copies deleted.',
   },
   {
     title: '6. Sharing and disclosure',
@@ -37,11 +37,11 @@ const sections = [
   },
   {
     title: '9. Retention and deletion',
-    body: 'Active merchant operational data is retained while the workspace exists and as needed to provide the service. A user can request account deletion inside SellerTray or through the public deletion resource. Owned SellerTray workspaces and associated operational data are deleted through the governed deletion flow, subject to legitimate retention required for security, fraud prevention, legal obligations or unresolved payment matters. Infrastructure backups may temporarily contain deleted data until the hosting provider backup lifecycle expires and are restricted to disaster recovery.',
+    body: 'Active merchant operational data is retained while the workspace exists and as needed to provide the service. A user can request account deletion inside SellerTray or through the public deletion resource. Valid deletion requests are handled without undue delay after reasonable identity verification. Owned SellerTray workspaces and associated operational data are deleted through the governed deletion flow, subject to limited lawful retention required for security, fraud prevention, legal obligations or unresolved payment matters. If data must be retained for such a reason, the requester will be informed where required. Infrastructure backups may temporarily contain deleted data until the hosting provider backup lifecycle expires and are restricted to disaster recovery.',
   },
   {
     title: '10. Your rights',
-    body: 'Subject to applicable law, you may have rights to be informed, access personal data, request correction, object to or restrict certain processing, request data portability or erasure, withdraw consent where consent is the basis, request human intervention regarding automated decisions, and lodge a complaint with the Nigeria Data Protection Commission. SellerTray also provides a business-data export for workspace Owners.',
+    body: 'Subject to applicable law, you may have rights to be informed, access personal data, request correction, object to or restrict certain processing, request data portability or erasure, withdraw consent where consent is the basis, and not be subject solely to qualifying automated decision-making without the safeguards required by law. You may also lodge a complaint with the Nigeria Data Protection Commission. SellerTray provides a business-data export for workspace Owners, while individual privacy-right requests can be sent to ProcessEdge.',
   },
   {
     title: '11. Merchant responsibilities for customer data',

@@ -25,7 +25,7 @@ const sections = [
   },
   {
     title: '6. Merchant data and customer data',
-    body: 'As between ProcessEdge and the merchant, the merchant retains its rights in business and customer content submitted to SellerTray. The merchant grants ProcessEdge the limited rights needed to host, transmit, secure, process and back up that content to provide SellerTray. Merchants are responsible for lawful collection and use of customer data they process through the service.',
+    body: 'As between ProcessEdge and the merchant, the merchant retains its rights in business and customer content submitted to SellerTray. The merchant grants ProcessEdge the limited rights needed to host, transmit, secure, process and back up that content to provide SellerTray. For customer order data where the merchant determines the business purpose, the merchant is ordinarily responsible for the lawful basis and customer notice, while ProcessEdge processes the data to provide SellerTray subject to the Privacy Policy and applicable law.',
   },
   {
     title: '7. Acceptable use',

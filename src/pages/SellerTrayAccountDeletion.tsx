@@ -54,7 +54,8 @@ export default function SellerTrayAccountDeletion() {
             </h2>
             <p style={{ color: 'var(--text-body)', lineHeight: 1.75, marginBottom: 18 }}>
               Send an account-deletion request from the email address registered to your SellerTray account.
-              Include your business name if you know it. <strong>Never send your password by email.</strong>
+              Include your business name if you know it. We may reasonably verify ownership before acting and will
+              handle a valid request without undue delay. <strong>Never send your password by email.</strong>
             </p>
             <a href={emailHref} className="btn btn-primary">
               Email {BRAND_EMAIL}
@@ -72,11 +73,11 @@ export default function SellerTrayAccountDeletion() {
             },
             {
               title: 'Backups and recovery copies',
-              body: 'Deleted data is removed from the live SellerTray application. Infrastructure backups may retain a temporary recovery copy until the hosting provider’s normal backup lifecycle expires. Backups are restricted to disaster recovery and are not used as ordinary application records after deletion.',
+              body: 'Deleted data is removed from the live SellerTray application. Where an account-linked copy is held by a service provider and is not independently retained under a lawful obligation, ProcessEdge will use available provider controls or deletion requests to remove it. Infrastructure backups may retain a temporary recovery copy until the hosting provider’s normal backup lifecycle expires. Backups are restricted to disaster recovery and are not used as ordinary application records after deletion.',
             },
             {
               title: 'Deletion support',
-              body: `If the automated deletion cannot complete safely, contact ${BRAND_EMAIL}. We may need to verify account ownership before acting on a manual deletion request.`,
+              body: `If the automated deletion cannot complete safely, contact ${BRAND_EMAIL}. We may need to verify account ownership before acting on a manual request. If limited data must be retained for security, fraud prevention, unresolved payment matters or a legal obligation, ProcessEdge will explain the applicable retention where required.`,
             },
           ].map((section) => (
             <div key={section.title} style={{ marginBottom: 30 }}>
