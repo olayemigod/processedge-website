@@ -16,6 +16,7 @@ import Company    from './pages/Company'
 import Contact    from './pages/Contact'
 import Privacy    from './pages/Privacy'
 import Terms      from './pages/Terms'
+import SellerTrayAccountDeletion from './pages/SellerTrayAccountDeletion'
 
 // Product pages
 import EduEdge         from './pages/products/EduEdge'
@@ -101,6 +102,8 @@ export default function App() {
           {/* Legal */}
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms"   element={<Terms />}   />
+          <Route path="/sellertray/account-deletion" element={<SellerTrayAccountDeletion />} />
+          <Route path="/orderdesk/account-deletion" element={<SellerTrayAccountDeletion />} />
 
           {/* Products */}
           <Route path="/products/eduedge"    element={<EduEdge />}         />
