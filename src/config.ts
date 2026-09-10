@@ -4,7 +4,6 @@
  * No secrets, no API keys. Safe to include in Vite frontend bundles.
  *
  * TODO before production:
- * - Confirm BRAND_EMAIL if different from the placeholder below
  * - Update WHATSAPP_NUMBER if the number changes
  */
 
@@ -22,8 +21,8 @@ export const BRAND_TAGLINE  = 'Smart Processes. Better Results.'
 export const BRAND_DOMAIN   = 'www.processedge.com.ng'
 export const BRAND_HANDLE   = '@processedgeng'
 
-// Email: shown publicly — update if a confirmed public address differs
-export const BRAND_EMAIL    = import.meta.env.VITE_BRAND_EMAIL || 'hello@processedge.com.ng'
+// Public support email
+export const BRAND_EMAIL    = import.meta.env.VITE_BRAND_EMAIL || 'support@processedge.com.ng'
 
 // WhatsApp: confirmed number +234 809 608 6857
 export const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || '2348096086857'
