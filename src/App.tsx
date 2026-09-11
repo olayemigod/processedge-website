@@ -102,6 +102,8 @@ export default function App() {
           {/* Legal */}
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms"   element={<Terms />}   />
+          <Route path="/sellertray/privacy" element={<Privacy />} />
+          <Route path="/sellertray/terms" element={<Terms />} />
           <Route path="/sellertray/account-deletion" element={<SellerTrayAccountDeletion />} />
           <Route path="/orderdesk/account-deletion" element={<SellerTrayAccountDeletion />} />
 
