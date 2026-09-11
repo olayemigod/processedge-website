@@ -9,7 +9,7 @@ const sections = [
   },
   {
     title: '2. Data SellerTray processes',
-    body: 'SellerTray may process account data such as email address and authentication identifiers; merchant business profile, catalogue, team and invitation data; customer names, phone numbers, WhatsApp messages and order details; order status and notification history; subscription and payment-reference metadata; and technical security, audit and service logs. SellerTray does not need advertising identifiers and does not sell personal data for advertising.',
+    body: 'SellerTray may process account data such as email address and authentication identifiers; merchant business profile, catalogue, team and invitation data; customer names, phone numbers, WhatsApp messages and order details; order status and notification history; subscription and payment-reference metadata; and technical security, audit and service-usage metadata. When AI parsing is enabled, service-usage metadata may include the AI model, processing outcome, provider status and token counts used for reliability and cost measurement. This telemetry does not duplicate the customer message, prompt, catalogue context or model output. SellerTray does not need advertising identifiers and does not sell personal data for advertising.',
   },
   {
     title: '3. Lawful bases and why we process data',
@@ -17,7 +17,7 @@ const sections = [
   },
   {
     title: '4. AI-assisted order interpretation',
-    body: 'Where the AI parser is enabled, SellerTray may send the minimum order text and relevant catalogue context needed to an AI service to suggest structured order data. AI output is assistive and may be inaccurate. Merchant users are expected to review orders that require attention before accepting them. SellerTray does not treat AI parsing alone as a final customer decision.',
+    body: 'Where the AI parser is enabled, SellerTray may send the minimum order text and relevant catalogue context needed to an AI service to suggest structured order data. AI output is assistive and may be inaccurate. Merchant users are expected to review orders that require attention before accepting them. SellerTray does not treat AI parsing alone as a final customer decision. SellerTray may retain non-content metadata about an AI attempt, such as model, outcome, provider status and token counts, to measure reliability, capacity and service cost without storing an additional copy of the prompt or model response in that telemetry record.',
   },
   {
     title: '5. Service providers',
@@ -33,11 +33,11 @@ const sections = [
   },
   {
     title: '8. Security',
-    body: 'SellerTray uses tenant isolation, row-level database security, controlled server functions, access roles, bounded request handling, audit trails and structured operational logging. Passwords, customer message bodies, authorization headers and server secrets are not intended to be written to SellerTray operational logs. No system can guarantee absolute security.',
+    body: 'SellerTray uses tenant isolation, row-level database security, controlled server functions, access roles, bounded request handling, audit trails and structured operational logging. AI cost telemetry is server-controlled and is limited to identifiers, model/outcome/status and token counts rather than message content. Passwords, customer message bodies, authorization headers and server secrets are not intended to be written to SellerTray operational logs. No system can guarantee absolute security.',
   },
   {
     title: '9. Retention and deletion',
-    body: 'Active merchant operational data is retained while the workspace exists and as needed to provide the service. A user can request account deletion inside SellerTray or through the public deletion resource. Valid deletion requests are handled without undue delay after reasonable identity verification. Owned SellerTray workspaces and associated operational data are deleted through the governed deletion flow, subject to limited lawful retention required for security, fraud prevention, legal obligations or unresolved payment matters. If data must be retained for such a reason, the requester will be informed where required. Infrastructure backups may temporarily contain deleted data until the hosting provider backup lifecycle expires and are restricted to disaster recovery.',
+    body: 'Active merchant operational data is retained while the workspace exists and as needed to provide the service. AI parser telemetry is linked to the relevant tenant and source message and follows the same governed deletion lifecycle. A user can request account deletion inside SellerTray or through the public deletion resource. Valid deletion requests are handled without undue delay after reasonable identity verification. Owned SellerTray workspaces and associated operational data are deleted through the governed deletion flow, subject to limited lawful retention required for security, fraud prevention, legal obligations or unresolved payment matters. If data must be retained for such a reason, the requester will be informed where required. Infrastructure backups may temporarily contain deleted data until the hosting provider backup lifecycle expires and are restricted to disaster recovery.',
   },
   {
     title: '10. Your rights',
