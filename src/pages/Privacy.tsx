@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import PageMeta from '../components/PageMeta'
 import CTASection from '../components/CTASection'
 import { BRAND_NAME, BRAND_EMAIL, SITE_URL } from '../config'
@@ -6,6 +6,7 @@ import { BRAND_NAME, BRAND_EMAIL, SITE_URL } from '../config'
 const EFFECTIVE_DATE = '11 September 2026'
 
 export default function Privacy() {
+  const { pathname } = useLocation()
   const sections = [
     {
       title: '1. Who We Are and Scope',
@@ -74,7 +75,7 @@ export default function Privacy() {
       <PageMeta
         title="Privacy Policy — ProcessEdge Solutions & SellerTray"
         description="Privacy policy for ProcessEdge Solutions and SellerTray, including WhatsApp order processing, AI-assisted order parsing, billing, data rights and account deletion."
-        path="/privacy"
+        path={pathname}
       />
 
       <section className="page-hero">
