@@ -16,6 +16,7 @@ import Company    from './pages/Company'
 import Contact    from './pages/Contact'
 import Privacy    from './pages/Privacy'
 import Terms      from './pages/Terms'
+import SellerTray from './pages/SellerTray'
 import SellerTrayAccountDeletion from './pages/SellerTrayAccountDeletion'
 
 // Product pages
@@ -98,6 +99,10 @@ export default function App() {
           <Route path="/company"    element={<Company />}    />
           <Route path="/about"      element={<Company />}    />
           <Route path="/contact"    element={<Contact />}    />
+
+          {/* SellerTray */}
+          <Route path="/sellertray" element={<SellerTray />} />
+          <Route path="/products/sellertray" element={<SellerTray />} />
 
           {/* Legal */}
           <Route path="/privacy" element={<Privacy />} />
