@@ -36,10 +36,6 @@ export default function SellerTrayAccountDeletion() {
               and choose <strong>Start account deletion</strong>. You will be asked for your current password
               and a confirmation phrase before the deletion is processed.
             </p>
-            <p style={{ color: 'var(--text-body)', lineHeight: 1.8, marginTop: 12 }}>
-              Early beta builds may still display the working product name <strong>OrderDesk</strong>.
-              The same deletion process applies.
-            </p>
           </div>
 
           <div style={{
@@ -67,8 +63,8 @@ export default function SellerTrayAccountDeletion() {
               body: 'Your SellerTray authentication account is deleted. Businesses you own are deleted together with their SellerTray workspace data, including catalogue records, customers, WhatsApp order records, order items, order-status history, outbound notification records, team records and subscription workspace data. Memberships you hold in businesses owned by another user are removed.',
             },
             {
-              title: 'Paid subscriptions',
-              body: 'If a business you own still has an active paid subscription with the payment provider, the subscription must be cancelled before self-service account deletion can complete. Contact ProcessEdge support if you cannot complete that step.',
+              title: 'Paid subscriptions and unsettled usage',
+              body: 'If a business you own still has an active paid subscription, the subscription must be cancelled before self-service account deletion can complete. Any priced usage that has already been incurred but not yet settled must also be resolved before deletion. These safeguards prevent account deletion from bypassing valid billing obligations. Contact ProcessEdge support if you cannot complete either step.',
             },
             {
               title: 'Backups and recovery copies',
@@ -97,7 +93,8 @@ export default function SellerTrayAccountDeletion() {
             gap: 14,
             flexWrap: 'wrap' as const,
           }}>
-            <Link to="/privacy" className="btn btn-secondary">Privacy Policy</Link>
+            <Link to="/sellertray/privacy" className="btn btn-secondary">Privacy Policy</Link>
+            <Link to="/sellertray/terms" className="btn btn-secondary">Terms of Service</Link>
             <Link to="/contact" className="btn btn-secondary">Contact ProcessEdge</Link>
           </div>
         </div>
