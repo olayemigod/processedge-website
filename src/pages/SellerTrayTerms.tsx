@@ -33,7 +33,7 @@ const sections = [
   },
   {
     title: '8. Plans, billing and suspension',
-    body: 'Available plans, trial periods, usage charges and channel add-ons are shown in the applicable SellerTray commercial offer or checkout. Where recurring billing is enabled, failed or overdue payment may place a workspace into a grace, read-only, suspended or cancelled state according to the product rules disclosed at the time. Payment processing may be handled by a third-party provider.',
+    body: 'Available plans, trial periods, usage charges and channel add-ons are shown in the applicable SellerTray commercial offer or checkout. SellerTray may combine a recurring base subscription with a flat charge for specified successful AI-assisted order activity; SellerTray does not charge a percentage of the merchant\'s sales or gross merchandise value unless a future service is separately offered and expressly agreed. Where the payment provider supplies a reusable payment authorisation, the merchant authorises SellerTray to use it for disclosed recurring subscription amounts and properly metered usage settlements. Usage events retain the applicable unit price and billing-period context when recorded so later price changes do not retroactively reprice earlier activity. Failed or ambiguous variable-usage charges are not blindly retried and may remain outstanding until provider status is reconciled. Failed or overdue payment may place a workspace into a grace, read-only, suspended or cancelled state according to the product rules disclosed at the time. Payment processing may be handled by a third-party provider.',
   },
   {
     title: '9. Service changes and availability',
