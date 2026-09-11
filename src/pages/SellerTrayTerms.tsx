@@ -89,7 +89,7 @@ export default function SellerTrayTerms() {
             </p>
           </div>
 
-          <p style={{ color: 'var(--text-body)', marginBottom: 36 }}><strong>Proposed effective date:</strong> 10 September 2026</p>
+          <p style={{ color: 'var(--text-body)', marginBottom: 36 }}><strong>Proposed effective date:</strong> 11 September 2026</p>
 
           {sections.map((section) => (
             <div key={section.title} style={{ marginBottom: 30 }}>
