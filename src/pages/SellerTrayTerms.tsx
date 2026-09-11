@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import PageMeta from '../components/PageMeta'
 import { BRAND_EMAIL } from '../config'
 
+const LEGAL_VERSION_DATE = '11 September 2026'
+
 const sections = [
   {
     title: '1. Service',
@@ -89,7 +91,7 @@ export default function SellerTrayTerms() {
             </p>
           </div>
 
-          <p style={{ color: 'var(--text-body)', marginBottom: 36 }}><strong>Proposed effective date:</strong> 11 September 2026</p>
+          <p style={{ color: 'var(--text-body)', marginBottom: 36 }}><strong>Proposed effective date:</strong> {LEGAL_VERSION_DATE}</p>
 
           {sections.map((section) => (
             <div key={section.title} style={{ marginBottom: 30 }}>
