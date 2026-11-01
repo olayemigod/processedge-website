@@ -2,6 +2,7 @@ import {
   Cpu,
   CreditCard,
   ShoppingCart,
+  Smartphone,
   PawPrint,
   GraduationCap,
   Activity,
@@ -16,7 +17,7 @@ import {
 export interface EdgeSuiteProduct {
   name: string
   slug: string
-  category: 'Platform Foundation' | 'Payments Infrastructure' | 'Discovery Layer' | 'Industry App'
+  category: 'Platform Foundation' | 'Commerce Platform' | 'Payments Infrastructure' | 'Discovery Layer' | 'Industry App'
   status: 'Platform Foundation' | 'In Development' | 'Active Development' | 'Planned' | 'Development'
   targetSector: string
   shortDescription: string
@@ -46,6 +47,25 @@ export const EDGESUITE_PRODUCTS: EdgeSuiteProduct[] = [
     ctaLink: '/products/core',
     icon: Cpu,
     color: 'blue'
+  },
+  {
+    name: 'SellerTray',
+    slug: 'sellertray',
+    category: 'Commerce Platform',
+    status: 'Active Development',
+    targetSector: 'SME Sales & Retail Operations',
+    shortDescription: 'Mobile-first sales and retail operations for POS, orders, inventory, customers, payments, branch operations and WhatsApp commerce.',
+    keyFeatures: [
+      'Mobile POS & Barcode Selling',
+      'Orders, Customers & Payment State',
+      'Branch-Aware Inventory & Low Stock',
+      'Bluetooth Receipts & Reprinting',
+      'WhatsApp Commerce'
+    ],
+    ctaLabel: 'Explore SellerTray',
+    ctaLink: '/sellertray',
+    icon: Smartphone,
+    color: 'green'
   },
   {
     name: 'EdgePay',
