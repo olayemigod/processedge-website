@@ -8,7 +8,7 @@
  */
 
 // ── Public URLs ───────────────────────────────────────────────────────────────
-export const SITE_URL     = import.meta.env.VITE_SITE_URL || 'https://www.processedge.com.ng'
+export const SITE_URL     = import.meta.env.VITE_SITE_URL || 'https://processedge.com.ng'
 export const PORTAL_URL   = import.meta.env.VITE_PORTAL_URL || 'https://portal.processedge.com.ng'
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://portal.processedge.com.ng'
 // API_BASE_URL → ERPNext/Frappe portal.
@@ -18,7 +18,7 @@ export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://portal
 // ── Contact & Business Data ───────────────────────────────────────────────────
 export const BRAND_NAME     = 'ProcessEdge Solutions'
 export const BRAND_TAGLINE  = 'Smart Processes. Better Results.'
-export const BRAND_DOMAIN   = 'www.processedge.com.ng'
+export const BRAND_DOMAIN   = 'processedge.com.ng'
 export const BRAND_HANDLE   = '@processedgeng'
 
 // Public support email
