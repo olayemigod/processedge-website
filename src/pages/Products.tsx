@@ -7,6 +7,7 @@ import './Products.css'
 
 export default function Products() {
   const coreEdge = EDGESUITE_PRODUCTS.find(p => p.slug === 'core')
+  const sellerTray = EDGESUITE_PRODUCTS.find(p => p.slug === 'sellertray')
   const edgePay = EDGESUITE_PRODUCTS.find(p => p.slug === 'edgepay')
   const edgeFinder = EDGESUITE_PRODUCTS.find(p => p.slug === 'edgefinder')
   const industryApps = EDGESUITE_PRODUCTS.filter(p => p.category === 'Industry App')
@@ -14,21 +15,21 @@ export default function Products() {
   return (
     <>
       <PageMeta
-        title="EdgeSuite Product Catalog — Business Operations & Payments Ecosystem"
-        description="Explore the ProcessEdge EdgeSuite: CoreEdge platform foundation, EdgePay infrastructure, and purpose-built industry applications for schools, clinics, retail, cooperatives, and hotels."
+        title="ProcessEdge Product Catalog — Commerce, Business Operations & Payments"
+        description="Explore ProcessEdge products including SellerTray for mobile commerce and retail operations, the EdgeSuite platform foundation, payments infrastructure, and purpose-built industry applications."
         path="/products"
       />
       <div className="products-page">
         {/* --- Hero --- */}
-        <section className="products-hero" aria-label="EdgeSuite Hero">
+        <section className="products-hero" aria-label="ProcessEdge Product Portfolio">
           <div className="container">
             <div className="products-hero__content">
               <div className="section-label page-hero-label" style={{ background: 'rgba(255, 255, 255, 0.15)', color: 'var(--white)', border: '1px solid rgba(255, 255, 255, 0.25)' }}>
-                EdgeSuite Product Suite
+                ProcessEdge Product Portfolio
               </div>
               <h1>Our Product Ecosystem</h1>
               <p>
-                ProcessEdge products are integrated under the EdgeSuite ecosystem. From our robust platform layer to modular payment infrastructure and vertical apps, we provide end-to-end operational software tailored for African businesses.
+                ProcessEdge builds practical business software across commerce, platform services, payments infrastructure, and industry-specific operations. SellerTray serves mobile-first merchant commerce while EdgeSuite products support broader business and vertical workflows.
               </p>
             </div>
           </div>
@@ -42,7 +43,7 @@ export default function Products() {
                 <div className="section-label">Platform Foundation</div>
                 <h2 id="platform-heading" className="products-section__title">The Core EdgeSuite Foundation</h2>
                 <p className="products-section__subtitle">
-                  CoreEdge serves as the unified platform engine behind the entire EdgeSuite, handling fundamental services and administration.
+                  CoreEdge serves as the unified platform engine behind the EdgeSuite ecosystem, handling fundamental services and administration.
                 </p>
               </div>
 
@@ -76,9 +77,58 @@ export default function Products() {
           </section>
         )}
 
+        {/* --- SellerTray Commerce Platform Section --- */}
+        {sellerTray && (
+          <section className="products-section products-section--alt" aria-labelledby="sellertray-heading">
+            <div className="container">
+              <div className="products-section__header">
+                <div className="section-label" style={{ background: 'rgba(18,183,106,0.08)', color: '#087a49', border: '1px solid rgba(18,183,106,0.18)' }}>
+                  Commerce Platform
+                </div>
+                <h2 id="sellertray-heading" className="products-section__title">Mobile Sales, Retail Operations & WhatsApp Commerce</h2>
+                <p className="products-section__subtitle">
+                  SellerTray is ProcessEdge's mobile-first commerce platform for merchants that need POS, orders, inventory, customers, payments, branch operations and WhatsApp selling to work as one connected operation.
+                </p>
+              </div>
+
+              <div className="platform-hero-card" style={{ background: 'linear-gradient(135deg, #f4fff9 0%, #e9fbf2 100%)', border: '1px solid rgba(18,183,106,0.18)' }}>
+                <div className="platform-hero-card__info">
+                  <div className="platform-hero-card__icon-box" style={{ background: 'rgba(18,183,106,0.1)', color: '#087a49' }}>
+                    <sellerTray.icon size={28} />
+                  </div>
+                  <h3 className="platform-hero-card__title">{sellerTray.name}</h3>
+                  <div className="platform-hero-card__tagline">{sellerTray.targetSector}</div>
+                  <p className="platform-hero-card__desc">{sellerTray.shortDescription}</p>
+                  <Link to={sellerTray.ctaLink} className="btn btn-primary" style={{ alignSelf: 'flex-start', marginTop: 'auto' }}>
+                    {sellerTray.ctaLabel} <ArrowRight size={14} style={{ marginLeft: 6 }} />
+                  </Link>
+                </div>
+
+                <div className="platform-hero-card__features">
+                  <div className="platform-hero-card__features-title">Merchant Commerce Capabilities</div>
+                  <ul className="platform-hero-card__features-list">
+                    {sellerTray.keyFeatures.map(feat => (
+                      <li key={feat}>
+                        <CheckCircle2 size={16} color="#12B76A" style={{ marginTop: 2 }} />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="https://sellertray.com"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 18, color: '#087a49', fontWeight: 700 }}
+                  >
+                    Visit SellerTray.com <ArrowRight size={13} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* --- Payments Infrastructure Section --- */}
         {edgePay && (
-          <section className="products-section products-section--alt" aria-labelledby="payments-heading">
+          <section className="products-section" aria-labelledby="payments-heading">
             <div className="container">
               <div className="products-section__header">
                 <div className="section-label" style={{ background: '#f5f3ff', color: '#7c3aed', border: '1px solid rgba(124, 58, 237, 0.15)' }}>Payments Infrastructure</div>
