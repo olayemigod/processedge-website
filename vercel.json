@@ -1,5 +1,7 @@
 {
   "rewrites": [
+    { "source": "/sellertray", "destination": "/sellertray.html" },
+    { "source": "/sellertray/", "destination": "/sellertray.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
